@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Header</h1>
-      {/* lets change the name of this to what we want the header of our webpage to be, perhaps Rancid Tomatillos */}
-    </div>
-  );
+class App extends Component{
+  constructor() {
+    super()
+  }
+
+  render(){
+    return (
+      <section className="App">
+        <h1>Rancid Tomatillos</h1>
+      </section>
+    );
+  }
 }
 
 export default App;
