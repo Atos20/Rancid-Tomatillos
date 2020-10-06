@@ -1,12 +1,20 @@
-import React from 'react';
-import './App.css';
+import React, {Component} from 'react';
+import {LoginForm} from '../LoginForm/LoginForm'
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Header</h1>
-    </div>
-  );
+class App extends Component{
+  constructor() {
+    super()
+  }
+
+  render(){
+    return (
+      <section className="App">
+        <h1>Rancid Tomatillos</h1>
+        {/* <LoginForm /> */}
+      </section>
+    );
+  }
 }
 
 export default App;
