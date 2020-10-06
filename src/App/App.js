@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {LoginForm} from '../LoginForm/LoginForm'
-import { Homepage } from '../HomePage/HomePage'
+import { Homepage } from '../Homepage/Homepage'
 import './App.css';
 // import './App.scss';
 
