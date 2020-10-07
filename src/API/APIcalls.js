@@ -44,11 +44,22 @@ let fetcher = {
         .then(request => request.json())
       return promise
         .catch(err => console.log('err', err))
+    },
+
+    fetchCreateUserRating(userID) {
+      let int = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userID)
+      }
+      const fetchedUserRating = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/login`
+      const promise = fetch(fetchedUserRating, int)
+        .then(request => request.json())
+      return promise
+        .catch(err => console.log('err', err))
     }
-
-
-
-
   }
   
 
