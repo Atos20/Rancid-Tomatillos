@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
+import { MovieSection } from '../MovieSection/MovieSection'
 import './App.scss';
 
 class App extends Component{
@@ -10,10 +11,11 @@ class App extends Component{
 
   render(){
     return (
-     
+     <>
       <Homepage />
-      /* <LoginForm /> */
-    
+      <MovieSection />
+      {/* <LoginForm />  */}
+    </>
     );
   }
 }

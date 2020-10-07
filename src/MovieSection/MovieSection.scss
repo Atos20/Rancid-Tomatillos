@@ -1,0 +1,27 @@
+// font-family: 'Raleway', sans-serif;
+.movie-section{
+    height: 50vh;
+    // background-image: url("https://images.unsplash.com/photo-1596140949050-e1bce2f3ac25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2001&q=80");
+    background-image: url("https://images.unsplash.com/photo-1530088643190-43528e6e154a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    // transform: rotate(30deg);
+    background-color: black;
+    background-position: center bottom;
+    // background-position: 50px 170em;
+    // opacity: 0.9;
+    background-repeat: no-repeat;
+
+    .movie-day{
+      color:#fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 5em;
+      font-weight: 300;
+      justify-self: center;
+      left: 50%;
+      text-align: center;
+      letter-spacing: 3px;
+      margin: 0px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+}
