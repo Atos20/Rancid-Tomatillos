@@ -16,8 +16,8 @@ let fetcher = {
     },
 
     fetchAMoviesVideos(movieID) {
-      const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`
-      const promise = fetch(fetchedSingleMovie)
+      const fetchedMovieVideos = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`
+      const promise = fetch(fetchedMovieVideos)
         .then(request => request.json())
       return promise
         .catch(err => console.log('err', err))
