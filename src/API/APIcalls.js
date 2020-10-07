@@ -36,6 +36,14 @@ let fetcher = {
         .then(request => request.json())
       return promise
         .catch(err => console.log('err', err))
+    },
+
+    fetchUserRatings(userID) {
+      const fetchedUserRatings = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
+      const promise = fetch(fetchedUserRatings)
+        .then(request => request.json())
+      return promise
+        .catch(err => console.log('err', err))
     }
 
 
