@@ -21,7 +21,24 @@ let fetcher = {
         .then(request => request.json())
       return promise
         .catch(err => console.log('err', err))
+    },
+
+    fetchUser(userInfo) {
+      let int = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userInfo)
     }
+      const fetchedUser = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/login`
+      const promise = fetch(fetchedUser, int)
+        .then(request => request.json())
+      return promise
+        .catch(err => console.log('err', err))
+    }
+
+
 
 
   }
