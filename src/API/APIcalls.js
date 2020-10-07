@@ -1,21 +1,12 @@
-let fetcher = {
+const fetcher = {
 
   fetchAllMovies() {
     const fetchedAllMovies = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
-    const promise = fetch(fetchedAllMovies)
+    return fetch(fetchedAllMovies)
       .then(response => response.json())
-    return promise
+      .then(data => data)
       .catch(err => console.log('err', err))
     },
-
-  // fetchAllMovies() {
-  //   const fetchedAllMovies = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
-  //   return fetch(fetchedAllMovies)
-  //     .then(response => response.json())
-  //     .then(data => data)
-  //   // return promise
-  //     .catch(err => console.log('err', err))
-  //   },
 
     fetchSingleMovie(movieID) {
       const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`

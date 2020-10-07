@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
 import  Cards  from '../Cards/Cards'
+import fetcher from '../API/APIcalls';
 import './Homepage.scss';
 
 export class Homepage extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
     }
-
     render(){
 
         return(
@@ -30,14 +30,6 @@ export class Homepage extends Component {
         <WelcomingSection />
         <Cards />
         </>
-
-         /* <section className="Card-area">
-          <article className="Card">
-            <div >Title</div>
-            <div >Rating</div>
-            <img src="https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg" ></img>
-          </article> 
-        </section> */
     )
   }
 }
