@@ -23,6 +23,7 @@ let fetcher = {
         .catch(err => console.log('err', err))
     },
 
+    // userInfo = {email: <String>, password: <String>}
     fetchUser(userInfo) {
       let int = {
         method: 'POST',
@@ -46,6 +47,7 @@ let fetcher = {
         .catch(err => console.log('err', err))
     },
 
+    // movieInfo = { movie_id: <Integer>, rating: <Integer between 1 and 10> }
     fetchCreateUserRating(userID, movieInfo) {
       let int = {
         method: 'POST',
@@ -70,10 +72,6 @@ let fetcher = {
         .catch(err => console.log('err', err))
     }
   }
+
+  export default fetcher;
   
-
-
-
-/*
-https://rancid-tomatillos.herokuapp.com/api/v2
-*/
