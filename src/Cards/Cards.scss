@@ -1,0 +1,71 @@
+// font-family: 'Prompt', sans-serif;
+
+.cards-title{
+    font-family: 'Prompt', sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+    background-color: #213e3b;
+    color: #bfdcae;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 5%;
+}
+
+.card-area{
+    background-color: #206a5d;
+    display: grid;
+    grid-template-columns: repeat(6, 15%);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1.5em;
+    grid-auto-flow: row;
+    padding: 1em;
+    height: 50vh;
+    overflow: auto;
+    justify-items: center;
+    
+    .card{
+        align-items: center;
+        background-color: #bfdcae;
+        display: flex;
+        flex-direction: column;
+        height: 37vh;
+        justify-content: center;
+        margin: 0px;
+        width: 13vw;
+
+        .movie-title, .movie-rating, .movie-release{
+          font-family: 'Prompt', sans-serif;
+          font-weight: 300;
+          margin: 0px;
+          padding: 0px;
+          text-align: center;
+
+        }
+
+        .movie-title{
+          font-size: .8em;
+        }
+        
+        .rating-container{
+          display: inline-flex;
+          justify-content: space-between;
+        }
+
+        .movie-rating{
+          font-weight: 600;
+          font-size: 1em;
+          margin: 0% 15% 0% 0%;
+        }
+
+        .movie-release{
+          font-weight: 200;
+          font-size: 15px;
+        }
+
+        .movie-img{
+          height: 18em;
+          text-align: center;
+          width: 12em;
+        }
+    }
+}
