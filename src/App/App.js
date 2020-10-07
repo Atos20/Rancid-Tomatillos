@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
-import { MovieSection } from '../MovieSection/MovieSection'
+import { MovieSection } from '../WelcomingSection/MovieSection'
 import './App.scss';
 
 class App extends Component{
