@@ -10,10 +10,10 @@ class App extends Component{
 
   render(){
     return (
-      <section className="App">
+     
       <Homepage />
-      {/* <LoginForm /> */}
-    </section>
+      /* <LoginForm /> */
+    
     );
   }
 }
