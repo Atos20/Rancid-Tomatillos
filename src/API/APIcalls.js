@@ -5,6 +5,14 @@ let fetcher = {
       .then(response => response.json())
     return promise
       .catch(err => console.log('err', err))
+    },
+
+    fetchSingleMovie(movieID) {
+      const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/:${movieID}`
+      const promise = fetch(fetchedSingleMovie)
+        .then(request => request.json())
+      return promise
+        .catch(err => console.log('err', err))
     }
   }
   
