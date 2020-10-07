@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
-import { MovieSection } from '../WelcomingSection/WelcomingSection'
+import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
 import './App.scss';
 
 class App extends Component{
@@ -13,7 +13,7 @@ class App extends Component{
     return (
      <>
       <Homepage />
-      <MovieSection />
+      <WelcomingSection />
       {/* <LoginForm />  */}
     </>
     );

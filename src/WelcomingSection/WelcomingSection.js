@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './MovieSection.scss';
+import './WelcomingSection.scss';
 
-export function MovieSection() {
+export function WelcomingSection() {
 
   return(
     <div className="movie-section">
