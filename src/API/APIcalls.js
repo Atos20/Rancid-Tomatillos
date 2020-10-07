@@ -8,12 +8,22 @@ let fetcher = {
     },
 
     fetchSingleMovie(movieID) {
-      const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/:${movieID}`
+      const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`
+      const promise = fetch(fetchedSingleMovie)
+        .then(request => request.json())
+      return promise
+        .catch(err => console.log('err', err))
+    },
+
+    fetchAMoviesVideos(movieID) {
+      const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`
       const promise = fetch(fetchedSingleMovie)
         .then(request => request.json())
       return promise
         .catch(err => console.log('err', err))
     }
+
+
   }
   
 
