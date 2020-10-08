@@ -5,13 +5,21 @@ import './App.scss';
 
 class App extends Component{
   constructor() {
-    super()
+    super();
+    // this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      handleClick: this.handleClick()
+    }
+  }
+
+  handleClick() {
+    console.log('check click works')
   }
 
   render(){
     return (
      <>
-      <Homepage />
+      <Homepage handleClick={this.handleClick}/>
       {/* <LoginForm />  */}
     </>
     );
