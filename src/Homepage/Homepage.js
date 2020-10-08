@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
 import  Cards  from '../Cards/Cards'
-import fetcher from '../API/APIcalls';
 import './Homepage.scss';
 
 export class Homepage extends Component {
     constructor(props){
         super(props)
-        // console.log('homepage',this.props)//userINfo
     }
 
     render(){
