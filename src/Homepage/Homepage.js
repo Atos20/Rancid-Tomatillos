@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
-import  Cards  from '../Cards/Cards'
+import Cards  from '../Cards/Cards'
+import { NavBar } from '../NavBar/NavBar'
 import './Homepage.scss';
 
 export class Homepage extends Component {
@@ -9,25 +10,9 @@ export class Homepage extends Component {
     }
 
     render(){
-      // console.log(this.props.userName)
-      // const { userName, logIn } = this.props
         return(
         <>
-        <nav className="nav-bar">
-          <h1 className="main-title"><i className="fas fa-seedling"></i>Rancid Tomatillos</h1>
-
-          <div className="search-container">
-            <i className="fas fa-search"></i>
-            <label htmlFor="search-bar">
-            <input
-              className="search-bar"
-              type="text" 
-              className="search-bar" 
-              id="searh-bar"/>
-            </label>
-          </div>
-          <button onClick={this.props.logIn} className="Login-button">Log in</button>
-        </nav>
+        <NavBar logIng={this.props.logIn}/>
         <WelcomingSection name={this.props.name}/>
         <Cards />
         </>
