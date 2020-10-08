@@ -5,11 +5,11 @@ import fetcher from '../API/APIcalls';
 import './Homepage.scss';
 
 export class Homepage extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
     }
     render(){
-
+      const { logIn } = this.props
         return(
         <>
         <nav className="nav-bar">
@@ -25,7 +25,7 @@ export class Homepage extends Component {
               id="searh-bar"/>
             </label>
           </div>
-          <button className="Login-button">Login</button>
+          <button onClick={logIn} className="Login-button">Log in</button>
         </nav>
         <WelcomingSection />
         <Cards />

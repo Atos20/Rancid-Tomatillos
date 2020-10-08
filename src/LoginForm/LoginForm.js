@@ -4,10 +4,12 @@ import './LoginForm.scss';
 export class LoginForm extends Component {
   constructor(props) {
     super(props)  
-
+    console.log(props)
     this.state = {
         userName: '',
-        password: ''
+        email : '',
+        password: '',
+        display: true
     }
   }
 
@@ -19,21 +21,30 @@ export class LoginForm extends Component {
   clearInputs = () => {
     this.setState({
         userName: '',
-        password: ''
+        email : '',
+        password: '',
+        display: false
     });
 }
 
   validateCredentials = (e) => {
     e.preventDefault();
-    // this.props.verifyUser(this.state);
-    console.log(this.state)
-    this.clearInputs();
+    if (!this.state.userName && !this.state.password) {
+      return false
+    } else {
+      // this.props.authenticateUser();
+      console.log(this.state)
+      this.clearInputs();
+    }
   }
+2
 
   render(){
-    const {userName, password} = this.state
+    const {userName, email, password} = this.state;
     return (
+
       <form className="form-container">
+
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
           <input 
@@ -43,6 +54,19 @@ export class LoginForm extends Component {
           id="userName" 
           placeholder="User name"
           value={userName}
+          onChange={this.updateChange}
+          />
+        </label>
+
+        <h4 className="user-email">Email</h4>
+        <label htmlFor="user-email">
+          <input 
+          name="email"
+          type="text" 
+          className="user-email" 
+          id="email" 
+          placeholder="email"
+          value={email}
           onChange={this.updateChange}
           />
         </label>
@@ -59,11 +83,13 @@ export class LoginForm extends Component {
           onChange={this.updateChange}
           />
         </label>
+        
         <button 
         className="log-in-button" 
         onClick={this.validateCredentials} 
         onSubmit={this.validateCredentials} 
         >Submit</button>
+
       </form>
     )
   }

@@ -8,17 +8,39 @@ class App extends Component{
     super()
 
     this.state = {
-      isLoggedIn : false
+      displayLoginForm : false
     }
   }
 
+  buttonHandling = (event) => {
+    if(event.target.innerHTML === 'Log in') {
+      this.setState({ displayLoginForm : true })
+    } 
+}
+
+  authenticateUser = () => {
+    
+  }
+
+// buttonHandling = (event) => {
+//   if(event.target.innerHTML === 'Log in') {
+//     this.setState({ displayLoginForm : true })
+//     event.target.innerHTML = 'Log out'
+//   } else {
+//     this.setState({ displayLoginForm : false })
+//     event.target.innerHTML = 'Log in'
+//   }
+// }
+
+
+
   render(){
-    const { isLoggedIn } = this.state
+    const { displayLoginForm } = this.state
     return (
      <>
-     <h1 className="login-info">The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.</h1>
-      <Homepage />
-      {/* <LoginForm />  */}
+      <h1 className="login-info">User is <b>{displayLoginForm ? 'currently' : 'not'}</b> logged in.</h1>
+      <Homepage logIn={this.buttonHandling}/> 
+      {displayLoginForm  && <LoginForm /> }
     </>
     );
   }
