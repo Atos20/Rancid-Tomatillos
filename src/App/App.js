@@ -8,21 +8,25 @@ class App extends Component{
     super();
     // this.handleClick = this.handleClick.bind(this);
     this.state = {
-      handleClick: this.handleClick()
+      loggedIn: false,
+      error: ''
     }
   }
 
-  handleClick() {
-    console.log('check click works')
+  handleClick = () => {
+    this.setState({loggedIn: true})
   }
 
-  render(){
-    return (
-     <>
-      <Homepage handleClick={this.handleClick}/>
-      {/* <LoginForm />  */}
-    </>
-    );
+  render = () => {
+    if (this.state.loggedIn) {
+      return (
+        <LoginForm />
+      )
+    } else {
+      return (
+        <Homepage handleClick={this.handleClick}/>
+      );
+    }
   }
 }
 
