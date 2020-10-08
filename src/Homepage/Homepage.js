@@ -12,7 +12,7 @@ export class Homepage extends Component {
     render(){
         return(
         <>
-        <NavBar logIng={this.props.logIn}/>
+        <NavBar logIn={this.props.logIn}/>
         <WelcomingSection name={this.props.name}/>
         <Cards />
         </>
