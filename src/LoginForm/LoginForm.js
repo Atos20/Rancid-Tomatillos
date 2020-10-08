@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './LoginForm.scss';
-
+//name: 'Diana', email: 'diana@turing.io', password: '111111'
 export class LoginForm extends Component {
   constructor(props) {
     super(props)  
-    console.log(props)
+ 
+
     this.state = {
         userName: '',
         email : '',
@@ -27,17 +28,20 @@ export class LoginForm extends Component {
     });
 }
 
-  validateCredentials = (e) => {
+  verifyCredentials = (e) => {
     e.preventDefault();
     if (!this.state.userName && !this.state.password) {
       return false
     } else {
-      // this.props.authenticateUser();
-      console.log(this.state)
+
+      const credentials = {
+        email : this.state.email,
+        password : this.state.password
+      }
+      this.props.authenticateUser(credentials);
       this.clearInputs();
     }
   }
-2
 
   render(){
     const {userName, email, password} = this.state;
@@ -86,8 +90,8 @@ export class LoginForm extends Component {
         
         <button 
         className="log-in-button" 
-        onClick={this.validateCredentials} 
-        onSubmit={this.validateCredentials} 
+        onClick={this.verifyCredentials} 
+        onSubmit={this.verifyCredentials} 
         >Submit</button>
 
       </form>

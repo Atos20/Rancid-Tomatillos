@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
+import fetcher from '../API/APIcalls';
 import './App.scss';
 
 class App extends Component{
@@ -8,6 +9,7 @@ class App extends Component{
     super()
 
     this.state = {
+      userData: {},
       displayLoginForm : false
     }
   }
@@ -18,29 +20,20 @@ class App extends Component{
     } 
 }
 
-  authenticateUser = () => {
-    
+  authenticateUser = async (credentials) => {
+    const promise = await fetcher.fetchUser(credentials)
+      // console.log('this is the promise', promise)
+     this.setState({ userData: promise, displayLoginForm : false})
+    //  console.log(this.state.userData.user.name)//this is getting the right info
   }
-
-// buttonHandling = (event) => {
-//   if(event.target.innerHTML === 'Log in') {
-//     this.setState({ displayLoginForm : true })
-//     event.target.innerHTML = 'Log out'
-//   } else {
-//     this.setState({ displayLoginForm : false })
-//     event.target.innerHTML = 'Log in'
-//   }
-// }
-
-
 
   render(){
     const { displayLoginForm } = this.state
     return (
      <>
       <h1 className="login-info">User is <b>{displayLoginForm ? 'currently' : 'not'}</b> logged in.</h1>
-      <Homepage logIn={this.buttonHandling}/> 
-      {displayLoginForm  && <LoginForm /> }
+      <Homepage logIn={this.buttonHandling} name={this.state.userData}/> 
+      {displayLoginForm  && <LoginForm authenticateUser={this.authenticateUser}/> }
     </>
     );
   }
