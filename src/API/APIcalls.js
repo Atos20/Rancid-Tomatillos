@@ -24,7 +24,6 @@ const fetcher = {
         .catch(err => console.log('err', err))
     },
 
-    // userInfo = {email: <String>, password: <String>}
     fetchUser(userInfo) {
       let int = {
         method: 'POST',
@@ -33,10 +32,10 @@ const fetcher = {
         },
         body: JSON.stringify(userInfo)
     }
-      const fetchedUser = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/login`
-      const promise = fetch(fetchedUser, int)
+      const fetchedUser = `https://rancid-tomatillos.herokuapp.com/api/v2/login`
+      return fetch(fetchedUser, int)
         .then(request => request.json())
-      return promise
+        .then(data => data)
         .catch(err => console.log('err', err))
     },
 

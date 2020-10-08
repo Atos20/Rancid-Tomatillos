@@ -5,7 +5,7 @@ import './Cards.scss'
 export default class Cards extends Component {
   constructor(props){
     super(props)
-
+   
   this.state = {
     movies : [],
     error: ''

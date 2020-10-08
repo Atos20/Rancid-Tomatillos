@@ -7,8 +7,10 @@ export class Homepage extends Component {
     constructor(props){
         super(props)
     }
-    render(){
 
+    render(){
+      // console.log(this.props.userName)
+      // const { userName, logIn } = this.props
         return(
         <>
         <nav className="nav-bar">
@@ -24,9 +26,9 @@ export class Homepage extends Component {
               id="searh-bar"/>
             </label>
           </div>
-          <button className="Login-button" onClick={() => this.props.handleClick()}>Login</button>
+          <button onClick={this.props.logIn} className="Login-button">Log in</button>
         </nav>
-        <WelcomingSection />
+        <WelcomingSection name={this.props.name}/>
         <Cards />
         </>
     )
