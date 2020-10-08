@@ -5,16 +5,28 @@ import './App.scss';
 
 class App extends Component{
   constructor() {
-    super()
+    super();
+    // this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      loggedIn: false,
+      error: ''
+    }
   }
 
-  render(){
-    return (
-     <>
-      <Homepage />
-      {/* <LoginForm />  */}
-    </>
-    );
+  handleClick = () => {
+    this.setState({loggedIn: true})
+  }
+
+  render = () => {
+    if (this.state.loggedIn) {
+      return (
+        <LoginForm />
+      )
+    } else {
+      return (
+        <Homepage handleClick={this.handleClick}/>
+      );
+    }
   }
 }
 

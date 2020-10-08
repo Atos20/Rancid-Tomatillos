@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
 import  Cards  from '../Cards/Cards'
-import fetcher from '../API/APIcalls';
 import './Homepage.scss';
 
 export class Homepage extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
     }
     render(){
 
@@ -25,7 +24,7 @@ export class Homepage extends Component {
               id="searh-bar"/>
             </label>
           </div>
-          <button className="Login-button">Login</button>
+          <button className="Login-button" onClick={() => this.props.handleClick()}>Login</button>
         </nav>
         <WelcomingSection />
         <Cards />
