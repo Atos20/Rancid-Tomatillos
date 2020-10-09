@@ -14,9 +14,10 @@
 .card-area{
     background-color: #206a5d;
     display: grid;
-    grid-template-columns: repeat(6, 15%);
+    grid-row: wrap;
+    grid-template-columns: repeat(auto-fill, 18%);
     grid-template-rows: repeat(2, 1fr);
-    grid-gap: 1.5em;
+    grid-gap: 20px;
     grid-auto-flow: row;
     padding: 1em;
     height: 50vh;
@@ -31,7 +32,7 @@
         height: 37vh;
         justify-content: center;
         margin: 0px;
-        width: 13vw;
+        width: 200px;
 
         .movie-title, .movie-rating, .movie-release{
           font-family: 'Prompt', sans-serif;
@@ -63,9 +64,9 @@
         }
 
         .movie-img{
-          height: 18em;
+          height: 60%;
           text-align: center;
-          width: 12em;
+          width: auto;
         }
     }
 }

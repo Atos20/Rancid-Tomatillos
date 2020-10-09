@@ -1,9 +1,23 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react';
+import App from './App.js';
+import '@testing-library/jest-dom';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+
+
+describe('App', () => {
+  it('should render the homepage', () => {
+    render(<App />);
+    expect(screen.getByText("Rancid Tomatillos")).toBeInTheDocument();
+    expect(screen.getByText("Welcome!")).toBeInTheDocument();
+    expect(screen.getByText("Rate your next movie")).toBeInTheDocument();
+    expect(screen.getByText("All movies")).toBeInTheDocument();
+  })
+  // Implement the below code when we get the router running
+  // it('should render the login page', () => {
+  //   render(<App />)
+  //   expect(screen.getByText("User name")).toBeInTheDocument();
+  //   expect(screen.getByText("Email")).toBeInTheDocument();
+  //   expect(screen.getByText("password")).toBeInTheDocument();
+  // })
+})
