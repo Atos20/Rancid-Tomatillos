@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import LoginForm from './LoginForm.js';
+import { LoginForm } from './LoginForm.js';
 import '@testing-library/jest-dom';
 
 

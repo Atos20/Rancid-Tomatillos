@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import fetcher from '../API/APIcalls';
 import '../Cards/Cards.scss'
 
-export default function Card(props) {
+export function Card(props) {
     const {id, title, release_date, average_rating, poster_path} = props.movies
     return (
       <React.Fragment>

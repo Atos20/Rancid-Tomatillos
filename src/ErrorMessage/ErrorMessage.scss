@@ -1,0 +1,36 @@
+.error-section{
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(206, 47, 47);
+  justify-content: center;
+  width: 60vh;
+  height: 50vh;
+
+  #h1{
+      font-size: 1em;
+      width: 35vh;
+      height: 100%;
+      color: white
+  }
+}
+
+// @media (prefers-reduced-motion: no-preference) {
+//   .error-section {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
+
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
