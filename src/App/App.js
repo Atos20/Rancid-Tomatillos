@@ -89,7 +89,7 @@ componentDidCatch(error, info) {
         <Route 
         path='/login' 
         component={() => {
-        return  <LoginForm authenticateUser={this.authenticateUser}/>}}/>
+        return  <LoginForm isLoggedIn={this.state.userData.name} authenticateUser={this.authenticateUser}/>}}/>
       </Router>
     );
   }

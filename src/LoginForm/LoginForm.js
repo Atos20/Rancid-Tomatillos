@@ -93,7 +93,7 @@ export class LoginForm extends Component {
           />
         </label>
 
-        <Link to='/'
+        <Link to={this.props.isLoggedIn ? '/' : '/login'} 
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
