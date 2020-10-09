@@ -12,35 +12,35 @@ class App extends Component{
 
     this.state = {
       userData: {},
-      displayLoginForm : false
+      isLoggedIn : false,
     }
   }
 
   buttonHandling = (event) => {
     if(event.target.innerHTML === 'Log in') {
-      this.setState({ displayLoginForm : true })
+      console.log('button')
     } 
 }
 
   authenticateUser = async (credentials) => {
     const promise = await fetcher.fetchUser(credentials)
-      // console.log('this is the promise', promise)
-     this.setState({ userData: promise, displayLoginForm : false})
-    //  console.log(this.state.userData.user.name)//this is getting the right info
+     this.setState({ userData: promise, isLoggedIn : true})
   }
 
   render(){
-    const { displayLoginForm } = this.state;
+    const { isLoggedIn, userData } = this.state;
     return (
       <Router>
-        <h1 className="login-info">User is <b>{displayLoginForm ? 'currently' : 'not'}</b> logged in.</h1>
+        <h1 className="login-info"><b>{isLoggedIn? 'currently' : 'not'}</b> logged in</h1>
         <Route 
-        path= '/' exact
-        component={() => <Homepage  logIn={this.buttonHandling} name={this.state.userData}/>}
+        path= '/' 
+        render={() => <Homepage logIn={this.buttonHandling} name={this.state.userData} isLoggedIn={this.state.isLoggedIn}/>}
         />
+
         <Route 
         path='/login' 
-        component={() => <LoginForm authenticateUser={this.authenticateUser}/> }/>
+        component={() => {
+        return !isLoggedIn && <LoginForm authenticateUser={this.authenticateUser}/>}}/>
       </Router>
     );
 

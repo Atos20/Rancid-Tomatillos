@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import './LoginForm.scss';
 //name: 'Diana', email: 'diana@turing.io', password: '111111'
 export class LoginForm extends Component {
@@ -30,7 +31,7 @@ export class LoginForm extends Component {
 
   verifyCredentials = (e) => {
     e.preventDefault();
-    if (!this.state.userName && !this.state.password) {
+    if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {
 
@@ -38,16 +39,22 @@ export class LoginForm extends Component {
         email : this.state.email,
         password : this.state.password
       }
+      
       this.props.authenticateUser(credentials);
       this.clearInputs();
+ 
     }
   }
 
   render(){
     const {userName, email, password} = this.state;
+
     return (
 
       <form className="form-container">
+        <Link to='/'>
+          <button className="close-login">X</button>
+        </Link>
 
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
@@ -87,14 +94,19 @@ export class LoginForm extends Component {
           onChange={this.updateChange}
           />
         </label>
-        
-        <button 
-        className="log-in-button" 
-        onClick={this.verifyCredentials} 
-        onSubmit={this.verifyCredentials} 
-        >Submit</button>
+
+        <Link to='/'>
+          <button 
+          className="log-in-button" 
+          onClick={(event) => {
+            this.verifyCredentials(event)
+            }} 
+          // onSubmit={this.verifyCredentials} 
+          >Submit</button>
+        </Link>
 
       </form>
     )
+    // }
   }
 }

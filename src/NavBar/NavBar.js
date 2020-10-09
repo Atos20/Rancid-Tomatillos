@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../Homepage/Homepage.scss'
 
 export function NavBar(props) {
+
     return (
         <nav className="nav-bar">
           <h1 className="main-title"><i className="fas fa-seedling"></i>Rancid Tomatillos</h1>
@@ -20,7 +21,7 @@ export function NavBar(props) {
             </label>
           </div>
           <Link to='/login'>
-          <button onClick={props.logIn} className="Login-button">Log in</button>
+          <button onClick={props.logIn} className="Login-button">{props.isLoggedIn ? 'Log out' : 'Log in'}</button>
           </Link>
         </nav>
     )
