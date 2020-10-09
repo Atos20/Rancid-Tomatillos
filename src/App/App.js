@@ -12,7 +12,7 @@ export class App extends Component{
     this.state = {
       userData: {},
       displayLoginForm : false,
-      hasError: {errorMessage: 'butts', errorInfo: 'nuts'}
+      hasError: ''
     }
   }
 
