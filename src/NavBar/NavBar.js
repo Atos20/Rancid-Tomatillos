@@ -1,4 +1,7 @@
 import React, { Components } from 'react';
+import { Link } from 'react-router-dom';
+
+
 import '../Homepage/Homepage.scss'
 
 export function NavBar(props) {
@@ -16,7 +19,10 @@ export function NavBar(props) {
               id="searh-bar"/>
             </label>
           </div>
+          <Link to='/login'>
           <button onClick={props.logIn} className="Login-button">Log in</button>
+          </Link>
         </nav>
     )
 }
+

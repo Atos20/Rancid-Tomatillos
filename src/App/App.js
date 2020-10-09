@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import fetcher from '../API/APIcalls';
@@ -28,13 +30,18 @@ class App extends Component{
   }
 
   render(){
-    const { displayLoginForm } = this.state
+    const { displayLoginForm } = this.state;
     return (
-     <>
-      <h1 className="login-info">User is <b>{displayLoginForm ? 'currently' : 'not'}</b> logged in.</h1>
-      <Homepage logIn={this.buttonHandling} name={this.state.userData}/> 
-      {displayLoginForm  && <LoginForm authenticateUser={this.authenticateUser}/> }
-    </>
+      <Router>
+        <h1 className="login-info">User is <b>{displayLoginForm ? 'currently' : 'not'}</b> logged in.</h1>
+        <Route 
+        path= '/' exact
+        component={() => <Homepage  logIn={this.buttonHandling} name={this.state.userData}/>}
+        />
+        <Route 
+        path='/login' 
+        component={() => <LoginForm authenticateUser={this.authenticateUser}/> }/>
+      </Router>
     );
 
   }
