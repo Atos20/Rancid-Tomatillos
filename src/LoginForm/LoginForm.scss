@@ -15,6 +15,12 @@
     // .password-title, .user-title{
     
     // }
+    .close-login{
+      background-color: transparent;
+      border: 1px steelblue solid;
+      border-radius: 50%;
+      text-align: center;
+    }
 
     #userName, #password, #email{
         font-size: 1em;
