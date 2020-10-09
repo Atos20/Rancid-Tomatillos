@@ -36,15 +36,17 @@ componentDidCatch(error, info) {
 
   authenticateUser = async (credentials) => {
     const promise = await fetcher.fetchUser(credentials)
-      this.setState({ userData: promise.user })
-      this.showHomepage()
+    console.log("promise.user", promise.user)
+      if (promise.user) {
+        this.setState({ userData: promise.user })
+    }
+      else {
+        alert(promise.error)
+        // alert('You dont have the correct credentials')
+      }
       // if (this.state.userData !== {}) {
       // //  this.props.history.push('/')
       // }
-  }
-
-  showHomepage = () => {
-    console.log(this.props.history)
   }
 
   logOut = () => {
