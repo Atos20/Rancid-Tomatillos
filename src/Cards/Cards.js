@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import fetcher from '../API/APIcalls';
+import { Card } from '../Card/Card'
 import './Cards.scss'
 
 export default class Cards extends Component {
@@ -20,15 +21,7 @@ export default class Cards extends Component {
   injectMovies = () => {
     return this.state.movies.map(movie => {
       return (
-      <div key={movie.id} id={movie.id} className="card">
-        <h1 className="movie-title">{movie.title}</h1>
-        <h2 className="movie-release">{movie.release_date}</h2>
-        <div className="rating-container">
-          <h2 className="movie-rating">Rating</h2>
-          <h2 className="movie-rating">{movie.average_rating}</h2>
-        </div>
-        <img className="movie-img"src={movie.poster_path} ></img>
-      </div> 
+          <Card movies={movie}/>
       )
     })
   }
@@ -36,12 +29,11 @@ export default class Cards extends Component {
   render() {
     return (
     <>
-        <h1 className="cards-title">All movies</h1>
-        <section className="card-area">
-        {this.injectMovies()}
-        </section> 
+      <h1 className="cards-title">All movies</h1>
+      <section className="card-area">
+      {this.injectMovies()}
+      </section> 
     </>
   )
   }
 }
-

@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
+import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
+
 import fetcher from '../API/APIcalls';
 import './App.scss';
 
-class App extends Component{
+export class App extends Component{
   constructor() {
     super()
 
@@ -16,6 +18,7 @@ class App extends Component{
         name: '',
         email: ''
       },
+      hasError: ''
     }
   }
 
@@ -23,6 +26,12 @@ class App extends Component{
     if(event.target.innerHTML === 'Log in') {
       console.log('button')
     } 
+}
+
+
+componentDidCatch(error, info) {
+  this.setState({ hasError: {errorMessage: error, errorInfo: info} });
+  console.log(error, info);
 }
 
   authenticateUser = async (credentials) => {
@@ -51,6 +60,12 @@ class App extends Component{
 
   render(){
     const { userData } = this.state;
+    
+//     if (this.state.hasError) {
+//       return (
+//         <ErrorBoundary errorMessageData={this.state.hasError}/>
+//       )
+//     } else {
   
     return (
       <Router>
@@ -75,8 +90,6 @@ class App extends Component{
         return  <LoginForm authenticateUser={this.authenticateUser}/>}}/>
       </Router>
     );
-    
-    //!isLoggedIn &&
   }
 }
 
