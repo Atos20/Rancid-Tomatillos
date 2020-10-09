@@ -30,7 +30,7 @@ export class LoginForm extends Component {
 }
 
   verifyCredentials = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {
@@ -52,9 +52,7 @@ export class LoginForm extends Component {
     return (
 
       <form className="form-container">
-        <Link to='/'>
-          <button className="close-login">X</button>
-        </Link>
+        <Link to='/' className="close-login">X</Link>
 
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
@@ -95,14 +93,12 @@ export class LoginForm extends Component {
           />
         </label>
 
-        <Link to='/'>
-          <button 
+        <Link to='/'
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
-            }} 
-          // onSubmit={this.verifyCredentials} 
-          >Submit</button>
+            }}
+        >Submit
         </Link>
 
       </form>

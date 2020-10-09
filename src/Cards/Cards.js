@@ -20,7 +20,7 @@ export default class Cards extends Component {
   injectMovies = () => {
     return this.state.movies.map(movie => {
       return (
-      <div key={movie.id} className="card">
+      <div key={movie.id} id={movie.id} className="card">
         <h1 className="movie-title">{movie.title}</h1>
         <h2 className="movie-release">{movie.release_date}</h2>
         <div className="rating-container">
