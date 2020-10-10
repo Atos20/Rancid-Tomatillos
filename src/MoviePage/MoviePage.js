@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import MovieHeader from './MovieHeader/MovieHeader'
 import './MoviePage.scss';
 
 export default function Movie({movieDetails, movieVideo}) {
 
-console.log(movieVideo)
+// console.log(movieVideo)
+console.log(movieDetails)
 
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -26,6 +28,8 @@ console.log(movieVideo)
 
         <div className="movie-wrapper">
 
+            <MovieHeader movieDetails={movieDetails}/>
+
           <div className="a img-container">
             <img 
               className="trailer-image"
@@ -34,22 +38,13 @@ console.log(movieVideo)
               />
           </div>
 
-          <div class="b trailer-container">
+          <div className=" trailer-container">
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
 
-          <div class="c ">C</div>
-          <div class="d ">D</div>
+          <div className="d ">D</div>
         </div>
-
-        {/* <div className="box">
-          <div className="trialer-container">
-            <img src={movieDetails.backdrop_path}
-            alt="" 
-            className="trailer-image"/>
-            {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
-          </div>
-        </div> */}
+ 
     </div>
   )
 }

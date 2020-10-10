@@ -13,7 +13,7 @@
         justify-content: center;
         align-content: center;
         width: 80%;
-        height: 70vh;
+        height: 100%;
     
         .img-container {
           background-color: rgb(61, 47, 61);
@@ -34,7 +34,7 @@
           }
         }
     
-        .b {
+        .trailer-container {
             background-color: violet;
             grid-area: 3 / 1 / 4 / 3;
             overflow: auto;
