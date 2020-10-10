@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import MovieHeader from './MovieHeader/MovieHeader'
+import MovieCard from './MovieCard/MovieCard';
+import MovieHeader from './MovieHeader/MovieHeader';
 import './MoviePage.scss';
 
-export default function Movie({movieDetails, movieVideo}) {
+export default function Movie( {movieDetails, movieVideo} ) {
 
 // console.log(movieVideo)
-console.log(movieDetails)
+// console.log(movieDetails)
 
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -29,7 +30,6 @@ console.log(movieDetails)
         <div className="movie-wrapper">
 
             <MovieHeader movieDetails={movieDetails}/>
-
           <div className="a img-container">
             <img 
               className="trailer-image"
@@ -38,16 +38,19 @@ console.log(movieDetails)
               />
           </div>
 
+            {/* move this  traile container to its own component */}
           <div className=" trailer-container">
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
 
-          <div className="d ">D</div>
+            <MovieCard movieDetails={movieDetails}/>
+
         </div>
  
     </div>
   )
 }
+
 // display movie information
 /*
 movieDetails: {

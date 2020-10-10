@@ -62,7 +62,7 @@ export class App extends Component{
   }
   
   getMovieDetails = async(movieID) => {
-    const promiseMovie = await fetcher.fetchMovieVideo(movieID);
+    const promiseMovie = await fetcher.fetchMovieVideo(movieID);//trailer
     const promiseDetails = await fetcher.fetchSingleMovie(movieID);
     this.setState({ 
       movieID: movieID, 
