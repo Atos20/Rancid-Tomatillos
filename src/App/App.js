@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Redirect
+} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
@@ -18,7 +22,9 @@ export class App extends Component{
         name: '',
         email: ''
       },
-      hasError: ''
+      hasError: '',
+      movie: {},
+      movieID: null
     }
   }
 
@@ -54,19 +60,20 @@ export class App extends Component{
   }
   
   getMovieDetails = async(movieID) => {
-    console.log(movieID)
     const promise = await fetcher.fetchSingleMovie(movieID);
-    console.log(promise)
+    // console.log(promise)
+    this.setState({ movieID, movie : promise.movie })
+    console.log(this.state)
   }
 
   render(){
     const { userData } = this.state;
     
-//     if (this.state.hasError) {
-//       return (
-//         <ErrorBoundary errorMessageData={this.state.hasError}/>
-//       )
-//     } else {
+  //     if (this.state.hasError) {
+  //       return (
+  //         <ErrorBoundary errorMessageData={this.state.hasError}/>
+  //       )
+  //     } else {
   
     return (
       <Router>
@@ -86,13 +93,16 @@ export class App extends Component{
         />
 
         <Route 
-        path='/login' 
-        component={() => {
-        return  <LoginForm authenticateUser={this.authenticateUser}/>}}/>
+          path='/login' 
+          component={() => {
+            return  <LoginForm authenticateUser={this.authenticateUser}/>
+          }}
+        />
+
 
         <Route 
-          exact path='/movies/:movieId'
-          component={ () => {
+          exact path={`/movies/${this.state.movieID}`}
+          render={ () => {
             return <Movie />//will pass the movie details 
           }}
         />
@@ -100,5 +110,6 @@ export class App extends Component{
     );
   }
 }
+
 
 export default App;
