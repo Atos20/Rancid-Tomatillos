@@ -23,8 +23,9 @@ export class App extends Component{
         email: ''
       },
       hasError: '',
-      movie: {},
-      movieID: null
+      movieID: null,
+      movieDetails: {},
+      movieVideo: {}
     }
   }
 
@@ -60,9 +61,13 @@ export class App extends Component{
   }
   
   getMovieDetails = async(movieID) => {
-    const promise = await fetcher.fetchSingleMovie(movieID);
-    // console.log(promise)
-    this.setState({ movieID, movie : promise.movie })
+    const promiseMovie = await fetcher.fetchMovieVideo(movieID);
+    const promiseDetails = await fetcher.fetchSingleMovie(movieID);
+    this.setState({ 
+      movieID: movieID, 
+      movieDetails : promiseDetails.movie,
+      movieVideo: promiseMovie
+    })
     console.log(this.state)
   }
 
