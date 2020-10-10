@@ -12,6 +12,8 @@ console.log(movieVideo)
         <div key={i} className="movie-trailer" alt="movie trailer">
           <ReactPlayer
           alt="movie trailer"
+          width={350}
+          height={250}
           url={`www.youtube.com/watch?v=${video.key}`}
           />
         </div>
@@ -24,8 +26,7 @@ console.log(movieVideo)
 
         <div className="movie-wrapper">
 
-          <div className="a trialer-container">
-
+          <div className="a img-container">
             <img 
               className="trailer-image"
               src={movieDetails.backdrop_path}
@@ -33,7 +34,10 @@ console.log(movieVideo)
               />
           </div>
 
-          <div class="b ">B</div>
+          <div class="b trailer-container">
+          {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
+          </div>
+
           <div class="c ">C</div>
           <div class="d ">D</div>
         </div>
