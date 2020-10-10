@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import fetcher from '../API/APIcalls';
 import '../Cards/Cards.scss'
 
@@ -9,7 +10,6 @@ export class Card extends Component{
 
   displayMovie = () => {
     this.props.getMovieDetails(this.props.movies.id)//returns the ide of the movie that we need to make the APi request
-    
   }
 
   render() {
@@ -23,11 +23,13 @@ export class Card extends Component{
             <h2 className="movie-rating">Rating</h2>
             <h2 className="movie-rating">{average_rating}</h2>
           </div>
-          <img 
-            id={id} 
-            className="movie-img"src={poster_path} 
-            onClick={this.displayMovie}>
-          </img>
+          <Link className="movie-img" to={`/movies/${id}`}>
+            <img 
+              id={id} 
+              className="movie-img" src={poster_path} 
+              onClick={this.displayMovie}>
+            </img>
+          </Link>
         </div> 
       </React.Fragment>
     )

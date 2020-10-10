@@ -9,6 +9,7 @@ import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
 import Movie from '../Movie/Movie'
+import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
 import './App.scss';
 
@@ -66,31 +67,24 @@ export class App extends Component{
     this.setState({ 
       movieID: movieID, 
       movieDetails : promiseDetails.movie,
-      movieVideo: promiseMovie
+      movieVideo: promiseMovie.videos
     })
-    console.log(this.state)
   }
 
   render(){
-    const { userData } = this.state;
-    
-  //     if (this.state.hasError) {
-  //       return (
-  //         <ErrorBoundary errorMessageData={this.state.hasError}/>
-  //       )
-  //     } else {
-  
     return (
       <Router>
-        <h1 className="login-info"><b>{userData.email ? 'currently' : 'not'}</b> logged in</h1>
+        <h1 className="login-info"><b>{this.state.userData.email ? this.state.userData.name + ' is currently' : 'not'}</b> logged in</h1>
+        <NavBar 
+            name={this.state.userData.name} 
+            logOut={this.logOut} 
+          />
         <Route 
           exact path= '/'
           render={() => {
             return (
               <Homepage 
-                name={this.state.userData} 
-                isLoggedIn={this.state.userData.name} 
-                logOut={this.logOut}
+                name={this.state.userData}
                 getMovieDetails={this.getMovieDetails}
               />
             )
@@ -104,11 +98,13 @@ export class App extends Component{
           }}
         />
 
-
         <Route 
           exact path={`/movies/${this.state.movieID}`}
-          render={ () => {
-            return <Movie />//will pass the movie details 
+          component={ () => {
+            return <Movie 
+              movieDetails={this.state.movieDetails}
+              movieVideo={this.state.movieVideo}
+            />//will pass the movie details 
           }}
         />
       </Router>
