@@ -43,7 +43,6 @@ export class App extends Component{
       // if (this.state.userData !== {}) {this.props.history.push('/') }
   }
 
-
   logOut = () => {
     this.setState ( {
       userData:  {
@@ -54,8 +53,10 @@ export class App extends Component{
     })
   }
   
-  getMovieDetails =(id) => {
-    console.log(id)
+  getMovieDetails = async(movieID) => {
+    console.log(movieID)
+    const promise = await fetcher.fetchSingleMovie(movieID);
+    console.log(promise)
   }
 
   render(){
@@ -92,7 +93,7 @@ export class App extends Component{
         <Route 
           exact path='/movies/:movieId'
           component={ () => {
-            return <Movie />
+            return <Movie />//will pass the movie details 
           }}
         />
       </Router>
