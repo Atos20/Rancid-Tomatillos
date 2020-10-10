@@ -1,6 +1,55 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import './MoviePage.scss';
 
+export default function Movie({movieDetails, movieVideo}) {
+
+console.log(movieVideo)
+
+  const displayTrailer = () => {
+    return movieVideo.map((video, i) => {
+      return (
+        <div key={i} className="movie-trailer" alt="movie trailer">
+          <ReactPlayer
+          alt="movie trailer"
+          url={`www.youtube.com/watch?v=${video.key}`}
+          />
+        </div>
+      )
+    })
+   }
+
+  return (
+    <div className="movie-container">
+
+        <div className="movie-wrapper">
+
+          <div className="a trialer-container">
+
+            <img 
+              className="trailer-image"
+              src={movieDetails.backdrop_path}
+              alt="" 
+              />
+          </div>
+
+          <div class="b ">B</div>
+          <div class="c ">C</div>
+          <div class="d ">D</div>
+        </div>
+
+        {/* <div className="box">
+          <div className="trialer-container">
+            <img src={movieDetails.backdrop_path}
+            alt="" 
+            className="trailer-image"/>
+            {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
+          </div>
+        </div> */}
+    </div>
+  )
+}
+// display movie information
 /*
 movieDetails: {
     average_rating: 7
@@ -29,13 +78,3 @@ movieVideo:{
 }
 
 */
-export default function Movie({movieDetails, movieVideo}) {
-console.log(movieDetails)//obj
-console.log(movieVideo)//array
-    return (
-        <div className="movie-container">
-            <h1 className="name">Hola</h1>
-        </div>
-    )
-}
-// display movie information
