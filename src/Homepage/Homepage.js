@@ -10,6 +10,7 @@ export class Homepage extends Component {
     }
 
     render(){
+      console.log(this.props)
         return(
         <>
           <NavBar 
@@ -18,7 +19,7 @@ export class Homepage extends Component {
           />
           
           <WelcomingSection name={this.props.name}/>
-          <Cards />
+          <Cards getMovieDetails={this.props.getMovieDetails}/>
         </>
     )
   }

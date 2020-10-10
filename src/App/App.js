@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
-
+import Movie from '../Movie/Movie'
 import fetcher from '../API/APIcalls';
 import './App.scss';
 
@@ -54,6 +54,9 @@ export class App extends Component{
     })
   }
   
+  getMovieDetails =(id) => {
+    console.log(id)
+  }
 
   render(){
     const { userData } = this.state;
@@ -75,6 +78,7 @@ export class App extends Component{
                 name={this.state.userData} 
                 isLoggedIn={this.state.userData.name} 
                 logOut={this.logOut}
+                getMovieDetails={this.getMovieDetails}
               />
             )
           }}
@@ -84,6 +88,13 @@ export class App extends Component{
         path='/login' 
         component={() => {
         return  <LoginForm authenticateUser={this.authenticateUser}/>}}/>
+
+        <Route 
+          exact path='/movies/:movieId'
+          component={ () => {
+            return <Movie />
+          }}
+        />
       </Router>
     );
   }

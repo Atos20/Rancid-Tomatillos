@@ -21,9 +21,13 @@ export default class Cards extends Component {
   injectMovies = () => {
     return this.state.movies.map((movie, i)=> {
       return (
-          <Card key={i} movies={movie}/>
+        <Card 
+          key={i} 
+          movies={movie}
+          getMovieDetails={this.props.getMovieDetails}
+        />
       )
-    })
+    });
   }
 
   render() {
