@@ -26,26 +26,23 @@ export class App extends Component{
     if(event.target.innerHTML === 'Log in') {
       console.log('button')
     } 
-}
+  }
 
-
-componentDidCatch(error, info) {
-  this.setState({ hasError: {errorMessage: error, errorInfo: info} });
-  console.log(error, info);
-}
+  componentDidCatch(error, info) {
+    this.setState({ hasError: {errorMessage: error, errorInfo: info} });
+    console.log(error, info);
+  }
 
   authenticateUser = async (credentials) => {
     const promise = await fetcher.fetchUser(credentials)
+    if (promise.user){
       this.setState({ userData: promise.user })
-      this.showHomepage()
-      // if (this.state.userData !== {}) {
-      // //  this.props.history.push('/')
-      // }
+    } else {
+      alert(promise.error)
+    }
+      // if (this.state.userData !== {}) {this.props.history.push('/') }
   }
 
-  showHomepage = () => {
-    console.log(this.props.history)
-  }
 
   logOut = () => {
     this.setState ( {
@@ -69,13 +66,12 @@ componentDidCatch(error, info) {
   
     return (
       <Router>
-        <h1 className="login-info"><b>{userData.name ? 'currently' : 'not'}</b> logged in</h1>
+        <h1 className="login-info"><b>{userData.email ? 'currently' : 'not'}</b> logged in</h1>
         <Route 
           exact path= '/'
           render={() => {
             return (
               <Homepage 
-                logIn={this.buttonHandling} 
                 name={this.state.userData} 
                 isLoggedIn={this.state.userData.name} 
                 logOut={this.logOut}

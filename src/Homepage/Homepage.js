@@ -13,7 +13,6 @@ export class Homepage extends Component {
         return(
         <>
           <NavBar 
-            logIn={this.props.logIn} 
             isLoggedIn={this.props.isLoggedIn} 
             logOut={this.props.logOut} 
           />
