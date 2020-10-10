@@ -1,5 +1,5 @@
 import React from 'react';
-import './Movie.scss';
+import './MoviePage.scss';
 
 /*
 movieDetails: {
@@ -33,7 +33,7 @@ export default function Movie({movieDetails, movieVideo}) {
 console.log(movieDetails)//obj
 console.log(movieVideo)//array
     return (
-        <div>
+        <div className="movie-container">
             <h1 className="name">Hola</h1>
         </div>
     )

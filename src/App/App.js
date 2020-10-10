@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
-import Movie from '../Movie/Movie'
+import MoviePage from '../MoviePage/MoviePage'
 import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
 import './App.scss';
@@ -101,7 +101,7 @@ export class App extends Component{
         <Route 
           exact path={`/movies/${this.state.movieID}`}
           component={ () => {
-            return <Movie 
+            return <MoviePage 
               movieDetails={this.state.movieDetails}
               movieVideo={this.state.movieVideo}
             />//will pass the movie details 
