@@ -20,7 +20,6 @@ export class SortMovies extends Component {
     }
 
     render() {
-
         return (
             <div className="sort-container">
               <h1 className="cards-title">All movies</h1>

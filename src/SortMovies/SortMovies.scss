@@ -39,7 +39,7 @@
           box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
           border-radius: .5em;
           color: #444;
-          font-size: 14px;
+          font-size: 16px;
           font-family: sans-serif;
           font-weight: 700;
           max-width: 100%;
@@ -47,6 +47,8 @@
           padding: .3em .8em .3em .8em;
           width: 12vw;
         }
+
+
 
         .sort-btn{
           display:inline-block;
@@ -64,6 +66,7 @@
           position:relative;
           border: none;
           }
+
           .sort-btn:hover{
             top:0.1em;
             color: #213e3b;
