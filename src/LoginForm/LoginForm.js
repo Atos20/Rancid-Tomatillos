@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './LoginForm.scss';
 //name: 'Diana', email: 'diana@turing.io', password: '111111'
 export class LoginForm extends Component {
-  constructor(props) {
-    super(props)  
+  constructor() {
+    super()  
  
     this.state = {
         userName: '',
@@ -43,10 +43,13 @@ export class LoginForm extends Component {
  
     }
   }
-
+  
   render(){
     const {userName, email, password} = this.state;
-
+    if (this.props.login.name !== '') {
+      return (<Redirect to='/' />)
+    }
+    
     return (
 
       <form className="form-container">
@@ -91,14 +94,13 @@ export class LoginForm extends Component {
           />
         </label>
 
-        <Link to='/'
+        <button
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
             }}
         >Submit
-        </Link>
-
+        </button>
       </form>
     )
   }
