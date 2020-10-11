@@ -44,6 +44,7 @@ export class App extends Component{
     const promise = await fetcher.fetchUser(credentials)
       if (promise.user) {
         this.setState({ userData: promise.user })
+        return (<Homepage />)
     } else {
       alert(promise.error)
     }

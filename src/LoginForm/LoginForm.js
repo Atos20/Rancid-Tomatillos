@@ -93,24 +93,23 @@ export class LoginForm extends Component {
           />
         </label>
 
-        <button
+        {/* <button
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
             }}
         >Submit
-        </button>
-{/* 
-        <Link to={this.props.isLoggedIn ? '/' : '/login'}  </Link>
+        </button> */}
+
+        <Link to='/'//{this.props.isLoggedIn ? '/' : '/login'}
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
             }}
         >Submit
-        </Link> */}
+        </Link>
 
       </form>
     )
-    // }
   }
 }
