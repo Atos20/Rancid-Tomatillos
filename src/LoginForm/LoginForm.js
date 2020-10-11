@@ -6,7 +6,6 @@ export class LoginForm extends Component {
   constructor() {
     super()  
  
-
     this.state = {
         userName: '',
         email : '',
@@ -29,8 +28,7 @@ export class LoginForm extends Component {
     });
 }
 
-  verifyCredentials = (e) => {
-    e.preventDefault();
+  verifyCredentials = () => {
     if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {
