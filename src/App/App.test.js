@@ -2,12 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App.js';
 import '@testing-library/jest-dom';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 describe('App', () => {
   it('should render the homepage', () => {
-    render(<App />);
+    render(
+    <Router>
+        <App />
+      </Router>
+    );
     expect(screen.getByText("Rancid Tomatillos")).toBeInTheDocument();
     expect(screen.getByText("Welcome!")).toBeInTheDocument();
     expect(screen.getByText("Rate your next movie")).toBeInTheDocument();
