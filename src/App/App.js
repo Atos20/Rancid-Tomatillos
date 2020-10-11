@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { 
   Switch, 
   Route, 
-  Redirect
+  // Redirect
 } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
