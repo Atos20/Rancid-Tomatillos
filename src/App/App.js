@@ -32,7 +32,6 @@ export class App extends Component{
 
   buttonHandling = (event) => {
     if(event.target.innerHTML === 'Log in') {
-      console.log('button')
     } 
   }
 
@@ -43,7 +42,6 @@ export class App extends Component{
 
   authenticateUser = async (credentials) => {
     const promise = await fetcher.fetchUser(credentials)
-    console.log("promise.user", promise.user)
       if (promise.user) {
         this.setState({ userData: promise.user })
     } else {
