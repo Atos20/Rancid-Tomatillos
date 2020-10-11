@@ -39,6 +39,8 @@ componentDidCatch(error, info) {
     console.log("promise.user", promise.user)
       if (promise.user) {
         this.setState({ userData: promise.user })
+        // <Route path="/" component={Homepage}/>
+        // render(){return (<Link to={'/'}> </Link>)}
     }
       else {
         alert(promise.error)
