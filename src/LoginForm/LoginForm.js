@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './LoginForm.scss';
 //name: 'Diana', email: 'diana@turing.io', password: '111111'
 export class LoginForm extends Component {
@@ -45,10 +45,18 @@ export class LoginForm extends Component {
  
     }
   }
-
+  componentDidUpdate() {
+    
+  }
+  
   render(){
     const {userName, email, password} = this.state;
-
+    if (this.props.login.name !== '') {
+      console.log('this.props.login', this.props.login)
+      console.log('this.props', this.props)
+      return (<Redirect to='/' />)
+    }
+    
     return (
 
       <form className="form-container">

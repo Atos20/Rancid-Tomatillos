@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { 
   Switch, 
   Route, 
-  // Redirect
+  Redirect
 } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
@@ -14,8 +14,8 @@ import fetcher from '../API/APIcalls';
 import './App.scss';
 
 export class App extends Component{
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       userData:  {
@@ -29,21 +29,21 @@ export class App extends Component{
       movieVideo: {}
     }
   }
-
+  
   componentDidCatch(error, info) {
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
     console.log(error, info);
   }
-
+  
   authenticateUser = async (credentials) => {
-    const { history } = this.props;
+    // const { history } = this.props;
     const promise = await fetcher.fetchUser(credentials)
-      if (promise.user) {
-        this.setState({ userData: promise.user })
-        // console.log('this.props', this.props)
-        // console.log('this.state', this.state)
-        // history.push('/')
-        // return (<Link to='/'><Link />)
+    if (promise.user) {
+      this.setState({ userData: promise.user })
+      // console.log('this.props', this.props)
+      // console.log('this.state', this.state)
+      // history.push('/')
+      // return (<Link to='/'><Link />)
     } else {
       alert(promise.error)
     }
@@ -86,7 +86,7 @@ export class App extends Component{
           <Route 
             path='/login' 
             render={() => {
-              return  <LoginForm authenticateUser={this.authenticateUser}/>
+              return  <LoginForm authenticateUser={this.authenticateUser} login={this.state.userData}/>
             }}
           />
 
