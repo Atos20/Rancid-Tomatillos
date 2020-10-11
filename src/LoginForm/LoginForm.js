@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import './LoginForm.scss';
 //name: 'Diana', email: 'diana@turing.io', password: '111111'
 export class LoginForm extends Component {
-  constructor(props) {
-    super(props)  
+  constructor() {
+    super()  
  
 
     this.state = {
@@ -30,7 +30,7 @@ export class LoginForm extends Component {
 }
 
   verifyCredentials = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {
@@ -93,21 +93,21 @@ export class LoginForm extends Component {
           />
         </label>
 
-        {/* <button
+        <button
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
             }}
         >Submit
-        </button> */}
+        </button>
 
-        <Link to='/'//{this.props.isLoggedIn ? '/' : '/login'}
+        {/* <Link to='/'//{this.props.isLoggedIn ? '/' : '/login'}
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
             }}
         >Submit
-        </Link>
+        </Link> */}
 
       </form>
     )

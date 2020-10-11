@@ -36,9 +36,13 @@ export class App extends Component{
   }
 
   authenticateUser = async (credentials) => {
+    const { history } = this.props;
     const promise = await fetcher.fetchUser(credentials)
       if (promise.user) {
         this.setState({ userData: promise.user })
+        // console.log('this.props', this.props)
+        // console.log('this.state', this.state)
+        // history.push('/')
         // return (<Link to='/'><Link />)
     } else {
       alert(promise.error)
@@ -80,6 +84,13 @@ export class App extends Component{
           />
         <Switch>
           <Route 
+            path='/login' 
+            render={() => {
+              return  <LoginForm authenticateUser={this.authenticateUser}/>
+            }}
+          />
+
+          <Route 
             exact path= '/'
             render={() => {
               return (
@@ -92,22 +103,15 @@ export class App extends Component{
           />
 
           <Route 
-            path='/login' 
-            component={() => {
-              return  <LoginForm authenticateUser={this.authenticateUser}/>
-            }}
-          />
-
-          <Route 
             exact path={`/movies/${this.state.movieID}`}
-            component={ () => {
+            render={ () => {
               return <MoviePage 
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
               /> 
             }}
           />
-            <Route path='*' component={() => {
+            <Route path='*' render={() => {
               return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
             }} />
             {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}
