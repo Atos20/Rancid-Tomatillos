@@ -33,13 +33,12 @@ export default class Cards extends Component {
   }
 
   sortMovies = (value) => {
-    // console.log(value)
     if (!value || value === '--none--') {
       return false
-    } else if (value === 'average_rating_descending'){
+    } else if (value === 'descending'){
       const sortedMovies = this.state.movies.sort((a, b) => a.average_rating - b.average_rating)
       this.setState({ movies: sortedMovies })
-    } else if (value === 'average_rating_ascending'){
+    } else if (value === 'ascending'){
       const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
       this.setState({ movies: sortedMovies })
     } 
