@@ -72,7 +72,8 @@ export class App extends Component{
 
   render(){
     return (
-      <Router>
+      // <Router>
+      <>
         <h1 className="login-info">
           <b>
             {this.state.userData.email ? this.state.userData.name + ' is currently ' : 'not '}
@@ -83,41 +84,41 @@ export class App extends Component{
             name={this.state.userData.name} 
             logOut={this.logOut} 
           />
-          <Switch>
-        <Route 
-          exact path= '/'
-          render={() => {
-            return (
-              <Homepage 
-                name={this.state.userData}
-                getMovieDetails={this.getMovieDetails}
-              />
-            )
-          }}
-        />
+        <Switch>
+          <Route 
+            exact path= '/'
+            render={() => {
+              return (
+                <Homepage 
+                  name={this.state.userData}
+                  getMovieDetails={this.getMovieDetails}
+                />
+              )
+            }}
+          />
 
-        <Route 
-          path='/login' 
-          component={() => {
-            return  <LoginForm authenticateUser={this.authenticateUser}/>
-          }}
-        />
+          <Route 
+            path='/login' 
+            component={() => {
+              return  <LoginForm authenticateUser={this.authenticateUser}/>
+            }}
+          />
 
-        <Route 
-          exact path={`/movies/${this.state.movieID}`}
-          component={ () => {
-            return <MoviePage 
-              movieDetails={this.state.movieDetails}
-              movieVideo={this.state.movieVideo}
-            /> 
-          }}
-        />
-          <Route path='*' component={() => {
-            return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
-          }} />
-          {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}
-          </Switch>
-      </Router>
+          <Route 
+            exact path={`/movies/${this.state.movieID}`}
+            component={ () => {
+              return <MoviePage 
+                movieDetails={this.state.movieDetails}
+                movieVideo={this.state.movieVideo}
+              /> 
+            }}
+          />
+            <Route path='*' component={() => {
+              return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
+            }} />
+            {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}
+        </Switch>
+      </>
     );
   }
 }
