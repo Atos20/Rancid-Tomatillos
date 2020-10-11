@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { 
   Switch, 
   Route, 
-  Redirect
+  // Redirect
 } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
@@ -36,14 +36,9 @@ export class App extends Component{
   }
   
   authenticateUser = async (credentials) => {
-    // const { history } = this.props;
     const promise = await fetcher.fetchUser(credentials)
     if (promise.user) {
       this.setState({ userData: promise.user })
-      // console.log('this.props', this.props)
-      // console.log('this.state', this.state)
-      // history.push('/')
-      // return (<Link to='/'><Link />)
     } else {
       alert(promise.error)
     }
