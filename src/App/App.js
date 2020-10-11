@@ -112,7 +112,10 @@ export class App extends Component{
             /> 
           }}
         />
-
+          <Route path='*' component={() => {
+            return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
+          }} />
+          {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}
           </Switch>
       </Router>
     );
