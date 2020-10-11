@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { 
   Switch, 
   Route, 
-  Redirect
+  // Redirect
 } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
@@ -14,8 +14,8 @@ import fetcher from '../API/APIcalls';
 import './App.scss';
 
 export class App extends Component{
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       userData:  {
@@ -29,17 +29,16 @@ export class App extends Component{
       movieVideo: {}
     }
   }
-
+  
   componentDidCatch(error, info) {
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
     console.log(error, info);
   }
-
+  
   authenticateUser = async (credentials) => {
     const promise = await fetcher.fetchUser(credentials)
-      if (promise.user) {
-        this.setState({ userData: promise.user })
-        // return (<Link to='/'><Link />)
+    if (promise.user) {
+      this.setState({ userData: promise.user })
     } else {
       alert(promise.error)
     }
@@ -80,6 +79,13 @@ export class App extends Component{
           />
         <Switch>
           <Route 
+            path='/login' 
+            render={() => {
+              return  <LoginForm authenticateUser={this.authenticateUser} login={this.state.userData}/>
+            }}
+          />
+
+          <Route 
             exact path= '/'
             render={() => {
               return (
@@ -92,22 +98,15 @@ export class App extends Component{
           />
 
           <Route 
-            path='/login' 
-            component={() => {
-              return  <LoginForm authenticateUser={this.authenticateUser}/>
-            }}
-          />
-
-          <Route 
             exact path={`/movies/${this.state.movieID}`}
-            component={ () => {
+            render={ () => {
               return <MoviePage 
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
               /> 
             }}
           />
-            <Route path='*' component={() => {
+            <Route path='*' render={() => {
               return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
             }} />
             {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}
