@@ -10,17 +10,19 @@ const fetcher = {
 
     fetchSingleMovie(movieID) {
       const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`
-      const promise = fetch(fetchedSingleMovie)
+      return fetch(fetchedSingleMovie)
         .then(request => request.json())
-      return promise
+        .then(promise => promise)
+        // .catch(err => err)
         .catch(err => console.log('err', err))
     },
 
-    fetchAMoviesVideos(movieID) {
+    fetchMovieVideo(movieID) {
       const fetchedMovieVideos = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`
-      const promise = fetch(fetchedMovieVideos)
+      return fetch(fetchedMovieVideos)
         .then(request => request.json())
-      return promise
+        .then(promise => promise)
+        // .catch(err => err)
         .catch(err => console.log('err', err))
     },
 

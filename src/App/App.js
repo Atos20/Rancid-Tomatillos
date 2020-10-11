@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Redirect
+} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
-
+import MoviePage from '../MoviePage/MoviePage'
+import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
 import './App.scss';
 
@@ -18,7 +23,10 @@ export class App extends Component{
         name: '',
         email: ''
       },
-      hasError: ''
+      hasError: '',
+      movieID: null,
+      movieDetails: {},
+      movieVideo: {}
     }
   }
 
@@ -26,13 +34,12 @@ export class App extends Component{
     if(event.target.innerHTML === 'Log in') {
       console.log('button')
     } 
-}
+  }
 
-
-componentDidCatch(error, info) {
-  this.setState({ hasError: {errorMessage: error, errorInfo: info} });
-  console.log(error, info);
-}
+  componentDidCatch(error, info) {
+    this.setState({ hasError: {errorMessage: error, errorInfo: info} });
+    console.log(error, info);
+  }
 
   authenticateUser = async (credentials) => {
     const promise = await fetcher.fetchUser(credentials)
@@ -61,40 +68,56 @@ componentDidCatch(error, info) {
     })
   }
   
+  getMovieDetails = async(movieID) => {
+    const promiseMovie = await fetcher.fetchMovieVideo(movieID);//trailer
+    const promiseDetails = await fetcher.fetchSingleMovie(movieID);
+    this.setState({ 
+      movieID: movieID, 
+      movieDetails : promiseDetails.movie,
+      movieVideo: promiseMovie.videos
+    })
+  }
 
   render(){
-    const { userData } = this.state;
-    
-//     if (this.state.hasError) {
-//       return (
-//         <ErrorBoundary errorMessageData={this.state.hasError}/>
-//       )
-//     } else {
-  
     return (
       <Router>
-        <h1 className="login-info"><b>{userData.name ? 'currently' : 'not'}</b> logged in</h1>
+        <h1 className="login-info"><b>{this.state.userData.email ? this.state.userData.name + ' is currently' : 'not'}</b> logged in</h1>
+        <NavBar 
+            name={this.state.userData.name} 
+            logOut={this.logOut} 
+          />
         <Route 
           exact path= '/'
           render={() => {
             return (
               <Homepage 
-                logIn={this.buttonHandling} 
-                name={this.state.userData} 
-                isLoggedIn={this.state.userData.name} 
-                logOut={this.logOut}
+                name={this.state.userData}
+                getMovieDetails={this.getMovieDetails}
               />
             )
           }}
         />
 
         <Route 
-        path='/login' 
-        component={() => {
-        return  <LoginForm isLoggedIn={this.state.userData.name} authenticateUser={this.authenticateUser}/>}}/>
+          path='/login' 
+          component={() => {
+            return  <LoginForm authenticateUser={this.authenticateUser}/>
+          }}
+        />
+
+        <Route 
+          exact path={`/movies/${this.state.movieID}`}
+          component={ () => {
+            return <MoviePage 
+              movieDetails={this.state.movieDetails}
+              movieVideo={this.state.movieVideo}
+            />//will pass the movie details 
+          }}
+        />
       </Router>
     );
   }
 }
+
 
 export default App;
