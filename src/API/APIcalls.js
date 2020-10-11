@@ -38,7 +38,7 @@ const fetcher = {
       return fetch(fetchedUser, int)
         .then(request => request.json())
         .then(data => data)
-        .catch(err => console.log('err', err))
+        .catch(err =>  err)
     },
 
     fetchUserRatings(userID) {

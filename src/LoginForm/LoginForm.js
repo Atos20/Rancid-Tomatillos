@@ -93,7 +93,15 @@ export class LoginForm extends Component {
           />
         </label>
 
-        <Link to='/'
+        {/* <button
+          className="log-in-button" 
+          onClick={(event) => {
+            this.verifyCredentials(event)
+            }}
+        >Submit
+        </button> */}
+
+        <Link to='/'//{this.props.isLoggedIn ? '/' : '/login'}
           className="log-in-button" 
           onClick={(event) => {
             this.verifyCredentials(event)
@@ -103,6 +111,5 @@ export class LoginForm extends Component {
 
       </form>
     )
-    // }
   }
 }

@@ -32,12 +32,12 @@ export default class Cards extends Component {
 
   render() {
     return (
-    <>
-      <h1 className="cards-title">All movies</h1>
-      <section className="card-area">
-      {this.injectMovies()}
-      </section> 
-    </>
-  )
+      <>
+        <h1 className="cards-title">All movies</h1>
+        <section className="card-area">
+        {this.injectMovies()}
+        </section> 
+      </>
+    )
   }
 }
