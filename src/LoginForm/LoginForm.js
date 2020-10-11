@@ -45,15 +45,10 @@ export class LoginForm extends Component {
  
     }
   }
-  componentDidUpdate() {
-    
-  }
   
   render(){
     const {userName, email, password} = this.state;
     if (this.props.login.name !== '') {
-      console.log('this.props.login', this.props.login)
-      console.log('this.props', this.props)
       return (<Redirect to='/' />)
     }
     
@@ -108,15 +103,6 @@ export class LoginForm extends Component {
             }}
         >Submit
         </button>
-
-        {/* <Link to='/'//{this.props.isLoggedIn ? '/' : '/login'}
-          className="log-in-button" 
-          onClick={(event) => {
-            this.verifyCredentials(event)
-            }}
-        >Submit
-        </Link> */}
-
       </form>
     )
   }
