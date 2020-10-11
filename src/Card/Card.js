@@ -9,13 +9,13 @@ export class Card extends Component{
   }
 
   displayMovie = () => {
-    this.props.getMovieDetails(this.props.movies.id)//returns the ide of the movie that we need to make the APi request
+    this.props.getMovieDetails(this.props.movies.id)
   }
 
   render() {
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
     return (
-      <React.Fragment>
+      <>
         <div key={id} id={id} className="card">
           <h1 className="movie-title">{title}</h1>
           <h2 className="movie-release">{release_date}</h2>
@@ -31,7 +31,7 @@ export class Card extends Component{
             </img>
           </Link>
         </div> 
-      </React.Fragment>
+      </>
     )
   }
 }

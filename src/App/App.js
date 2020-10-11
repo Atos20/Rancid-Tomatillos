@@ -46,16 +46,9 @@ export class App extends Component{
     console.log("promise.user", promise.user)
       if (promise.user) {
         this.setState({ userData: promise.user })
-        // <Route path="/" component={Homepage}/>
-        // render(){return (<Link to={'/'}> </Link>)}
+    } else {
+      alert(promise.error)
     }
-      else {
-        alert(promise.error)
-        // alert('You dont have the correct credentials')
-      }
-      // if (this.state.userData !== {}) {
-      // //  this.props.history.push('/')
-      // }
   }
 
   logOut = () => {
@@ -69,7 +62,7 @@ export class App extends Component{
   }
   
   getMovieDetails = async(movieID) => {
-    const promiseMovie = await fetcher.fetchMovieVideo(movieID);//trailer
+    const promiseMovie = await fetcher.fetchMovieVideo(movieID);
     const promiseDetails = await fetcher.fetchSingleMovie(movieID);
     this.setState({ 
       movieID: movieID, 
@@ -81,7 +74,12 @@ export class App extends Component{
   render(){
     return (
       <Router>
-        <h1 className="login-info"><b>{this.state.userData.email ? this.state.userData.name + ' is currently' : 'not'}</b> logged in</h1>
+        <h1 className="login-info">
+          <b>
+            {this.state.userData.email ? this.state.userData.name + ' is currently ' : 'not '}
+          </b>
+          logged in
+        </h1>
         <NavBar 
             name={this.state.userData.name} 
             logOut={this.logOut} 
@@ -111,7 +109,7 @@ export class App extends Component{
             return <MoviePage 
               movieDetails={this.state.movieDetails}
               movieVideo={this.state.movieVideo}
-            />//will pass the movie details 
+            /> 
           }}
         />
       </Router>
