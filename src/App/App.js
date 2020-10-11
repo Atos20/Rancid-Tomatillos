@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, 
+import { 
   Switch, 
   Route, 
   Redirect
@@ -29,11 +29,6 @@ export class App extends Component{
       movieVideo: {}
     }
   }
-
-  // buttonHandling = (event) => {
-  //   if(event.target.innerHTML === 'Log in') {
-  //   } 
-  // }
 
   componentDidCatch(error, info) {
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
@@ -72,7 +67,6 @@ export class App extends Component{
 
   render(){
     return (
-      // <Router>
       <>
         <h1 className="login-info">
           <b>

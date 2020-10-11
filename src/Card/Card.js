@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import fetcher from '../API/APIcalls';
+// import fetcher from '../API/APIcalls';
 import '../Cards/Cards.scss'
 
 export class Card extends Component{
-  constructor(props) {
-    super(props)
-  }
 
   displayMovie = () => {
     this.props.getMovieDetails(this.props.movies.id)
