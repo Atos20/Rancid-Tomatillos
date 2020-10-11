@@ -26,7 +26,9 @@ export class SortMovies extends Component {
               <h1 className="cards-title">All movies</h1>
               <div className="sort-control">
                 <h4 className="sort-title">sort by</h4>
+
                 <select
+                    className="sort-select"
                     name="value" 
                     value={this.state.value} 
                     onChange={this.updateSortValue} 
@@ -39,7 +41,7 @@ export class SortMovies extends Component {
                 <button 
                 className="sort-btn"
                 onClick={this.getOptionValue}
-                >find
+                ><i class="fas fa-apple-alt"></i>
                 </button>
               </div>          
             </div>
