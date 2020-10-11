@@ -30,10 +30,10 @@ export class App extends Component{
     }
   }
 
-  buttonHandling = (event) => {
-    if(event.target.innerHTML === 'Log in') {
-    } 
-  }
+  // buttonHandling = (event) => {
+  //   if(event.target.innerHTML === 'Log in') {
+  //   } 
+  // }
 
   componentDidCatch(error, info) {
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
@@ -44,7 +44,7 @@ export class App extends Component{
     const promise = await fetcher.fetchUser(credentials)
       if (promise.user) {
         this.setState({ userData: promise.user })
-        return (<Homepage />)
+        // return (<Link to='/'><Link />)
     } else {
       alert(promise.error)
     }
@@ -83,6 +83,7 @@ export class App extends Component{
             name={this.state.userData.name} 
             logOut={this.logOut} 
           />
+          <Switch>
         <Route 
           exact path= '/'
           render={() => {
@@ -111,6 +112,8 @@ export class App extends Component{
             /> 
           }}
         />
+
+          </Switch>
       </Router>
     );
   }
