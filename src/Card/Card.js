@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Router } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../Cards/Cards.scss'
 
 export class Card extends Component{
@@ -15,7 +15,7 @@ export class Card extends Component{
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
     return (
       
-      <Link className="movie-img" to={`/movies/${id}`}>
+      <NavLink className="movie-card" to={`/movies/${id}`}>
         <div key={id} id={id} className="card" onClick={this.displayMovie}>
           <h1 className="movie-title">{title}</h1>
           <h2 className="movie-release">{release_date}</h2>
@@ -29,7 +29,7 @@ export class Card extends Component{
                 >
               </img>
         </div> 
-      </Link>
+      </NavLink>
       
     )
   }
