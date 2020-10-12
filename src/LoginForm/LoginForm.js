@@ -28,7 +28,8 @@ export class LoginForm extends Component {
     });
 }
 
-  verifyCredentials = () => {
+  verifyCredentials = (e) => {
+    e.preventDefault()
     if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {

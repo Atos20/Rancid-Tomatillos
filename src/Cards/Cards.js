@@ -9,16 +9,16 @@ export default class Cards extends Component {
     super(props)
    
   this.state = {
-    movies : [],
-    error: ''
+    // movies : [],
+    // error: ''
     }
   }
 
-  async componentDidMount() {
-    //make a new request for all  movie details and create an array of all those movies
-    const promise = await fetcher.fetchAllMovies();
-    this.setState({movies: promise.movies})
-  }
+  // async componentDidMount() {
+  //   //make a new request for all  movie details and create an array of all those movies
+  //   const promise = await fetcher.fetchAllMovies();
+  //   this.setState({movies: promise.movies})
+  // }
 
   injectMovies = (movies) => {
     return movies.map((movie, i)=> {
@@ -50,7 +50,7 @@ export default class Cards extends Component {
       <>
       <SortMovies sortMovies={this.sortMovies}/>
       <section className="card-area">
-      {this.injectMovies(this.state.movies)}
+      {this.injectMovies(this.props.movies)}
       </section> 
     </>
   )

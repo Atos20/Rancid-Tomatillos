@@ -40,7 +40,7 @@ export class SortMovies extends Component {
                 <button 
                 className="sort-btn"
                 onClick={this.getOptionValue}
-                ><i class="fas fa-apple-alt"></i>
+                ><i className="fas fa-apple-alt"></i>
                 </button>
               </div>          
             </div>

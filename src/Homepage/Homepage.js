@@ -13,7 +13,10 @@ export class Homepage extends Component {
         return(
         <>
           <WelcomingSection name={this.props.name}/>
-          <Cards getMovieDetails={this.props.getMovieDetails}/>
+          <Cards 
+           getMovieDetails={this.props.getMovieDetails}
+           movies={this.props.movies}
+          />
         </>
     )
   }

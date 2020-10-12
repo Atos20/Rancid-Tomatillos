@@ -23,10 +23,11 @@ export class App extends Component{
         name: '',
         email: ''
       },
-      hasError: '',
+      movies: [],
       movieID: null,
       movieDetails: {},
-      movieVideo: {}
+      movieVideo: {},
+      error: ''
     }
   }
   
@@ -64,6 +65,11 @@ export class App extends Component{
     })
   }
 
+  async componentDidMount() {
+    const promise = await fetcher.fetchAllMovies();
+    this.setState({movies: promise.movies})
+  }
+
   render(){
     return (
       <>
@@ -91,6 +97,7 @@ export class App extends Component{
               return (
                 <Homepage 
                   name={this.state.userData}
+                  movies={this.state.movies}
                   getMovieDetails={this.getMovieDetails}
                 />
               )
