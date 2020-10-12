@@ -1,10 +1,9 @@
 import React from 'react';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
-import Cards  from '../Cards/Cards'
+import { Cards }  from '../Cards/Cards'
 import './Homepage.scss';
 
-
-export function Homepage(props) {
+export const Homepage = (props) => {
   return(
     <>
       <WelcomingSection name={props.name}/>
@@ -14,7 +13,7 @@ export function Homepage(props) {
         sortMovies={props.sortMovies}
       />
     </>
-)
+  )
 }
 
 

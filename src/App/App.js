@@ -7,7 +7,7 @@ import {
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
 import { ErrorBoundary }  from '../ErrorBoundary/ErrorBoundary';
-import MoviePage from '../MoviePage/MoviePage'
+import { MoviePage } from '../MoviePage/MoviePage'
 import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
 import './App.scss';

@@ -4,7 +4,7 @@ import { Card } from '../Card/Card'
 import { SortMovies } from '../SortMovies/SortMovies'
 import './Cards.scss'
 
-export default function Cards(props) {
+export const Cards = (props) => {
 
   const injectMovies = (movies) => {
     return movies.map((movie, i)=> {
