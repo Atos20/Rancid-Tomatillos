@@ -37,8 +37,6 @@ export default class Cards extends Component {
       return false
     } else if (value === 'descending'){
       const sortedMovies = this.state.movies.sort((a, b) => a.average_rating - b.average_rating)
-      console.log('this.state.movies[0].average_rating', this.state.movies[0].average_rating)
-      console.log('value', value)
       this.setState({ movies: sortedMovies })
     } else if (value === 'ascending'){
       const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
@@ -47,7 +45,6 @@ export default class Cards extends Component {
   }
   
   render() {
-    console.log(this.state.movies)
     return (
       <>
       <SortMovies sortMovies={this.sortMovies}/>
