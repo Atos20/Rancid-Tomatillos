@@ -14,7 +14,11 @@ describe("NavBar", () => {
         <NavBar  name={"Ian"} logOut={fakeLogout}/>
       </Router>
     )
-    // userEvent.click(screen.getByText('Log out'))
+    expect(screen.getByText("Log out")).toBeInTheDocument();
+
+    userEvent.click(screen.getByText('Log out'));
+    expect(screen.getByText("Log in")).toBeInTheDocument();
+
     // screen.debug()
     // expect(fakeLogout).toHaveBeenCalled(1)
     // expect(fakeLogout).toHaveBeenCalledWith("Ian")

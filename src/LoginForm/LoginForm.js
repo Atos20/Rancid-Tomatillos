@@ -28,7 +28,8 @@ export class LoginForm extends Component {
     });
 }
 
-  verifyCredentials = () => {
+  verifyCredentials = (e) => {
+    e.preventDefault();
     if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {
@@ -54,9 +55,8 @@ export class LoginForm extends Component {
 
       <form className="form-container">
         {/* if not switch, try BrowserRouter */}
-        <Router>
+        
          <Link to='/' className="close-login">X</Link>
-        </Router>
 
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
