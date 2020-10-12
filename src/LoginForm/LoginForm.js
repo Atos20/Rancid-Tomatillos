@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './LoginForm.scss';
-//name: 'Diana', email: 'diana@turing.io', password: '111111'
+//name: 'Diana', email: 'diana@turing.io', password: '111111', id: 82
 export class LoginForm extends Component {
   constructor() {
     super()  
@@ -54,7 +54,8 @@ export class LoginForm extends Component {
     return (
 
       <form className="form-container">
-        <Link to='/' className="close-login">X</Link>
+        
+         <Link to='/' className="close-login">X</Link>
 
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
