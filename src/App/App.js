@@ -14,8 +14,8 @@ import fetcher from '../API/APIcalls';
 import './App.scss';
 
 export class App extends Component{
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       userData:  {

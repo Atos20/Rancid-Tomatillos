@@ -45,7 +45,6 @@ export default class Cards extends Component {
   }
   
   render() {
-    console.log(this.state.movies)
     return (
       <>
       <SortMovies sortMovies={this.sortMovies}/>

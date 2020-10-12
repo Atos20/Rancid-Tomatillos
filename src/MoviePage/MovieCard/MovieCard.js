@@ -3,7 +3,7 @@ import './MovieCard.scss'
 import moment from 'moment'
 
 export default function MovieCard({movieDetails}) {
-  const genreList = movieDetails.genres.map((genre,i) => <li key={i}>{genre}</li>)
+  const genreList = movieDetails.genres.map((genre, i) => <li key={i}>{genre}</li>)
   return (
     <div  className="d movie-card-container">
       <h1 className="genre-title">Rating</h1>
