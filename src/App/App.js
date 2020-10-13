@@ -83,15 +83,17 @@ export class App extends Component{
     } 
   }
 
-   addRating(desiredRating) {
-  // async addRating(desiredRating) {
-    // const butts = await this.getMovieDetails
-    console.log('desiredRating', desiredRating)
-    // let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
-    // if (usersRating) {
-    //   usersRating.rating = desiredRating;
-    //   console.log(usersRating)
-    // }
+   addRating = (desiredRating) => {
+    let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
+    if (!usersRating) {
+    let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
+      console.log(newRating)
+      fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
+      // alert('that is the stuff right there')
+    } else {
+      console.log("you already rated this movie! Delete it first to rate again!")
+      // alert("you already rated this movie! Delete it first to rate again!")
+    }
   }
 
   render(){

@@ -35,7 +35,7 @@ export const MoviePage = ( {movieDetails, movieVideo, addRating} ) => {
             <img 
               className="trailer-image"
               src={movieDetails.backdrop_path}
-              alt="" 
+              alt="movie image" 
               />
           </div>
           <div className=" trailer-container">
