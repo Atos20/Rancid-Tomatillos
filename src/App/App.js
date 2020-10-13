@@ -42,7 +42,7 @@ export class App extends Component{
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
       this.setState({ userData, ratedMovies })
     } else {
-      alert(userData.error)
+      alert(userData)
     }
   }
 
@@ -88,7 +88,8 @@ export class App extends Component{
     if (!usersRating) {
     let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
       fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-      .then(() => this.componentDidMount())
+      .then(() => fetcher.fetchUserRatings(this.state.userData.id))
+      .then(ratedMovies => this.setState({ ratedMovies }))
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
       // console.lo("you already rated this movie! Delete it first to rate again!")
@@ -100,8 +101,9 @@ export class App extends Component{
     let ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id || ''
     if(this.state.userData.id && ratingID) {
       const promise = await fetcher.fetchDeleteUserRating(id, ratingID)
-      .then(() => this.componentDidMount())
-      .then(() => console.log(promise))
+      .then(() => fetcher.fetchUserRatings(this.state.userData.id))
+      .then(ratedMovies => this.setState({ ratedMovies }))
+      // .then(() => console.log(promise))
     } else {
       console.log('no deletion')
     }
