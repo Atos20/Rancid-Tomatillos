@@ -87,13 +87,16 @@ export class App extends Component{
     let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
     if (!usersRating) {
     let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
-      console.log(newRating)
       fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-      // alert('that is the stuff right there')
+      .then(() => this.componentDidMount())
     } else {
-      console.log("you already rated this movie! Delete it first to rate again!")
-      // alert("you already rated this movie! Delete it first to rate again!")
+      alert("you already rated this movie! Delete it first to rate again!")
+      // console.lo("you already rated this movie! Delete it first to rate again!")
     }
+  }
+
+  deleteRating = () => {
+
   }
 
   render(){
@@ -136,10 +139,11 @@ export class App extends Component{
             exact path={`/movies/${this.state.movieID}`}
             render={ () => {
               return <MoviePage 
+                name={this.state.userData.name}
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
                 addRating={this.addRating}
-                // deleteRating={}
+                deleteRating={this.deleteRating}
               /> 
             }}
           />
