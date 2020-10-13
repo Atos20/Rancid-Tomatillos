@@ -85,10 +85,13 @@ export class App extends Component{
 
    addRating = (desiredRating) => {
     let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
-    if (!usersRating) {
+    if (!desiredRating) {
+      return alert('You have to select a rating to rate a movie!')
+    } else if (!usersRating) {
     let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
       fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
       .then(() => fetcher.fetchUserRatings(this.state.userData.id))
+      // .then(() => this.componentDidMount())
       .then(ratedMovies => this.setState({ ratedMovies }))
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
@@ -108,6 +111,7 @@ export class App extends Component{
     if(this.state.userData.id && ratingID) {
       const promise = await fetcher.fetchDeleteUserRating(id, ratingID)
       .then(() => fetcher.fetchUserRatings(this.state.userData.id))
+      // .then(() => this.componentDidMount())
       .then(ratedMovies => this.setState({ ratedMovies }))
       // .then(() => console.log(promise))
     } else {
