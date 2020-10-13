@@ -83,6 +83,17 @@ export class App extends Component{
     } 
   }
 
+   addRating(desiredRating) {
+  // async addRating(desiredRating) {
+    // const butts = await this.getMovieDetails
+    console.log('desiredRating', desiredRating)
+    // let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
+    // if (usersRating) {
+    //   usersRating.rating = desiredRating;
+    //   console.log(usersRating)
+    // }
+  }
+
   render(){
     return (
       <>
@@ -125,6 +136,8 @@ export class App extends Component{
               return <MoviePage 
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
+                addRating={this.addRating}
+                // deleteRating={}
               /> 
             }}
           />
