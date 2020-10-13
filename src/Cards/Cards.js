@@ -7,12 +7,15 @@ import './Cards.scss'
 export const Cards = (props) => {
 
   const injectMovies = (movies) => {
+    // console.log(props)
+    // console.log(props.ratedMovies)
     return movies.map((movie, i)=> {
       return (
         <Card 
           key={i} 
           movies={movie}
           getMovieDetails={props.getMovieDetails}
+          ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || ''}
         />
       )
     });

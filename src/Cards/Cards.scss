@@ -1,68 +1,14 @@
 // font-family: 'Prompt', sans-serif;
-
-
 .card-area{
     background-color: #206a5d;
     display: grid;
     grid-row: wrap;
-    grid-template-columns: repeat(auto-fill, 18%);
+    grid-template-columns: repeat(auto-fill, 30%);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 20px;
     grid-auto-flow: row;
     padding: 1em;
-    height: 50vh;
+    height: 100vh;
     overflow: auto;
     justify-items: center;
-    
-    .movie-card{
-      color: black;
-      text-decoration: none;
-    }
-
-    .card{
-        align-items: center;
-        background-color: #bfdcae;
-        display: flex;
-        flex-direction: column;
-        height: 37vh;
-        justify-content: center;
-        margin: 0px;
-        width: 200px;
-
-        .movie-title, .movie-rating, .movie-release{
-          font-family: 'Prompt', sans-serif;
-          font-weight: 300;
-          margin: 0px;
-          padding: 0px;
-          text-align: center;
-
-        }
-
-        .movie-title{
-          font-size: .8em;
-        }
-
-        
-        .rating-container{
-          display: inline-flex;
-          justify-content: space-between;
-        }
-
-        .movie-rating{
-          font-weight: 600;
-          font-size: 1em;
-          margin: 0% 15% 0% 0%;
-        }
-
-        .movie-release{
-          font-weight: 200;
-          font-size: 15px;
-        }
-
-        .movie-img{
-          height: 60%;
-          text-align: center;
-          width: auto;
-        }
-    }
 }

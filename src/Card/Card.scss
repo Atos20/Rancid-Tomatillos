@@ -1,0 +1,91 @@
+// font-family: 'Prompt', sans-serif;
+.container{
+    perspective: 1000px;
+  }
+
+    .rating-form{
+      display: none;
+      text-align: center;
+      margin:5%
+
+    } 
+
+    .container:hover + .rating-form {
+        display: block;
+        color: red;
+      }
+
+    .movie-card{
+        color: black;
+        text-decoration: none;
+     
+        
+
+        .card{
+        background-color: #bfdcae;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 58vh;
+        width: 30vh;
+        justify-content: center;
+        margin: 0px;
+        box-shadow: -5px 9px 24px 0px rgba(0,0,0,0.75);
+
+        .movie-title, .movie-rating, .movie-release{
+        font-family: 'Prompt', sans-serif;
+        font-weight: 300;
+        margin: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align: center;
+        }
+
+        .movie-title{
+        //   background-color: #206a5d;
+        color: olivedrab;
+        font-family: 'Prompt', sans-serif;
+        // font-size: 1.3em;
+        font-size: 1em;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1em;
+        height: 5vh;
+        width: 100%;
+        
+        }
+
+        .rating-container{
+        display: inline-flex;
+        justify-content: space-between;
+        }
+
+        .movie-rating{
+        font-weight: 600;
+        font-size: 1em;
+        margin: 0% 15% 0% 0%;
+        }
+
+        .movie-release{
+        font-weight: 200;
+        font-size: 15px;
+        }
+
+        .movie-img{
+        height: 76%;
+        text-align: center;
+        width: auto;
+        }
+
+        .user-rating{
+        background-color: #206a5d;
+        color: white;
+        font-family: 'Prompt', sans-serif;
+        font-size: 1.2em;
+        font-weight: 300;
+        text-align: center;
+        margin: -14%;
+        width: 100%;
+        }
+    }
+  }
