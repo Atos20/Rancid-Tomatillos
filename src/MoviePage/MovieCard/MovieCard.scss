@@ -1,4 +1,43 @@
 .movie-card-container {
+    display: flex;
+    justify-content: center;
     background-color: cadetblue;
     grid-area: 2 / 3 / 4 / 4;
+    width: 100%;
+
+    .inner-container{
+        background-color: papayawhip;
+        text-align: center;
+        height: 83%;
+        width: 95%;
+
+        .box{
+           display: grid;
+           grid-template-columns: 50% 50%;
+           grid-gap: 2px;
+           align-content: center;
+            width: 100%;
+            margin: 0%;
+            height: 4vh;
+
+            .title{
+                font-size: 1em;
+                margin: 0%;
+            }
+
+        }
+        .title{
+            font-size: 1.5em;
+            margin: 0%;
+        }
+
+        ul{
+            display: inline-flex;
+         
+            .single-genre{
+                text-decoration: none;
+            }
+        }
+    }
+
 }
