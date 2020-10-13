@@ -38,7 +38,8 @@ export const MoviePage = ( {
               name={name}
               deleteRating={deleteRating}
             />
-          <div className="a img-container">
+
+          <div className=" img-container">
             <img 
               className="trailer-image"
               src={movieDetails.backdrop_path}
