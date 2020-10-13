@@ -4,7 +4,13 @@ import MovieCard from './MovieCard/MovieCard';
 import MovieHeader from './MovieHeader/MovieHeader';
 import './MoviePage.scss';
 
-export const MoviePage = ( {movieDetails, movieVideo} ) => {
+export const MoviePage = ( {
+  movieDetails, 
+  movieVideo, 
+  addRating, 
+  name, 
+  deleteRating
+}) => {
 
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -26,19 +32,26 @@ export const MoviePage = ( {movieDetails, movieVideo} ) => {
 
         <div className="movie-wrapper">
 
-            <MovieHeader movieDetails={movieDetails}/>
+            <MovieHeader 
+              addRating={addRating} 
+              movieDetails={movieDetails} 
+              name={name}
+              deleteRating={deleteRating}
+            />
           <div className="a img-container">
             <img 
               className="trailer-image"
               src={movieDetails.backdrop_path}
-              alt="" 
+              alt="movie image" 
               />
           </div>
           <div className=" trailer-container">
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
 
-            <MovieCard movieDetails={movieDetails}/>
+            <MovieCard 
+              movieDetails={movieDetails}
+            />
 
         </div>
  

@@ -50,13 +50,13 @@ const fetcher = {
     },
 
     // movieInfo = { movie_id: <Integer>, rating: <Integer between 1 and 10> }
-    fetchCreateUserRating(userID, movieInfo) {
+    fetchCreateUserRating(userID, newRating) {
       let int = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(movieInfo)
+        body: JSON.stringify(newRating)
       }
       const fetchedUserRating = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
       const promise = fetch(fetchedUserRating, int)
@@ -67,10 +67,10 @@ const fetcher = {
 
     fetchDeleteUserRating(userID, ratingID) {
       let int = { method: 'DELETE'}
-      const fetchedDeleteRating = `https://rancid-tomatillos.herokuapp.com/api/v2//users/${userID}/ratings/${ratingID}`
-      const promise = fetch(fetchedDeleteRating, int)
+      const fetchedDeleteRating = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings/${ratingID}`
+      return fetch(fetchedDeleteRating, int)
         .then(request => request.json())
-      return promise
+        .then(promise => promise)
         .catch(err => console.log('err', err))
     }
   }
