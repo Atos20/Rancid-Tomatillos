@@ -1,15 +1,25 @@
 .movie-card-container {
     display: flex;
     justify-content: center;
-    background-color: cadetblue;
+    background-color: #bfdcae;
     grid-area: 2 / 3 / 4 / 4;
     width: 100%;
     height: 100%;
+    box-shadow: -15px 17px 27px -6px rgba(0,0,0,0.51);
     .inner-container{
         background-color: papayawhip;
         text-align: center;
         height: 100%;
-        width: 95%;
+        width: 95%;;
+
+        .overview-container{
+            text-align: center;
+            .overview{  
+              background-color: #bfdcae;
+              width: 85%;
+              padding: 8%;
+            }
+        }
 
         .box{
           display: grid;

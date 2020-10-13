@@ -9,13 +9,12 @@ export default function MovieCard({movieDetails}) {
 
       <div className="inner-container">
 
-      <div className="release-container">
+        <div className="overview-container">
           <h1 className="overview-container">Overview</h1>
           <p className="value overview">{movieDetails.overview}</p>
         </div>
 
-
-       <div className="box runtime-container">
+        <div className="box runtime-container">
           <h1 className="title rating-title">Rating</h1>
           <p className="value average-rating">{movieDetails.average_rating}</p>
         </div>
@@ -39,11 +38,10 @@ export default function MovieCard({movieDetails}) {
           <h1 className="title release-title">release date</h1>
           <p className="value release">{!movieDetails.release_date  ? 'No release date found' : moment(movieDetails.release_date).format("MMM Do YY")}</p>
         </div>
+
         <div className="box genre-container">
-        <h1 className="title genre-title">genres :</h1>
-        <ul className="genres">
-          {genreList}
-        </ul>
+          <h1 className="title genre-title">genres</h1>
+          <ul className="genres">{genreList}</ul>
         </div>
 
         
