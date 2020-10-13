@@ -4,6 +4,7 @@ import { Cards }  from '../Cards/Cards'
 import './Homepage.scss';
 
 export const Homepage = (props) => {
+
   return(
     <>
       <WelcomingSection name={props.name}/>
@@ -11,6 +12,7 @@ export const Homepage = (props) => {
         movies={props.movies}
         getMovieDetails={props.getMovieDetails}
         sortMovies={props.sortMovies}
+        ratedMovies={props.ratedMovies}
       />
     </>
   )

@@ -45,7 +45,7 @@ const fetcher = {
       const fetchedUserRatings = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
       return fetch(fetchedUserRatings)
         .then(request => request.json())
-        .then(data => data)
+        .then(data => data.ratings)
         // .catch(err => err.message)
     },
 

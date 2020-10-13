@@ -13,6 +13,7 @@ export class Card extends Component{
 
   render() {
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
+    // console.log(this.props.ratedMovies)
     return (
       
       <NavLink className="movie-card" to={`/movies/${id}`}>
@@ -22,6 +23,7 @@ export class Card extends Component{
           <div className="rating-container">
             <h2 className="movie-rating">Rating</h2>
             <h2 className="movie-rating">{average_rating}</h2>
+            <h2 className="user-rating">{this.props.ratedMovies.rating}</h2>
           </div>
               <img 
                 id={id} 
