@@ -25,23 +25,30 @@ export default class MovieHeader extends Component {
 
     handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    // console.log(`Option selected:`, selectedOption);
     }
 
-    addRating = () => {
+    updateRating = () => {
         this.props.addRating(this.state.selectedOption)
     }
 
+    removeRating = () => {
+        this.props.deleteRating()
+    }
+
+
     render() {
+
+        const {title, tagline} = this.props.movieDetails;
+
         return (
             <div className="movie-header">
-            <h1 className="title">{this.props.movieDetails.title}</h1>
-            <h2 className="tagline">{this.props.movieDetails.tagline}</h2>
-            {/* this will need to be in a conditional of only being able to bee seen if a user is logged in */}
+            <h1 className="title">{title}</h1>
+            <h2 className="tagline">{tagline}</h2>
             {this.props.name && <div className="rate-movie">
-                <button className="delete-rating">Delete Rating</button>
+                <button className="delete-rating" onClick={this.removeRating}>Delete Rating</button>
                     <Select options={this.ratingValue} value={this.state.selectedOption} onChange={this.handleChange} />
-                <button className="add-rating" onClick={this.addRating}>Rate Movie</button>
+                <button className="add-rating" onClick={this.updateRating}>Rate Movie</button>
             </div>}
         </div>
     )

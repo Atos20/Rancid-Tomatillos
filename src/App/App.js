@@ -95,8 +95,16 @@ export class App extends Component{
     }
   }
 
-  deleteRating = () => {
-
+  deleteRating = async () => {
+    const { id } =  this.state.userData
+    let ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id || ''
+    if(this.state.userData.id && ratingID) {
+      const promise = await fetcher.fetchDeleteUserRating(id, ratingID)
+      .then(() => this.componentDidMount())
+      .then(() => console.log(promise))
+    } else {
+      console.log('no deletion')
+    }
   }
 
   render(){

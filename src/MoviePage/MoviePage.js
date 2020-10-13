@@ -4,7 +4,13 @@ import MovieCard from './MovieCard/MovieCard';
 import MovieHeader from './MovieHeader/MovieHeader';
 import './MoviePage.scss';
 
-export const MoviePage = ( {movieDetails, movieVideo, addRating, name} ) => {
+export const MoviePage = ( {
+  movieDetails, 
+  movieVideo, 
+  addRating, 
+  name, 
+  deleteRating
+}) => {
 
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -30,7 +36,7 @@ export const MoviePage = ( {movieDetails, movieVideo, addRating, name} ) => {
               addRating={addRating} 
               movieDetails={movieDetails} 
               name={name}
-              // deleteRating={}
+              deleteRating={deleteRating}
             />
           <div className="a img-container">
             <img 

@@ -67,10 +67,10 @@ const fetcher = {
 
     fetchDeleteUserRating(userID, ratingID) {
       let int = { method: 'DELETE'}
-      const fetchedDeleteRating = `https://rancid-tomatillos.herokuapp.com/api/v2//users/${userID}/ratings/${ratingID}`
+      const fetchedDeleteRating = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings/${ratingID}`
       return fetch(fetchedDeleteRating, int)
         .then(request => request.json())
-      // return promise
+        .then(promise => promise)
         .catch(err => console.log('err', err))
     }
   }
