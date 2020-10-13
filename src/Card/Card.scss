@@ -1,62 +1,88 @@
 // font-family: 'Prompt', sans-serif;
-.movie-card{
-    color: black;
-    text-decoration: none;
+.container{
+    perspective: 1000px;
+  }
 
-
-    .card{
-      background-color: #bfdcae;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      height: 37vh;
-      justify-content: center;
-      margin: 0px;
-      width: 200px;
-
-    .movie-title, .movie-rating, .movie-release{
-      font-family: 'Prompt', sans-serif;
-      font-weight: 300;
-      margin: 0px;
-      padding: 0px;
+    .rating-form{
+      display: none;
       text-align: center;
-    }
+      margin:5%
 
-    .movie-title{
-      font-size: .8em;
-    }
+    } 
 
-    .rating-container{
-      display: inline-flex;
-      justify-content: space-between;
-    }
+    .container:hover + .rating-form {
+        display: block;
+        color: red;
+      }
 
-    .movie-rating{
-      font-weight: 600;
-      font-size: 1em;
-      margin: 0% 15% 0% 0%;
-    }
+    .movie-card{
+        color: black;
+        text-decoration: none;
+     
+        
 
-    .movie-release{
-      font-weight: 200;
-      font-size: 15px;
-    }
+        .card{
+        background-color: #bfdcae;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 58vh;
+        justify-content: center;
+        margin: 0px;
+        box-shadow: -5px 9px 24px 0px rgba(0,0,0,0.75);
 
-    .movie-img{
-      height: 70%;
-      text-align: center;
-      width: auto;
-    }
+        .movie-title, .movie-rating, .movie-release{
+        font-family: 'Prompt', sans-serif;
+        font-weight: 300;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        }
 
-    .user-rating{
-      background-color: #206a5d;
-      color: white;
-      font-family: 'Prompt', sans-serif;
-      font-size: 1.2em;
-      font-weight: 300;
-      text-align: center;
-      margin: 0%;
-      width: 100%;
+        .movie-title{
+        //   background-color: #206a5d;
+        color: olivedrab;
+        font-family: 'Prompt', sans-serif;
+        font-size: 1.3em;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1em;
+        height: 5vh;
+        width: 100%;
+        
+        }
+
+        .rating-container{
+        display: inline-flex;
+        justify-content: space-between;
+        }
+
+        .movie-rating{
+        font-weight: 600;
+        font-size: 1em;
+        margin: 0% 15% 0% 0%;
+        }
+
+        .movie-release{
+        font-weight: 200;
+        font-size: 15px;
+        }
+
+        .movie-img{
+        height: 76%;
+        text-align: center;
+        width: auto;
+        }
+
+        .user-rating{
+        background-color: #206a5d;
+        color: white;
+        font-family: 'Prompt', sans-serif;
+        font-size: 1.2em;
+        font-weight: 300;
+        text-align: center;
+        margin: -14%;
+        width: 100%;
+        }
     }
   }
-}

@@ -15,9 +15,7 @@ export const Cards = (props) => {
           key={i} 
           movies={movie}
           getMovieDetails={props.getMovieDetails}
-          // ratedMovies={props.ratedMovies}
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || ''}
-          
         />
       )
     });

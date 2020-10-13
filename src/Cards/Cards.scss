@@ -1,17 +1,14 @@
 // font-family: 'Prompt', sans-serif;
-
 .card-area{
     background-color: #206a5d;
     display: grid;
     grid-row: wrap;
-    grid-template-columns: repeat(auto-fill, 18%);
+    grid-template-columns: repeat(auto-fill, 30%);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 20px;
     grid-auto-flow: row;
     padding: 1em;
-    height: 50vh;
+    height: 100vh;
     overflow: auto;
     justify-items: center;
-    
-    
 }
