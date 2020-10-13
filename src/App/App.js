@@ -23,6 +23,7 @@ export class App extends Component{
         email: ''
       },
       movies: [],
+      ratedMovies: '',
       movieID: null,
       movieDetails: {},
       movieVideo: {},
@@ -36,11 +37,13 @@ export class App extends Component{
   }
   
   authenticateUser = async (credentials) => {
-    const promise = await fetcher.fetchUser(credentials)
-    if (promise.user) {
-      this.setState({ userData: promise.user })
+    const userData = await fetcher.fetchUser(credentials)
+    if (userData) {
+      const ratedMovies = await fetcher.fetchUserRatings(userData.id)
+      this.setState({ userData, ratedMovies })
+      console.log('this.state', this.state)
     } else {
-      alert(promise.error)
+      alert(userData.error)
     }
   }
 
@@ -111,6 +114,7 @@ export class App extends Component{
                   movies={this.state.movies}
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
+                  // usersRating={}
                 />
               )
             }}
