@@ -8,7 +8,7 @@ export const Cards = (props) => {
 
   const injectMovies = (movies) => {
     // console.log(props)
-    console.log(props.ratedMovies)
+    // console.log(props.ratedMovies)
     return movies.map((movie, i)=> {
       return (
         <Card 
