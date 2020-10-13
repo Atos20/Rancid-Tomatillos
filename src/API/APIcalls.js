@@ -37,16 +37,16 @@ const fetcher = {
       const fetchedUser = `https://rancid-tomatillos.herokuapp.com/api/v2/login`
       return fetch(fetchedUser, int)
         .then(request => request.json())
-        .then(data => data)
+        .then(data => data.user)
         .catch(err =>  err)
     },
 
     fetchUserRatings(userID) {
       const fetchedUserRatings = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
-      const promise = fetch(fetchedUserRatings)
+      return fetch(fetchedUserRatings)
         .then(request => request.json())
-      return promise
-        .catch(err => console.log('err', err))
+        .then(data => data)
+        // .catch(err => err.message)
     },
 
     // movieInfo = { movie_id: <Integer>, rating: <Integer between 1 and 10> }
