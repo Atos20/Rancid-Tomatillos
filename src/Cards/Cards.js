@@ -17,14 +17,16 @@ export const Cards = (props) => {
       )
     });
   }
+  
 
-  return (
-    <>
-    <SortMovies sortMovies={props.sortMovies}/>
-    <section className="card-area">
-    {injectMovies(props.movies)}
-    </section> 
-  </>
-)
+    return (
+      <>
+        <SortMovies sortMovies={props.sortMovies}/>
+        <section className="card-area">
+        {injectMovies(props.movies)}
+        </section> 
+      </>
+    )
+  
 }
 

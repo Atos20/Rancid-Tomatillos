@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import './LoginForm.scss';
 //name: 'Diana', email: 'diana@turing.io', password: '111111', id: 82
 export class LoginForm extends Component {
@@ -29,7 +29,7 @@ export class LoginForm extends Component {
 }
 
   verifyCredentials = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!this.state.userName && !this.state.password && !this.state.email) {
       return false
     } else {
@@ -47,13 +47,14 @@ export class LoginForm extends Component {
   
   render(){
     const {userName, email, password} = this.state;
-    if (this.props.login.name !== '') {
+    if (this.props.login && this.props.login.name !== '') {
       return (<Redirect to='/' />)
     }
     
     return (
 
       <form className="form-container">
+        {/* if not switch, try BrowserRouter */}
         
          <Link to='/' className="close-login">X</Link>
 
