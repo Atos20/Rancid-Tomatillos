@@ -4,11 +4,10 @@ import {
   Route, 
   // Redirect
 } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
-import { ErrorBoundary } from '../ErrorMessage/ErrorMessage.js';
-import MoviePage from '../MoviePage/MoviePage'
+import { ErrorBoundary }  from '../ErrorBoundary/ErrorBoundary';
+import { MoviePage } from '../MoviePage/MoviePage'
 import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
 import './App.scss';
@@ -23,10 +22,11 @@ export class App extends Component{
         name: '',
         email: ''
       },
-      hasError: '',
+      movies: [],
       movieID: null,
       movieDetails: {},
-      movieVideo: {}
+      movieVideo: {},
+      error: ''
     }
   }
   
@@ -64,6 +64,23 @@ export class App extends Component{
     })
   }
 
+  async componentDidMount() {
+    const promise = await fetcher.fetchAllMovies();
+    this.setState({movies: promise.movies})
+  }
+
+  sortMovies = (value) => {
+    if (!value || value === '--none--') {
+      return false
+    } else if (value === 'descending'){
+      const sortedMovies = this.state.movies.sort((a, b) => a.average_rating - b.average_rating)
+      this.setState({ movies: sortedMovies })
+    } else if (value === 'ascending'){
+      const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
+      this.setState({ movies: sortedMovies })
+    } 
+  }
+
   render(){
     return (
       <>
@@ -91,7 +108,9 @@ export class App extends Component{
               return (
                 <Homepage 
                   name={this.state.userData}
+                  movies={this.state.movies}
                   getMovieDetails={this.getMovieDetails}
+                  sortMovies={this.sortMovies}
                 />
               )
             }}
@@ -106,7 +125,9 @@ export class App extends Component{
               /> 
             }}
           />
-            <Route path='*' render={() => {
+            <Route 
+              exact path='*' 
+              render={() => {
               return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
             }} />
             {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}

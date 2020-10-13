@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
-import Cards  from '../Cards/Cards'
-// import { NavBar } from '../NavBar/NavBar'
+import { Cards }  from '../Cards/Cards'
 import './Homepage.scss';
 
-export class Homepage extends Component {
-    constructor(props){
-        super(props)
-    }
-
-    render(){
-        return(
-        <>
-          <WelcomingSection name={this.props.name}/>
-          <Cards getMovieDetails={this.props.getMovieDetails}/>
-        </>
-    )
-  }
+export const Homepage = (props) => {
+  return(
+    <>
+      <WelcomingSection name={props.name}/>
+      <Cards 
+        movies={props.movies}
+        getMovieDetails={props.getMovieDetails}
+        sortMovies={props.sortMovies}
+      />
+    </>
+  )
 }
+
+

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import './LoginForm.scss';
-//name: 'Diana', email: 'diana@turing.io', password: '111111'
+//name: 'Diana', email: 'diana@turing.io', password: '111111', id: 82
 export class LoginForm extends Component {
   constructor() {
     super()  

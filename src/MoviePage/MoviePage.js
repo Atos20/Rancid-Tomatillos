@@ -4,7 +4,7 @@ import MovieCard from './MovieCard/MovieCard';
 import MovieHeader from './MovieHeader/MovieHeader';
 import './MoviePage.scss';
 
-export default function Movie( {movieDetails, movieVideo} ) {
+export const MoviePage = ( {movieDetails, movieVideo} ) => {
 
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -34,8 +34,6 @@ export default function Movie( {movieDetails, movieVideo} ) {
               alt="" 
               />
           </div>
-
-            {/* move this  traile container to its own component */}
           <div className=" trailer-container">
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
