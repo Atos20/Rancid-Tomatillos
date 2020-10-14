@@ -16,7 +16,7 @@ export default function MovieCard({movieDetails}) {
 
         <div className="box runtime-container">
           <h1 className="title rating-title">Rating</h1>
-          <p className="value average-rating">{movieDetails.average_rating}</p>
+          <p className="value average-rating">{movieDetails.average_rating.toFixed(1)}</p>
         </div>
 
         <div className="box runtime-container">
