@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { 
   Switch, 
   Route, 
-  // Redirect
 } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
@@ -66,6 +65,10 @@ export class App extends Component{
   }
 
   async componentDidMount() {
+    this.loadAllMovies()
+  }
+
+  async loadAllMovies() {
     const promise = await fetcher.fetchAllMovies();
     this.setState({movies: promise.movies})
   }
@@ -92,6 +95,7 @@ export class App extends Component{
       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
       this.setState({ratedMovies: allUserRatings})
+      this.loadAllMovies()
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
     }
@@ -110,6 +114,7 @@ export class App extends Component{
       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
       this.setState({ratedMovies: allUserRatings})
+      this.loadAllMovies()
     } else {
       alert('There is no rating to delete!')
     }
