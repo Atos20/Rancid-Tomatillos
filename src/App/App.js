@@ -33,7 +33,6 @@ export class App extends Component{
   
   componentDidCatch(error, info) {
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
-    console.log(error, info);
   }
   
   authenticateUser = async (credentials) => {
@@ -83,20 +82,16 @@ export class App extends Component{
     } 
   }
 
-   addRating = (desiredRating) => {
-    let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
-    if (!desiredRating) {
+   addRating = async (desiredRatingByUser) => {
+    const movieToRate = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
+    if (!desiredRatingByUser) {
       return alert('You have to select a rating to rate a movie!')
-    } else if (!usersRating) {
-    let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
-      fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-      .then(() => fetcher.fetchUserRatings(this.state.userData.id)
-      // .then(() => fetcher.fetchAllMovies()
-      // .then(promise => this.setState({movies: promise.movies}))
-      // )
-      // .then(() => this.componentDidMount())
-      .then(ratedMovies => this.setState({ ratedMovies }))
-      )
+    } else if (!movieToRate) {
+      const newRating = {movie_id: this.state.movieID, rating: desiredRatingByUser.value}
+      const addNewRating = await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
+      const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+      this.getMovieDetails(this.state.movieID)
+      this.setState({ratedMovies: allUserRatings})
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
     }
@@ -110,16 +105,11 @@ export class App extends Component{
     } else {
       ratingID = ''
     }
-
     if(this.state.userData.id && ratingID) {
-      const promise = await fetcher.fetchDeleteUserRating(id, ratingID)
-      .then(() => fetcher.fetchUserRatings(this.state.userData.id)
-      // .then(() => fetcher.fetchAllMovies()
-      // .then(promise => this.setState({movies: promise.movies}))
-      // )
-      // .then(() => this.componentDidMount())
-      .then(ratedMovies => this.setState({ ratedMovies }))
-      )
+      const deleteSingleRating = await fetcher.fetchDeleteUserRating(id, ratingID)
+      const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+      this.getMovieDetails(this.state.movieID)
+      this.setState({ratedMovies: allUserRatings})
     } else {
       alert('There is no rating to delete!')
     }
@@ -165,11 +155,12 @@ export class App extends Component{
             exact path={`/movies/${this.state.movieID}`}
             render={ () => {
               return <MoviePage 
-                name={this.state.userData.name}
-                movieDetails={this.state.movieDetails}
-                movieVideo={this.state.movieVideo}
                 addRating={this.addRating}
                 deleteRating={this.deleteRating}
+                movieDetails={this.state.movieDetails}
+                movieVideo={this.state.movieVideo}
+                name={this.state.userData.name}
+                ratedMovies={this.state.ratedMovies}
               /> 
             }}
           />
@@ -178,7 +169,6 @@ export class App extends Component{
               render={() => {
               return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
             }} />
-            {/* the above path has a ~50ms 'setTimeout where it will display the error message and then immediately reroute to the correct page */}
         </Switch>
       </>
     );

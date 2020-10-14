@@ -48,7 +48,15 @@ export default class MovieHeader extends Component {
             {this.props.name && <div className="rate-movie">
                 
                 <button className="delete-rating" onClick={this.removeRating}>Delete Rating</button>
-                    <Select placeholder="Rating" className="selector" options={this.ratingValue} value={this.state.selectedOption} onChange={this.handleChange} />
+                
+                    <Select 
+                      placeholder="Rating" 
+                      className="selector" 
+                      options={this.ratingValue} 
+                      value={this.state.selectedOption} 
+                      onChange={this.handleChange}
+                    />
+
                 <button className="add-rating" onClick={this.updateRating}>Rate Movie</button>
             </div>}
         </div>
