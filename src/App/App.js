@@ -42,7 +42,7 @@ export class App extends Component{
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
       this.setState({ userData, ratedMovies })
     } else {
-      alert(userData.error)
+      alert(userData)
     }
   }
 
@@ -85,25 +85,43 @@ export class App extends Component{
 
    addRating = (desiredRating) => {
     let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
-    if (!usersRating) {
+    if (!desiredRating) {
+      return alert('You have to select a rating to rate a movie!')
+    } else if (!usersRating) {
     let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
       fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-      .then(() => this.componentDidMount())
+      .then(() => fetcher.fetchUserRatings(this.state.userData.id)
+      // .then(() => fetcher.fetchAllMovies()
+      // .then(promise => this.setState({movies: promise.movies}))
+      // )
+      // .then(() => this.componentDidMount())
+      .then(ratedMovies => this.setState({ ratedMovies }))
+      )
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
-      // console.lo("you already rated this movie! Delete it first to rate again!")
     }
   }
 
   deleteRating = async () => {
     const { id } =  this.state.userData
-    let ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id || ''
+    let ratingID;
+    if (this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)) {
+      ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id
+    } else {
+      ratingID = ''
+    }
+
     if(this.state.userData.id && ratingID) {
       const promise = await fetcher.fetchDeleteUserRating(id, ratingID)
-      .then(() => this.componentDidMount())
-      .then(() => console.log(promise))
+      .then(() => fetcher.fetchUserRatings(this.state.userData.id)
+      // .then(() => fetcher.fetchAllMovies()
+      // .then(promise => this.setState({movies: promise.movies}))
+      // )
+      // .then(() => this.componentDidMount())
+      .then(ratedMovies => this.setState({ ratedMovies }))
+      )
     } else {
-      console.log('no deletion')
+      alert('There is no rating to delete!')
     }
   }
 
