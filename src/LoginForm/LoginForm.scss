@@ -11,15 +11,22 @@
     justify-content: center;
     width: 60vh;
     height: 50vh;
+    border: 1px steelblue solid;
+
 
     // .password-title, .user-title{
     
     // }
     .close-login{
-      background-color: transparent;
+      background-color: #EFEFEF;
       border: 1px steelblue solid;
-      border-radius: 50%;
+    //   border-radius: 50%;
       text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 2px
+      
+
     }
 
     #userName, #password, #email{
@@ -32,6 +39,7 @@
         text-align: center;
         margin: 5%;
         width: 30%;
+        
     }
 
     .log-in-button{

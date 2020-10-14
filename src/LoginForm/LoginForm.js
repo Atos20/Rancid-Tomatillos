@@ -56,7 +56,7 @@ export class LoginForm extends Component {
       <form className="form-container">
         {/* if not switch, try BrowserRouter */}
         
-         <Link to='/' className="close-login">X</Link>
+         <Link to='/' className="close-login">Back to Home</Link>
 
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">

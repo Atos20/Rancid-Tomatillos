@@ -6,3 +6,24 @@
     grid-row: 1 ;
     grid-area: 1 / 1 / 2 / 4;
 }
+
+.rate-movie {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+}
+
+.delete-rating {
+    margin-right: 25px
+}
+
+.add-rating {
+    margin-left: 25px
+}
+
+.selector {
+    width: 125px;
+    font-size: 10;
+    background-color: black
+}

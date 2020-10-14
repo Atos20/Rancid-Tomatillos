@@ -9,16 +9,16 @@ export default class MovieHeader extends Component {
             selectedOption: null,
           }
           this.ratingValue = [
-              { value: 1, label: '1' },
-              { value: 2, label: '2' },
-              { value: 3, label: '3' },
-              { value: 4, label: '4' },
-              { value: 5, label: '5' },
-              { value: 6, label: '6' },
-              { value: 7, label: '7' },
-              { value: 8, label: '8' },
-              { value: 9, label: '9' },
-              { value: 10, label: '10' },
+              { value: 1, label: '1💩' },
+              { value: 2, label: '2🤮' },
+              { value: 3, label: '3🤢' },
+              { value: 4, label: '4👎' },
+              { value: 5, label: '5🤝' },
+              { value: 6, label: '6👏' },
+              { value: 7, label: '7👌' },
+              { value: 8, label: '8👍' },
+              { value: 9, label: '9🤘' },
+              { value: 10, label: '10💯' },
               
             ];
         }
@@ -46,11 +46,17 @@ export default class MovieHeader extends Component {
             <h1 className="title">{title}</h1>
             <h2 className="tagline">{tagline}</h2>
             {this.props.name && <div className="rate-movie">
+                
                 <button className="delete-rating" onClick={this.removeRating}>Delete Rating</button>
+                
                     <Select 
+                      placeholder="Rating" 
+                      className="selector" 
                       options={this.ratingValue} 
                       value={this.state.selectedOption} 
-                      onChange={this.handleChange} />
+                      onChange={this.handleChange}
+                    />
+
                 <button className="add-rating" onClick={this.updateRating}>Rate Movie</button>
             </div>}
         </div>
