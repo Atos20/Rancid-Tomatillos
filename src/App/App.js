@@ -40,7 +40,7 @@ export class App extends Component{
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
       this.setState({ userData, ratedMovies })
     } else {
-      alert(userData)
+      alert('Those aren\'t the right credentials')
     }
   }
 
