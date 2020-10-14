@@ -83,20 +83,16 @@ export class App extends Component{
     } 
   }
 
-   addRating = (desiredRating) => {
-    let usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
+   addRating = async (desiredRating) => {
+    const usersRating = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
     if (!desiredRating) {
       return alert('You have to select a rating to rate a movie!')
     } else if (!usersRating) {
-    let newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
-      fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-      .then(() => fetcher.fetchUserRatings(this.state.userData.id)
-      // .then(() => fetcher.fetchAllMovies()
-      // .then(promise => this.setState({movies: promise.movies}))
-      // )
-      // .then(() => this.componentDidMount())
-      .then(ratedMovies => this.setState({ ratedMovies }))
-      )
+      const newRating = {movie_id: this.state.movieID, rating: desiredRating.value}
+      const addNewRating = await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
+      const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+      this.getMovieDetails(this.state.movieID)
+      this.setState({ratedMovies: allUserRatings})
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
     }
@@ -112,9 +108,9 @@ export class App extends Component{
     }
     if(this.state.userData.id && ratingID) {
       const deleteSingleRating = await fetcher.fetchDeleteUserRating(id, ratingID)
-      const updateRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+      const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
-      this.setState({ratedMovies: updateRatings})
+      this.setState({ratedMovies: allUserRatings})
     } else {
       alert('There is no rating to delete!')
     }
