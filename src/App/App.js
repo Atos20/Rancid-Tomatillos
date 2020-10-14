@@ -110,22 +110,18 @@ export class App extends Component{
     } else {
       ratingID = ''
     }
-
     if(this.state.userData.id && ratingID) {
-      const promise = await fetcher.fetchDeleteUserRating(id, ratingID)
-      .then(() => fetcher.fetchUserRatings(this.state.userData.id)
-      // .then(() => fetcher.fetchAllMovies()
-      // .then(promise => this.setState({movies: promise.movies}))
-      // )
-      // .then(() => this.componentDidMount())
-      .then(ratedMovies => this.setState({ ratedMovies }))
-      )
+      const deleteSingleRating = await fetcher.fetchDeleteUserRating(id, ratingID)
+      const updateRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+      this.getMovieDetails(this.state.movieID)
+      this.setState({ratedMovies: updateRatings})
     } else {
       alert('There is no rating to delete!')
     }
   }
 
   render(){
+    console.log(this.state.ratedMovies)
     return (
       <>
         <h1 className="login-info">

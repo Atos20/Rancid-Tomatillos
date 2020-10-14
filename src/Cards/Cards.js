@@ -7,8 +7,6 @@ import './Cards.scss'
 export const Cards = (props) => {
 
   const injectMovies = (movies) => {
-    // console.log(props)
-    // console.log(props.ratedMovies)
     return movies.map((movie, i)=> {
       return (
         <Card 
@@ -20,8 +18,6 @@ export const Cards = (props) => {
       )
     });
   }
-  
-
     return (
       <>
         <SortMovies sortMovies={props.sortMovies}/>

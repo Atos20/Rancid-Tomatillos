@@ -10,10 +10,12 @@ export class Card extends Component{
 
   displayMovie = () => {
     this.props.getMovieDetails(this.props.movies.id)
+    console.log(this.props.movies.id)
   }
 
   render() {
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
+    
     return (
         <NavLink className="movie-card" to={`/movies/${id}`}>
 
