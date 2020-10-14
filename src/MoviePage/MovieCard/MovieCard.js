@@ -2,8 +2,11 @@ import React from 'react';
 import './MovieCard.scss'
 import moment from 'moment'
 
-export default function MovieCard({movieDetails}) {
+export default function MovieCard({name, movieDetails, ratedMovies}) {
+
+  const isMovieIncluded = ratedMovies.find(ratedMovie => ratedMovie.movie_id === movieDetails.id) || '';
   const genreList = movieDetails.genres.map((genre, i) => <p className='single-genre'key={i}>-{genre}</p>)
+
   return (
     <div  className="movie-card-container">
 
@@ -14,10 +17,15 @@ export default function MovieCard({movieDetails}) {
           <p className="value overview">{movieDetails.overview}</p>
         </div>
 
-        <div className="box runtime-container">
+        <div className="box rating-container">
           <h1 className="title rating-title">Rating</h1>
           <p className="value average-rating">{movieDetails.average_rating.toFixed(1)}</p>
         </div>
+
+        {isMovieIncluded && <div className="box rating-container">
+          <h1 className="title rating-title">Your rating</h1>
+          <p className="value average-rating">{isMovieIncluded.rating.toFixed(1)}</p>
+        </div>}
 
         <div className="box runtime-container">
           <h1 className="title runtime-title">Time</h1>

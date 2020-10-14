@@ -10,7 +10,6 @@ export class Card extends Component{
 
   displayMovie = () => {
     this.props.getMovieDetails(this.props.movies.id)
-    console.log(this.props.movies.id)
   }
 
   render() {

@@ -9,9 +9,9 @@ export const MoviePage = ( {
   movieVideo, 
   addRating, 
   name, 
-  deleteRating
+  deleteRating,
+  ratedMovies
 }) => {
-
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
       return (
@@ -24,8 +24,8 @@ export const MoviePage = ( {
           />
         </div>
       )
-    })
-   }
+    });
+  }
 
   return (
     <div className="movie-container">
@@ -51,7 +51,9 @@ export const MoviePage = ( {
           </div>
 
             <MovieCard 
+              name={name}
               movieDetails={movieDetails}
+              ratedMovies={ratedMovies}
             />
 
         </div>
