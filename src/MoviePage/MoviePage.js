@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import MovieCard from './MovieCard/MovieCard';
-import MovieHeader from './MovieHeader/MovieHeader';
+import PropTypes from 'prop-types'
+import { MovieCard } from './MovieCard/MovieCard';
+import { MovieHeader } from './MovieHeader/MovieHeader';
 import './MoviePage.scss';
 
 export const MoviePage = ( {
@@ -17,17 +18,17 @@ export const MoviePage = ( {
       return (
         <div key={i} className="movie-trailer" alt="movie trailer">
           <ReactPlayer
-          alt="movie trailer"
-          width={350}
-          height={250}
-          url={`www.youtube.com/watch?v=${video.key}`}
+            alt="movie trailer"
+            controls={true}
+            width={350}
+            height={250}
+            url={`www.youtube.com/watch?v=${video.key}`}
           />
         </div>
       )
     });
   }
 
-  console.log(movieVideo)
   return (
     <div className="movie-container">
 
@@ -61,5 +62,14 @@ export const MoviePage = ( {
  
     </div>
   )
+}
+
+MoviePage.propTypes = {
+  addRating: PropTypes.func,
+  deleteRating: PropTypes.func,
+  movieDetails: PropTypes.object,
+  movieVideo: PropTypes.array,
+  name: PropTypes.string,
+  ratedMovies: PropTypes.array
 }
 

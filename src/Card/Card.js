@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Card.scss'
 import moment from 'moment'
 
@@ -39,4 +40,10 @@ export class Card extends Component{
         </NavLink>
     )
   }
+}
+
+Card.propTypes = {
+  getMovieDetails: PropTypes.func,
+  movies: PropTypes.object,
+  ratedMovies: PropTypes.string
 }

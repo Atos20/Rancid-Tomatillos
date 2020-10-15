@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import moment from 'moment';
+import PropTypes from 'prop-types';
 import './SortMovies.scss';
 
 export class SortMovies extends Component {
@@ -51,15 +51,19 @@ export class SortMovies extends Component {
                     >Rating ascending </option>
                 </select>
                 <button 
-                type="apple" 
-                role="apple"
-                className="sort-btn"
-                name="sort"
-                onClick={this.getOptionValue}
+                  type="apple" 
+                  role="apple"
+                  className="sort-btn"
+                  name="sort"
+                  onClick={this.getOptionValue}
                 ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
                 </button>
               </div>          
             </div>
         )
     }
+}
+
+SortMovies.propType = {
+    sortMovies: PropTypes.func
 }

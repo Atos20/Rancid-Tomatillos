@@ -1,7 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
-
 import '../Homepage/Homepage.scss'
 
 export const NavBar = (props) => {
@@ -10,13 +9,6 @@ export const NavBar = (props) => {
         <nav className="nav-bar">
           <h1 className="main-title"><i className="fas fa-seedling"></i>Rancid Tomatillos</h1>
           <div className="search-container">
-            {/* <i className="fas fa-search"></i> */}
-            {/* <label htmlFor="search-bar">
-            <input
-              className="search-bar"
-              type="text" 
-              id="searh-bar"/>
-            </label> */}
           </div>
           <div className='button-container'>
             <Link to= '/' >
@@ -30,3 +22,7 @@ export const NavBar = (props) => {
     )
 }
 
+NavBar.prototype = {
+  name: PropTypes.string,
+  logOut: PropTypes.func
+}

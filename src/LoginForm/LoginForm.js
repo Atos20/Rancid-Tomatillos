@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { Link, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import './LoginForm.scss';
-//name: 'Diana', email: 'diana@turing.io', password: '111111', id: 82
+import PropTypes from 'prop-types';
 export class LoginForm extends Component {
-  constructor() {
-    super()  
+  constructor(props) {
+    super(props)  
  
     this.state = {
         userName: '',
@@ -52,9 +52,7 @@ export class LoginForm extends Component {
     }
     
     return (
-
       <form className="form-container">
-        {/* if not switch, try BrowserRouter */}
         
          <Link to='/' className="close-login">Back to Home</Link>
 
@@ -107,4 +105,8 @@ export class LoginForm extends Component {
       </form>
     )
   }
+}
+
+LoginForm.propTypes = {
+  authenticateUser: PropTypes.func
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './MovieHeader.scss';
 import Select from 'react-select';
 
-export default class MovieHeader extends Component {
+export class MovieHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +26,6 @@ export default class MovieHeader extends Component {
 
     handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    // console.log(`Option selected:`, selectedOption);
     }
 
     updateRating = () => {
@@ -64,3 +64,9 @@ export default class MovieHeader extends Component {
     }
 }
 
+MovieHeader.propTypes = {
+    name: PropTypes.string,
+    movieDetails: PropTypes.object,
+    deleteRating: PropTypes.func,
+    addRating: PropTypes.func
+}

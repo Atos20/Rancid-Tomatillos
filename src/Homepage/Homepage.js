@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { WelcomingSection } from '../WelcomingSection/WelcomingSection'
 import { Cards }  from '../Cards/Cards'
 import './Homepage.scss';
@@ -18,4 +19,10 @@ export const Homepage = (props) => {
   )
 }
 
+Homepage.propTypes = {
+  movies: PropTypes.array,
+  getMovieDetails: PropTypes.func,
+  sortMovies: PropTypes.func,
+  ratedMovies: PropTypes.array
+}
 
