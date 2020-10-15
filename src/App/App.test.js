@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './App.js';
+import {App} from './App.js';
 import { container, render, screen, waitFor, querySelector } from '@testing-library/react';
 import {  MemoryRouter } from 'react-router-dom';
 import fetcher from '../API/APIcalls';

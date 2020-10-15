@@ -7,7 +7,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('Card', () => {
   it('should return a card', () => {
-    const movieDeets = {id: 1, title: "Jurassic Park", release_date: '1993-08-29', average_rating: 10, poster_path: 'http//fakeURLpath'}
+    const movieDeets = {
+      id: 1, 
+      title: "Jurassic Park", 
+      release_date: '1993-08-29', 
+      average_rating: 10, 
+      poster_path: 'http//fakeURLpath'
+    }
     const fakeUserRating = '';
     render(
       <Router>
@@ -37,6 +43,5 @@ describe('Card', () => {
     
     const usersRating = screen.getByRole('heading', { name: /your rate 9\.0/i })
     expect(usersRating).toBeInTheDocument();
-    
   })
 })
