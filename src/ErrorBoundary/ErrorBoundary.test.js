@@ -7,6 +7,7 @@ import '@testing-library/jest-dom';
 describe('ErrorBoundary', () => {
   it('should render the error page', () => {
     render(<ErrorBoundary />);
-    expect(screen.getByText("Something went wrong.")).toBeInTheDocument();
+    const errorMessage = screen.getByRole('heading', { name: /something went wrong\./i })
+    expect(errorMessage).toBeInTheDocument();
   })
 })

@@ -28,4 +28,3 @@ import './Cards.scss'
   
 }
 
-// export default Cards;

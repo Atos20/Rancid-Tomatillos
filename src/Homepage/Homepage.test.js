@@ -1,14 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Cards } from '../Cards/Cards.js';
+import { Homepage } from '../Homepage/Homepage.js';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
-
-describe('Cards', () => {
-  it('should render movie cards', () => {
-    const fakeUserRating = [''];
+describe('Homepage', () => {
+  it('should render the Homepage with movies and thier ratings', () => {
+    const name = "Orlando";
+    const fakeRatedMovies = [
+    {id: 2650, user_id: 82, movie_id: 694919, rating: 10},
+    {id: 2661, user_id: 82, movie_id: 337401, rating: 8},
+    ]
     const movies = [
       {
         average_rating: 6.75, 
@@ -26,17 +29,13 @@ describe('Cards', () => {
         release_date: "2020-09-04",
         title: "Mulan"
       }
-    ]; 
+    ];
     render(
       <Router>
-        <Cards 
-          movies={movies} 
-          ratedMovies={fakeUserRating} 
-          getMovieDetails={jest.fn()} 
-          sortMovies={jest.fn()}
-        />
+        <Homepage name={name} movies={movies} ratedMovies={fakeRatedMovies}/>
       </Router>
-    )
+    );
+
 
     const movieName1 = screen.getByRole('heading', { name: /Money Plane/i });
     const movieDate1 = screen.getByRole('heading', { name: /september 29, 2020/i });
@@ -44,6 +43,9 @@ describe('Cards', () => {
     const movieName2 = screen.getByRole('heading', { name: /Mulan/i });
     const movieDate2 = screen.getByRole('heading', { name: /september 4, 2020/i });
     const movieRating2 = screen.getByRole('heading', { name: /6\.8/i });
+    const rateMovieHeader = screen.getByRole('heading', { name: /rate your next movie/i })
+    const ratedMovie1 = screen.getByRole('heading', { name: /your rate 10\.0/i })
+    const ratedMovie2 = screen.getByRole('heading', { name: /your rate 8\.0/i })
 
     expect(movieName1).toBeInTheDocument();
     expect(movieDate1).toBeInTheDocument();
@@ -51,5 +53,9 @@ describe('Cards', () => {
     expect(movieName2).toBeInTheDocument();
     expect(movieDate2).toBeInTheDocument();
     expect(movieRating2).toBeInTheDocument();
+    expect(rateMovieHeader).toBeInTheDocument();
+    expect(ratedMovie1).toBeInTheDocument();
+    expect(ratedMovie2).toBeInTheDocument();
+   
   })
 })
