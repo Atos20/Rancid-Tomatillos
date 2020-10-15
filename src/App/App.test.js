@@ -1,13 +1,13 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
 import App from './App.js';
-import '@testing-library/jest-dom';
+import { container, render, screen, waitFor, querySelector } from '@testing-library/react';
 import {  MemoryRouter } from 'react-router-dom';
 import fetcher from '../API/APIcalls';
+import userEvent from  '@testing-library/user-event';
+import '@testing-library/jest-dom';
 jest.mock('../API/APIcalls');
 
 describe('App', () => {
-  
   beforeEach(() => {
     
     fetcher.fetchAllMovies.mockResolvedValueOnce({
@@ -56,13 +56,6 @@ describe('App', () => {
       }
     ]);
 
-    fetcher.fetchUser.mockResolvedValueOnce(
-      {
-        email: "diana@turing.io",
-        id: 82,
-        name: "Diana"
-    }
-    )
 
     fetcher.fetchUserRatings.mockResolvedValueOnce([
       {
@@ -104,7 +97,6 @@ describe('App', () => {
       });
         
       it('Should be able to display movies on load', async () => {
-        console.log(waitFor)
         render(
           <MemoryRouter>
             <App />
@@ -118,14 +110,90 @@ describe('App', () => {
 
       })
 
-      it('A user should be able to login', () => {
-        // when the user clicks the login button the login Form should appear 
-        // on the page a user should be able to see the form with imput fiels and 2 more buttons 
-        //when the user click on the submit button and the information is correct the user is 
-        //redirected to the home page but the user see extra elementes, such as the user's name
+      it('A user should be able to login', async() => {
+        //setup
+       const credential =   {
+        email: "diana@turing.io",
+        id: 82,
+        name: "Diana"
+      }
+
+      fetcher.fetchUser.mockResolvedValueOnce(credential)
+        //render AppComponent
+        render(
+          <MemoryRouter>
+            <App />
+          </MemoryRouter> 
+        );
+        
+
+        // execution interact with the application
+          // when the user clicks the login button the login Form should appear 
+          userEvent.click(screen.getByRole('button', { name: /log in/i }))
+          // on the page a user should be able to see the form with input fields and 2 more buttons 
+          const submitButton = screen.getByRole('button', { name: /submit/i })
+          const homeBackButton = screen.getByRole('link', { name: /back to home/i })
+          //when the user clicks on the submit button and the information is correct the user is 
+          //the user need to fill out the information at this point an API request is made to get back the users ID
+          userEvent.type(screen.getByPlaceholderText('userName'), 'diana');//name
+          userEvent.type(screen.getByPlaceholderText('email'), 'diana@turing.io');//email
+          userEvent.type(screen.getByPlaceholderText('password'), '111111');//password
+          // screen.debug()
+          //the welcoming header should appear
+          // const welcomingHeader = screen.getByRole('heading', { name: /welcome!/i })
+          //the user Name should appear
+          // const usersName = screen.getByRole('heading', { name: /diana/i })
+          //Assertion
+          // is the login form visible on the page
+          expect(submitButton).toBeInTheDocument(); 
+          expect(homeBackButton).toBeInTheDocument(); 
+          userEvent.click(submitButton)
+
+          await fetcher.fetchUser.mockResolvedValueOnce(credential)
+
+          const welcomingMessage = await waitFor(() => screen.getByRole('heading', { name: /welcome!/i }))
+          const userName = await waitFor(() => screen.getByText('Diana'))
+          expect(welcomingMessage).toBeInTheDocument(); 
+          expect(userName).toBeInTheDocument(); 
+          
+
+          
+
       })
 
 /* 
+Expect 
+      expect('Diana').toBeInTheDocument();
+
+Variables
+
+const emailInput = screen.getByRole('input', { name: /email/i })
+
+fireEvent.change(emailInput, {target: {value: 'diana@turing.io'}})
+
+  correctUserCredentials = 
+    {
+        email: "diana@turing.io",
+        name: "Diana",
+        password: '111111'
+    }
+
+  incorrectUserCredentials1 = 
+    {
+      email: 'incorrectguy@incorrectsite.com',
+      name: 'BadGuy',
+      password: 'badword'
+    }
+
+    incorrectUserCredentials2 = 
+    {
+        email: "diana@turing.io",
+        name: "Diana",
+        password: '222222'
+    }
+
+
+
 Fired Events
 
    fireEvent.click(homeButton)
@@ -135,12 +203,16 @@ Fired Events
 
 It Blocks
 
+  it('should not let a user log in with incorrect or missing credentials', () => {
+    
+  })
   it('Should add a new rating when submitted by a user', () => {
 
   })
   it('should be able to delete a rating when a user chooses', () => {
 
   })
+
 
 
 
