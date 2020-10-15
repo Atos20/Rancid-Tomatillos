@@ -8,7 +8,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 describe('Card', () => {
   it('should return a card', () => {
     const movieDeets = {id: 1, title: "Jurassic Park", release_date: '1993-08-29', average_rating: 10, poster_path: 'http//fakeURLpath'}
-    // const fakeUserRating = {rating: 9};
     const fakeUserRating = '';
     render(
       <Router>
@@ -25,5 +24,19 @@ describe('Card', () => {
     expect(movieRating).toBeInTheDocument();
     expect(ratingTitle).toBeInTheDocument();
     expect(notRated).toBeInTheDocument();
+  })
+  
+  it('Should show a user\'s rating, if there is one', () => {
+    const movieDeets = {id: 1, title: "Jurassic Park", release_date: '1993-08-29', average_rating: 10, poster_path: 'http//fakeURLpath'}
+    const fakeUserRating = {rating: 9};
+    render(
+      <Router>
+        <Card movies={movieDeets} ratedMovies={fakeUserRating}/>
+      </Router>
+    )
+    
+    const usersRating = screen.getByRole('heading', { name: /your rate 9\.0/i })
+    expect(usersRating).toBeInTheDocument();
+    
   })
 })
