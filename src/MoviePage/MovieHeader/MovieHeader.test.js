@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MovieHeader from '../MovieHeader/MovieHeader.js';
+import { MovieHeader }  from '../MovieHeader/MovieHeader.js';
 import '@testing-library/jest-dom';
 
 describe('MovieHeader', () => {

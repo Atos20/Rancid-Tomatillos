@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MovieCard.scss'
 import moment from 'moment'
 
-export default function MovieCard({name, movieDetails, ratedMovies}) {
+export const MovieCard = ({ movieDetails, ratedMovies}) =>{
 
   const isMovieIncluded = ratedMovies.find(ratedMovie => ratedMovie.movie_id === movieDetails.id) || '';
   const genreList = movieDetails.genres.map((genre, i) => <p className='single-genre'key={i}>-{genre}</p>)
@@ -57,5 +58,10 @@ export default function MovieCard({name, movieDetails, ratedMovies}) {
     </div>
  
   )
+}
+
+MovieCard.propTypes = {
+  movieDetails: PropTypes.object,
+  ratedMovies: PropTypes.array
 }
 

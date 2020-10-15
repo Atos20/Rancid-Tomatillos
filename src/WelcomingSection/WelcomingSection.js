@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './WelcomingSection.scss';
 
-export function WelcomingSection(props) {
+export const WelcomingSection = (props) => {
 
   return(
     <div className="movie-section">
@@ -10,4 +11,8 @@ export function WelcomingSection(props) {
       <h3 className="movie-day">Rate your next movie</h3>
     </div>
   )
+}
+
+WelcomingSection.propTypes = {
+  name: PropTypes.object
 }
