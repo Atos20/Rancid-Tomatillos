@@ -27,21 +27,36 @@ export class SortMovies extends Component {
                 <h4 className="sort-title">sort by</h4>
 
                 <select
+                    role="select-sorting"
                     className="sort-select"
                     name="value" 
                     value={this.state.value} 
                     onChange={this.updateSortValue} 
                     id="sort-select"
                     >
-                    <option name="none" value="none">--none--</option>
-                    <option name="average_rating" value="descending">Rating descending </option>
-                    <option name="average_rating" value="ascending">Rating ascending </option>
+                    <option 
+                    data-testid='none'
+                    name="none" 
+                    value="none"
+                    >--none--</option>
+                    <option 
+                    data-testid='descending-one'
+                    name="average_rating" 
+                    value="descending"
+                    >Rating descending </option>
+                    <option 
+                    data-testid='ascending'
+                    name="average_rating" 
+                    value="ascending"
+                    >Rating ascending </option>
                 </select>
                 <button 
+                type="apple" 
+                role="apple"
                 className="sort-btn"
                 name="sort"
                 onClick={this.getOptionValue}
-                ><i className="fas fa-apple-alt"></i>
+                ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
                 </button>
               </div>          
             </div>

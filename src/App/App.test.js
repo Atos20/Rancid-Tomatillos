@@ -82,7 +82,7 @@ describe('App', () => {
         const homeButton = screen.getByRole('button', { name: /home/i })
         const loginButton = screen.getByRole('button', { name: /log in/i })
         const sortTitle = screen.getByRole('heading', { name: /sort by/i })
-        const sortSelect = screen.getByRole('combobox')
+        const sortSelect = screen.getByRole('select-sorting')
         const sortButton = screen.getByRole('heading', { name: /sort by/i })
   
 
@@ -155,12 +155,10 @@ describe('App', () => {
           const userName = await waitFor(() => screen.getByText('Diana'))
           expect(welcomingMessage).toBeInTheDocument(); 
           expect(userName).toBeInTheDocument(); 
-          
-
-          
 
       })
 
+      
 /* 
 Expect 
       expect('Diana').toBeInTheDocument();
