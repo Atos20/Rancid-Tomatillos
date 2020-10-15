@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import fetcher from '../API/APIcalls';
+import React from 'react'
 import { Card } from '../Card/Card'
 import { SortMovies } from '../SortMovies/SortMovies'
 import './Cards.scss'

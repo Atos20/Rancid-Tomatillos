@@ -49,7 +49,6 @@ const fetcher = {
         // .catch(err => err.message)
     },
 
-    // movieInfo = { movie_id: <Integer>, rating: <Integer between 1 and 10> }
     fetchCreateUserRating(userID, newRating) {
       let int = {
         method: 'POST',

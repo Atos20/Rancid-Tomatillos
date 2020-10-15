@@ -65,7 +65,7 @@ export class LoginForm extends Component {
           type="text" 
           className="title" 
           id="userName" 
-          placeholder="User name"
+          placeholder="userName"
           value={userName}
           onChange={this.updateChange}
           />

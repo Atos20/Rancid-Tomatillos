@@ -64,13 +64,13 @@ export class App extends Component{
     })
   }
 
-  async componentDidMount() {
-    this.loadAllMovies()
-  }
-
   async loadAllMovies() {
     const promise = await fetcher.fetchAllMovies();
     this.setState({movies: promise.movies})
+  }
+
+  async componentDidMount() {
+    this.loadAllMovies()
   }
 
   sortMovies = (value) => {
@@ -94,6 +94,7 @@ export class App extends Component{
       const addNewRating = await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
+      this.loadAllMovies()
       this.setState({ratedMovies: allUserRatings})
       this.loadAllMovies()
     } else {
@@ -113,6 +114,7 @@ export class App extends Component{
       const deleteSingleRating = await fetcher.fetchDeleteUserRating(id, ratingID)
       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
+      this.loadAllMovies()
       this.setState({ratedMovies: allUserRatings})
       this.loadAllMovies()
     } else {
@@ -121,6 +123,7 @@ export class App extends Component{
   }
 
   render(){
+    // console.log(this.state.movies)
     return (
       <>
         <h1 className="login-info">
@@ -137,7 +140,9 @@ export class App extends Component{
           <Route 
             path='/login' 
             render={() => {
-              return  <LoginForm authenticateUser={this.authenticateUser} login={this.state.userData}/>
+            return  <LoginForm 
+              authenticateUser={this.authenticateUser} 
+              login={this.state.userData}/>
             }}
           />
 
