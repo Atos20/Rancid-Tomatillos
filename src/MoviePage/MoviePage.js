@@ -27,6 +27,7 @@ export const MoviePage = ( {
     });
   }
 
+  console.log(movieVideo)
   return (
     <div className="movie-container">
 

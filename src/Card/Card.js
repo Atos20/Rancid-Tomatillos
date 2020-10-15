@@ -26,6 +26,7 @@ export class Card extends Component{
               <h2 className="movie-rating">{average_rating.toFixed(1)}</h2>
             </div>
                 <img 
+                  name={title}
                   id={id} 
                   className="movie-img" src={poster_path} 
                   >
