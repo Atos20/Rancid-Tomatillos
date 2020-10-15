@@ -5,6 +5,7 @@ import { Cards }  from '../Cards/Cards'
 import './Homepage.scss';
 
 export const Homepage = (props) => {
+  console.log(props.ratedMovies)
 
   return(
     <>

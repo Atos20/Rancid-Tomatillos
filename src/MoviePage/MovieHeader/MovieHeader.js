@@ -50,12 +50,13 @@ export class MovieHeader extends Component {
                 <button className="delete-rating" onClick={this.removeRating}>Delete Rating</button>
                 
                     <Select 
+                      role="select-rating"
                       placeholder="Rating" 
                       className="selector" 
                       options={this.ratingValue} 
                       value={this.state.selectedOption} 
                       onChange={this.handleChange}
-                    />
+                    />  
 
                 <button className="add-rating" onClick={this.updateRating}>Rate Movie</button>
             </div>}
