@@ -13,7 +13,7 @@ export const MoviePage = ( {
   name, 
   deleteRating,
   ratedMovies,
-  postComment
+  newComment
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -57,7 +57,7 @@ export const MoviePage = ( {
           </div>
 
             <Comment 
-              postComment={postComment}
+              newComment={newComment}
               movieId={movieDetails.id}
               name={name}
             />
@@ -81,6 +81,6 @@ MoviePage.propTypes = {
   movieVideo: PropTypes.array,
   name: PropTypes.string,
   ratedMovies: PropTypes.array,
-  postComment: PropTypes.func
+  newComment: PropTypes.func
 }
 

@@ -22,6 +22,7 @@ export class App extends Component{
         email: ''
       },
       movies: [],
+      movieComments: [],
       ratedMovies: [],
       movieID: null,
       movieDetails: {},
@@ -122,10 +123,13 @@ export class App extends Component{
     }
   }
 
-  postComment = async(movieId, userComment) => {
+  newComment = async(movieId, userComment) => {
     const { name } = this.state.userData 
     const data= { comment: userComment, author: name}
-    const promise = await fetcher.addUserComment(movieId, data);
+    if (!name) {
+      return false
+    }
+    const promise = await fetcher.addMovieComment(movieId, data);
     console.log(promise)
   }
 
@@ -178,7 +182,7 @@ export class App extends Component{
                 movieVideo={this.state.movieVideo}
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
-                postComment={this.postComment}
+                newComment={this.newComment}
               /> 
             }}
           />
