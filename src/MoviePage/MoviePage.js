@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types'
 import { MovieCard } from './MovieCard/MovieCard';
 import { MovieHeader } from './MovieHeader/MovieHeader';
+import { Comment } from '../Comment/Comment'
 import './MoviePage.scss';
 
 export const MoviePage = ( {
@@ -51,6 +52,8 @@ export const MoviePage = ( {
           <div className=" trailer-container">
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
+
+            <Comment />
 
             <MovieCard 
               name={name}
