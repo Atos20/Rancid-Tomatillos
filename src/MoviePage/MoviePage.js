@@ -12,7 +12,8 @@ export const MoviePage = ( {
   addRating, 
   name, 
   deleteRating,
-  ratedMovies
+  ratedMovies,
+  postComment
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -30,6 +31,8 @@ export const MoviePage = ( {
     });
   }
 
+
+  console.log(movieDetails.id)
   return (
     <div className="movie-container">
 
@@ -53,7 +56,11 @@ export const MoviePage = ( {
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
 
-            <Comment />
+            <Comment 
+              postComment={postComment}
+              movieId={movieDetails.id}
+              name={name}
+            />
 
             <MovieCard 
               name={name}
@@ -73,6 +80,7 @@ MoviePage.propTypes = {
   movieDetails: PropTypes.object,
   movieVideo: PropTypes.array,
   name: PropTypes.string,
-  ratedMovies: PropTypes.array
+  ratedMovies: PropTypes.array,
+  postComment: PropTypes.func
 }
 
