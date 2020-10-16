@@ -76,7 +76,8 @@ const fetcher = {
         .catch(err => console.log('err', err))
     },
 
-    addUserComment(comment){
+    addUserComment(movieID, comment){
+      //this method requires to pass the movieId and the comment object with the author name => users name and comment 
       const int = {
         method: 'POST',
         headers: {
@@ -84,7 +85,7 @@ const fetcher = {
         },
         body: JSON.stringify(comment)
     }
-      const fetchedUser = `https://localhost:5001/api/v1/movies/1/comments`
+      const fetchedUser = `https://localhost:5001/api/v1/movies/${movieID}/comments`
       return fetch(fetchedUser, int)
         .then(request => request.json())
         .then(response => response)
