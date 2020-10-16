@@ -14,6 +14,7 @@ export class Card extends Component{
   }
 
   render() {
+
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
     
     return (
@@ -45,5 +46,5 @@ export class Card extends Component{
 Card.propTypes = {
   getMovieDetails: PropTypes.func,
   movies: PropTypes.object,
-  ratedMovies: PropTypes.string
+  ratedMovies:  PropTypes.object 
 }
