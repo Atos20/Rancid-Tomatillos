@@ -122,6 +122,10 @@ export class App extends Component{
     }
   }
 
+  postComment = async(comment) => {
+    const post = await fetcher.addUserComment(this.state.userData.name, comment);
+  }
+
   render(){
     // console.log(this.state.movies)
     return (
@@ -171,6 +175,7 @@ export class App extends Component{
                 movieVideo={this.state.movieVideo}
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
+                postComment={this.postComment}
               /> 
             }}
           />
