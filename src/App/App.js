@@ -40,7 +40,8 @@ export class App extends Component{
     const userData = await fetcher.fetchUser(credentials)
     if (userData) {
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
-      this.setState({ userData, ratedMovies })
+      this.setState({ userData, ratedMovies });
+      this.retrieveFavorites();
     } else {
       alert('Those aren\'t the right credentials')
     }
@@ -134,6 +135,12 @@ export class App extends Component{
     console.log(promise)
   }
 
+  retrieveFavorites = async() => {
+    const favoriteMovies = await fetcher.getUserFavorites();
+    this.setState({ favorites: favoriteMovies })
+    console.log("favoriteMovies", favoriteMovies)
+  }
+
   render(){
     // console.log(this.state.movies)
     return (
@@ -168,6 +175,7 @@ export class App extends Component{
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
                   ratedMovies={this.state.ratedMovies}
+                  favorites={this.state.favorites}
                 />
               )
             }}
@@ -184,7 +192,7 @@ export class App extends Component{
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
-                favorites={this.state.favorites}
+                // favorites={this.state.favorites}
               /> 
             }}
           />

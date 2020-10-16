@@ -114,7 +114,7 @@ const fetcher = {
 
     getUserFavorites() {
       const fetchedDeleteRating = `http://localhost:3001/api/v1/favorites`
-      return fetch(fetchedDeleteRating, int)
+      return fetch(fetchedDeleteRating)
       .then(request => request.json())
       .then(promise => promise)
       .catch(err => console.log('err', err))
