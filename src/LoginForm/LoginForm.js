@@ -59,13 +59,13 @@ export class LoginForm extends Component {
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
           <input 
-          name="userName"
-          type="text" 
-          className="title" 
-          id="userName" 
-          placeholder="userName"
-          value={userName}
-          onChange={this.updateChange}
+            name="userName"
+            type="text" 
+            className="title" 
+            id="userName" 
+            placeholder="userName"
+            onChange={this.updateChange}
+            value={userName}
           />
         </label>
 
