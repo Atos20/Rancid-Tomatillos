@@ -20,7 +20,7 @@ export class Comment extends Component  {
         if(!this.state.comment || !this.props.name){
             return false
         }
-        this.props.postComment(this.props.movieId, this.state.comment)
+        this.props.newComment(this.props.movieId, this.state.comment)
     }
 
     render() {
