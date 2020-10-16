@@ -27,6 +27,7 @@ export class App extends Component{
       movieID: null,
       movieDetails: {},
       movieVideo: {},
+      favorites: [],
       error: ''
     }
   }
@@ -183,14 +184,28 @@ export class App extends Component{
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
+                favorites={this.state.favorites}
               /> 
             }}
           />
-            <Route 
-              exact path='*' 
-              render={() => {
-              return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
-            }} />
+          <Route 
+            exact path='/favorites'
+            render={ () => {
+              return <Homepage
+              name={this.state.userData}
+              movies={this.state.movies.filter(movie => this.state.favorites.includes(movie.id))}
+              getMovieDetails={this.getMovieDetails}
+              sortMovies={this.sortMovies}
+              ratedMovies={this.state.ratedMovies}
+              favorites={this.state.favorites}
+              />
+            }}
+          />
+          <Route 
+            exact path='*' 
+            render={() => {
+            return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
+          }} />
         </Switch>
       </>
     );
