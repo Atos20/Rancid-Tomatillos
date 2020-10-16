@@ -5,6 +5,7 @@ const fetcher = {
     return fetch(fetchedAllMovies)
       .then(response => response.json())
       .then(data => data)
+      // .catch(err => err.message)
       .catch(err => console.log('err', err))
     },
 
@@ -13,7 +14,7 @@ const fetcher = {
       return fetch(fetchedSingleMovie)
         .then(request => request.json())
         .then(promise => promise)
-        // .catch(err => err)
+        // .catch(err => err.message)
         .catch(err => console.log('err', err))
     },
 
@@ -22,7 +23,7 @@ const fetcher = {
       return fetch(fetchedMovieVideos)
         .then(request => request.json())
         .then(promise => promise)
-        // .catch(err => err)
+        // .catch(err => err.message)
         .catch(err => console.log('err', err))
     },
 
@@ -38,7 +39,8 @@ const fetcher = {
       return fetch(fetchedUser, int)
         .then(request => request.json())
         .then(data => data.user)
-        .catch(err =>  err)
+        // .catch(err => err.message)
+        .catch(err => console.log('err', err))
     },
 
     fetchUserRatings(userID) {
@@ -47,6 +49,7 @@ const fetcher = {
         .then(request => request.json())
         .then(data => data.ratings)
         // .catch(err => err.message)
+        .catch(err => console.log('err', err))
     },
 
     fetchCreateUserRating(userID, newRating) {
@@ -58,9 +61,9 @@ const fetcher = {
         body: JSON.stringify(newRating)
       }
       const fetchedUserRating = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
-      const promise = fetch(fetchedUserRating, int)
+      return fetch(fetchedUserRating, int)
         .then(request => request.json())
-      return promise
+        .then(promise => promise)
         .catch(err => console.log('err', err))
     },
 
@@ -70,6 +73,22 @@ const fetcher = {
       return fetch(fetchedDeleteRating, int)
         .then(request => request.json())
         .then(promise => promise)
+        .catch(err => console.log('err', err))
+    },
+
+    addUserComment(comment){
+      const int = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comment)
+    }
+      const fetchedUser = `https://localhost:5001/api/v1/movies/1/comments`
+      return fetch(fetchedUser, int)
+        .then(request => request.json())
+        .then(response => response)
+        // .catch(err => err.message)
         .catch(err => console.log('err', err))
     }
   }
