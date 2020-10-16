@@ -7,7 +7,7 @@ export class Comment extends Component  {
     super(props)
 
     this.state = {
-      value : ''
+      comment : ''
     }
   }
 
@@ -17,18 +17,19 @@ export class Comment extends Component  {
     }
 
     postComment = () => {
-        
+        if(!this.state.comment || !this.props.name){
+            return false
+        }
+        this.props.postComment(this.props.movieId, this.state.comment)
     }
 
     render() {
- 
-
         return (
           <div className="comment-container">
             <div className="inner-comment">
               <input
                 type="text"
-                name="value"
+                name="comment"
                 role="comment-section"
                 type="comment-section"
                 maxLength = "120"
@@ -39,7 +40,7 @@ export class Comment extends Component  {
               <button 
               role="commnt-button"
               type="commnt-button"
-              onClick={this.getComment}
+              onClick={this.postComment}
               className="comment-button">
               add comment
               </button>
@@ -49,8 +50,8 @@ export class Comment extends Component  {
     }
 }
 
-// Comment.propTypes = {
-//     commentValue : PropTypes.string,
-//     updateValue : PropTypes.func,
-//     getValue : PropTypes.func
-// }
+Comment.propTypes = {
+    postComment: PropTypes.func,
+    movieId: PropTypes.number,
+    name: PropTypes.string
+}
