@@ -101,8 +101,8 @@ const fetcher = {
       return fetch(URL)
         .then(request => request.json())
         .then(response => response)
-        // .catch(err => err.message)
-        .catch(err => console.log('err', err.message))
+        .catch(err => err.message)
+        // .catch(err => console.log('err', err.message))
     }
   }
 
