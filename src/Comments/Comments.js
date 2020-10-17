@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import './Comment.scss'
+import './Comments.scss'
 
-export class Comment extends Component  {
+export class Comments extends Component  {
   constructor(props) {
     super(props)
 
