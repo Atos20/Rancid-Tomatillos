@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types'
 import { MovieCard } from './MovieCard/MovieCard';
 import { MovieHeader } from './MovieHeader/MovieHeader';
-import { Comment } from '../Comment/Comment'
+import { Comments } from '../Comments/Comments'
 import './MoviePage.scss';
 
 export const MoviePage = ( {
@@ -13,7 +13,8 @@ export const MoviePage = ( {
   name, 
   deleteRating,
   ratedMovies,
-  newComment
+  newComment,
+  movieComments
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -32,18 +33,18 @@ export const MoviePage = ( {
   }
 
 
-  console.log(movieDetails.id)
+  // console.log(movieDetails.id)
   return (
     <div className="movie-container">
 
         <div className="movie-wrapper">
 
-            <MovieHeader 
-              addRating={addRating} 
-              movieDetails={movieDetails} 
-              name={name}
-              deleteRating={deleteRating}
-            />
+          <MovieHeader 
+            addRating={addRating} 
+            movieDetails={movieDetails} 
+            name={name}
+            deleteRating={deleteRating}
+          />
 
           <div className=" img-container">
             <img 
@@ -56,17 +57,18 @@ export const MoviePage = ( {
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
 
-            <Comment 
-              newComment={newComment}
-              movieId={movieDetails.id}
-              name={name}
-            />
+          <Comments 
+            newComment={newComment}
+            movieId={movieDetails.id}
+            name={name}
+            movieComments={movieComments}
+          />
 
-            <MovieCard 
-              name={name}
-              movieDetails={movieDetails}
-              ratedMovies={ratedMovies}
-            />
+          <MovieCard 
+            name={name}
+            movieDetails={movieDetails}
+            ratedMovies={ratedMovies}
+          />
 
         </div>
  
@@ -81,6 +83,7 @@ MoviePage.propTypes = {
   movieVideo: PropTypes.array,
   name: PropTypes.string,
   ratedMovies: PropTypes.array,
-  newComment: PropTypes.func
+  newComment: PropTypes.func,
+  movieComments: PropTypes.array
 }
 

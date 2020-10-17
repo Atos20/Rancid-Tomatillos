@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import './Comment.scss'
+import './Comments.scss'
 
-export class Comment extends Component  {
+export class Comments extends Component  {
   constructor(props) {
     super(props)
 
@@ -24,6 +24,7 @@ export class Comment extends Component  {
     }
 
     render() {
+      console.log(this.props.movieComments)
         return (
           <div className="comment-container">
             <div className="inner-comment">
@@ -45,6 +46,7 @@ export class Comment extends Component  {
               add comment
               </button>
             </div>
+
           </div>
         )
     }
@@ -53,5 +55,6 @@ export class Comment extends Component  {
 Comment.propTypes = {
     postComment: PropTypes.func,
     movieId: PropTypes.number,
-    name: PropTypes.string
+    name: PropTypes.string,
+    movieComments: PropTypes.array
 }

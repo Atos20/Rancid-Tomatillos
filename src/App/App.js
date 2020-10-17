@@ -125,6 +125,17 @@ export class App extends Component{
     }
   }
 
+  retrieveFavorites = async() => {
+    const favoriteMovies = await fetcher.getUserFavorites();
+    this.setState({ favorites: favoriteMovies })
+    console.log("favoriteMovies", favoriteMovies)
+  }
+  
+  addToFavorites = async(movieID) => {
+    await fetcher.addUserFavorites(movieID);
+    await this.retrieveFavorites();
+  }
+  
   newComment = async(movieId, userComment) => {
     const { name } = this.state.userData 
     const data= { comment: userComment, author: name}
@@ -135,19 +146,22 @@ export class App extends Component{
     console.log(promise)
   }
 
-  retrieveFavorites = async() => {
-    const favoriteMovies = await fetcher.getUserFavorites();
-    this.setState({ favorites: favoriteMovies })
-    console.log("favoriteMovies", favoriteMovies)
-  }
-
-  addToFavorites = async(movieID) => {
-    await fetcher.addUserFavorites(movieID);
-    await this.retrieveFavorites();
+  retrieveComments = async (movieId) => {
+  const { name } = this.state.userData 
+    // if (!name) {
+    //   return false
+    // }
+    const promise = await fetcher.getMovieComments(movieId)
+    if (promise === 'Failed to Fetch'){
+      this.setState({error: promise})
+    } else {
+      this.setState({movieComments: promise.comments})
+    }
+    // console.log(promise)
   }
 
   render(){
-    // console.log(this.state.movies)
+    // console.log(this.state.movieComments)
     return (
       <>
         <h1 className="login-info">
@@ -177,10 +191,12 @@ export class App extends Component{
                 <Homepage 
                   name={this.state.userData}
                   movies={this.state.movies}
+                  movieComments={this.state.movieComments}
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
                   ratedMovies={this.state.ratedMovies}
                   favorites={this.state.favorites}
+                  retrieveComments={this.retrieveComments}
                 />
               )
             }}
@@ -198,6 +214,7 @@ export class App extends Component{
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
                 favorites={this.state.favorites}
+                movieComments={this.state.movieComments}
               /> 
             }}
           />

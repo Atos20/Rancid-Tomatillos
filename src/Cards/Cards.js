@@ -13,6 +13,7 @@ import './Cards.scss';
           key={i} 
           movies={movie}
           getMovieDetails={props.getMovieDetails}
+          retrieveComments={props.retrieveComments}
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || {}}
           favorites={props.favorites.find(favoritedMovie => favoritedMovie.id === movie.id) || ''}
         />
@@ -33,7 +34,9 @@ Cards.propTypes = {
   movies: PropTypes.array,
   sortMovies: PropTypes.func,
   ratedMovies: PropTypes.array,
-  getMovieDetails: PropTypes.func
+  getMovieDetails: PropTypes.func,
+  retrieveComments: PropTypes.func,
+  
 }
 
 
