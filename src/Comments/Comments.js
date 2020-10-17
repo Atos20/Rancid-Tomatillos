@@ -24,6 +24,7 @@ export class Comments extends Component  {
     }
 
     render() {
+      console.log(this.props.movieComments)
         return (
           <div className="comment-container">
             <div className="inner-comment">
@@ -45,6 +46,7 @@ export class Comments extends Component  {
               add comment
               </button>
             </div>
+
           </div>
         )
     }
@@ -53,5 +55,6 @@ export class Comments extends Component  {
 Comment.propTypes = {
     postComment: PropTypes.func,
     movieId: PropTypes.number,
-    name: PropTypes.string
+    name: PropTypes.string,
+    movieComments: PropTypes.array
 }
