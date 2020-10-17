@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types'
 import { MovieCard } from './MovieCard/MovieCard';
 import { MovieHeader } from './MovieHeader/MovieHeader';
-import { Comment } from '../Comment/Comment'
+import { Comments } from '../Comments/Comments'
 import './MoviePage.scss';
 
 export const MoviePage = ( {
@@ -32,18 +32,18 @@ export const MoviePage = ( {
   }
 
 
-  console.log(movieDetails.id)
+  // console.log(movieDetails.id)
   return (
     <div className="movie-container">
 
         <div className="movie-wrapper">
 
-            <MovieHeader 
-              addRating={addRating} 
-              movieDetails={movieDetails} 
-              name={name}
-              deleteRating={deleteRating}
-            />
+          <MovieHeader 
+            addRating={addRating} 
+            movieDetails={movieDetails} 
+            name={name}
+            deleteRating={deleteRating}
+          />
 
           <div className=" img-container">
             <img 
@@ -56,17 +56,17 @@ export const MoviePage = ( {
           {movieVideo.length > 0 && <div className="trailerList">{displayTrailer()}</div>}
           </div>
 
-            <Comment 
-              newComment={newComment}
-              movieId={movieDetails.id}
-              name={name}
-            />
+          <Comments 
+            newComment={newComment}
+            movieId={movieDetails.id}
+            name={name}
+          />
 
-            <MovieCard 
-              name={name}
-              movieDetails={movieDetails}
-              ratedMovies={ratedMovies}
-            />
+          <MovieCard 
+            name={name}
+            movieDetails={movieDetails}
+            ratedMovies={ratedMovies}
+          />
 
         </div>
  
