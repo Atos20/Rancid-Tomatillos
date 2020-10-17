@@ -103,7 +103,32 @@ const fetcher = {
         .then(response => response)
         .catch(err => err.message)
         // .catch(err => console.log('err', err.message))
+    },
+
+    getUserFavorites() {
+      const fetchedDeleteRating = `http://localhost:3001/api/v1/favorites`
+      return fetch(fetchedDeleteRating)
+      .then(request => request.json())
+      .then(promise => promise)
+      .catch(err => console.log('err', err))
+    },
+
+    // movie id { id: <Number>}
+    addUserFavorites(movieID) {
+      const int = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(movieID)
+      }
+      const fetchedDeleteRating = `http://localhost:3001/api/v1/favorites`
+      return fetch(fetchedDeleteRating, int)
+      .then(request => request.json())
+      .then(promise => promise)
+      .catch(err => console.log('err', err))
     }
+    
   }
 
   export default fetcher;

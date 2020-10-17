@@ -30,6 +30,10 @@ export class Card extends Component{
             >
             <h1 className="movie-title">{title}</h1>
             <h2 className="movie-release">{moment(release_date).format('LL')}</h2>
+            {this.props.favorites ? 
+            <h2 className="favorite-movie">Heart</h2> :
+            <h2 className="favorite-movie">No Heart!</h2>
+            }
             <div className="rating-container">
               <h2 className="movie-rating">Rating</h2>
               <h2 className="movie-rating">{average_rating.toFixed(1)}</h2>
