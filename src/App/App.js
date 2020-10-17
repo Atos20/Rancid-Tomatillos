@@ -132,9 +132,7 @@ export class App extends Component{
   }
   
   toggleFavorite = async(movieID) => {
-    console.log("movieID", movieID)
-    // const findableID = movieID.toString().slice(1)
-    await fetcher.addUserFavorites({ id: movieID});
+    await fetcher.addUserFavorites({ id: movieID });
     await this.retrieveFavorites();
   }
   
