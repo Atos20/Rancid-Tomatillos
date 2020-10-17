@@ -17,6 +17,7 @@ import './Cards.scss';
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || {}}
           favorites={props.favorites.find(favoritedMovie => favoritedMovie === movie.id) || ''}
           toggleFavorite={props.toggleFavorite}
+          status={props.status.id || ''}
         />
       )
     });

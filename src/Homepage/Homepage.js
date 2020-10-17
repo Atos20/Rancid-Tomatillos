@@ -9,21 +9,26 @@ export const Homepage = (props) => {
 
   return(
     <>
+    {/* props.name should be changed to props.userData */}
       <WelcomingSection name={props.name}/>
       <Cards 
         movies={props.movies}
         getMovieDetails={props.getMovieDetails}
         sortMovies={props.sortMovies}
         ratedMovies={props.ratedMovies}
-        favorites={props.favorites}
         retrieveComments={props.retrieveComments}
         toggleFavorite={props.toggleFavorite}
+        favorites={props.favorites}
+        // we should change the naming of props.name to be props.userData as this is what's being passed in
+        status={props.name}
       />
     </>
   )
 }
 
 Homepage.propTypes = {
+  //once again name should be changed to userData
+  name: PropTypes.object,
   movies: PropTypes.array,
   getMovieDetails: PropTypes.func,
   sortMovies: PropTypes.func,

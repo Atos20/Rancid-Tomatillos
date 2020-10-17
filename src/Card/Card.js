@@ -35,8 +35,12 @@ export class Card extends Component{
             >
             <h1 className="movie-title">{title}</h1>
             <h2 className="movie-release">{moment(release_date).format('LL')}</h2>
-            {this.props.favorites ? 
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>Heart</button> :
+            
+            {this.props.favorites && this.props.status &&
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>Heart</button>
+            }
+            
+            {!this.props.favorites && this.props.status &&
             <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>No Heart!</button>
             }
             <div className="rating-container">
