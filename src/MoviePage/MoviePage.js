@@ -13,7 +13,8 @@ export const MoviePage = ( {
   name, 
   deleteRating,
   ratedMovies,
-  newComment
+  newComment,
+  movieComments
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -60,6 +61,7 @@ export const MoviePage = ( {
             newComment={newComment}
             movieId={movieDetails.id}
             name={name}
+            movieComments={movieComments}
           />
 
           <MovieCard 
@@ -81,6 +83,7 @@ MoviePage.propTypes = {
   movieVideo: PropTypes.array,
   name: PropTypes.string,
   ratedMovies: PropTypes.array,
-  newComment: PropTypes.func
+  newComment: PropTypes.func,
+  movieComments: PropTypes.array
 }
 
