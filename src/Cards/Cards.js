@@ -16,6 +16,7 @@ import './Cards.scss';
           retrieveComments={props.retrieveComments}
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || {}}
           favorites={props.favorites.find(favoritedMovie => favoritedMovie.id === movie.id) || ''}
+          toggleFavorite={props.toggleFavorite}
         />
       )
     });
@@ -36,7 +37,8 @@ Cards.propTypes = {
   ratedMovies: PropTypes.array,
   getMovieDetails: PropTypes.func,
   retrieveComments: PropTypes.func,
-  
+  favorites: PropTypes.array,
+  toggleFavorite: PropTypes.func
 }
 
 

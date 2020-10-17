@@ -17,6 +17,7 @@ export const Homepage = (props) => {
         ratedMovies={props.ratedMovies}
         favorites={props.favorites}
         retrieveComments={props.retrieveComments}
+        toggleFavorite={props.toggleFavorite}
       />
     </>
   )
@@ -29,5 +30,6 @@ Homepage.propTypes = {
   ratedMovies: PropTypes.array,
   favorites: PropTypes.array,
   retrieveComment: PropTypes.func,
+  toggleFavorite: PropTypes.func
 }
 
