@@ -1,12 +1,11 @@
 .comment-container{
     background-color: red;
     grid-area: 4 / 1 / 5 / 3;
-    height: 15vh;
+    height: 5vh;
     padding: 2%;
 
     .inner-comment{
         background-color: #fff;
-        margin:2%;
-        height: 15vh;
+        height: 5vh;
     }
 }
