@@ -34,7 +34,8 @@ Cards.propTypes = {
   sortMovies: PropTypes.func,
   ratedMovies: PropTypes.array,
   getMovieDetails: PropTypes.func,
-  retrieveComments: PropTypes.func
+  retrieveComments: PropTypes.func,
+  
 }
 
 
