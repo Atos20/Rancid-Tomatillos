@@ -9,8 +9,9 @@ export class Card extends Component{
     super(props)
   }
 
-  displayMovie = () => {
+  displayMovieInformation = () => {
     this.props.getMovieDetails(this.props.movies.id)
+    this.props.retrieveComments(this.props.movies.id)
   }
 
   render() {
@@ -20,7 +21,13 @@ export class Card extends Component{
     return (
         <NavLink className="movie-card" to={`/movies/${id}`}>
 
-          <div key={id} id={id} className="card" onClick={this.displayMovie}>
+          <div 
+            role="movie-card"
+            key={id} 
+            id={id} 
+            className="card" 
+            onClick={this.displayMovieInformation}
+            >
             <h1 className="movie-title">{title}</h1>
             <h2 className="movie-release">{moment(release_date).format('LL')}</h2>
             <div className="rating-container">
@@ -46,5 +53,6 @@ export class Card extends Component{
 Card.propTypes = {
   getMovieDetails: PropTypes.func,
   movies: PropTypes.object,
-  ratedMovies:  PropTypes.object 
+  ratedMovies:  PropTypes.object,
+  retrieveComments: PropTypes.func
 }
