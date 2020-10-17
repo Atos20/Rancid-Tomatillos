@@ -14,6 +14,7 @@ export class Comments extends Component  {
     updateValue = (event) => {
       event.preventDefault();
       this.setState({[event.target.name]: event.target.value});
+      console.log(event.target)
     }
 
     postComment = () => {
@@ -24,20 +25,24 @@ export class Comments extends Component  {
     }
 
     render() {
-      console.log(this.props.movieComments)
+      // console.log(this.props.movieComments)
         return (
           <div className="comment-container">
+            
             <div className="inner-comment">
+            <h1 className="comment-title">Comments</h1>
               <input
+                className="input-text"
                 type="text"
                 name="comment"
                 role="comment-section"
                 type="comment-section"
                 maxLength = "120"
-                placeholder="add your comment here"
+                placeholder="Add your comment here"
                 onChange={this.updateValue}
                 value={this.state.commentValue}
               />
+
               <button 
               role="commnt-button"
               type="commnt-button"
@@ -45,6 +50,13 @@ export class Comments extends Component  {
               className="comment-button">
               add comment
               </button>
+              
+            <div 
+              role="comments"
+              type="comments"
+              className="comments">
+              <h1 className="title">hola</h1> 
+            </div>
             </div>
 
           </div>
