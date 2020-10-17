@@ -48,8 +48,9 @@ export const MoviePage = ( {
             // we would also change it here
             name={name.name}
             deleteRating={deleteRating}
-            favorites={favorites}
+            favorites={favorites.find(favoritedMovie => favoritedMovie === movieDetails.id) || ''}
             toggleFavorite={toggleFavorite}
+            movieId={movieDetails.id}
           />
 
           <div className=" img-container">
@@ -92,6 +93,10 @@ MoviePage.propTypes = {
   name: PropTypes.string,
   ratedMovies: PropTypes.array,
   newComment: PropTypes.func,
-  movieComments: PropTypes.array
+  movieComments: PropTypes.array,
+  toggleFavorite: PropTypes.func,
+  //now that I'm thinking about it, I think we could clean this before it gets passed in so that only one favorite movie is passed in
+  favorites: PropTypes.array
+
 }
 

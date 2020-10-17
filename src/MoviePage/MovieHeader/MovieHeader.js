@@ -36,6 +36,10 @@ export class MovieHeader extends Component {
         this.props.deleteRating()
     }
 
+    toggleFavorite(event) {
+        event.preventDefault();
+        this.props.toggleFavorite(this.props.movieId)
+    }
 
     render() {
 
@@ -44,7 +48,14 @@ export class MovieHeader extends Component {
         return (
             <div className="movie-header">
             <h1 className="title">{title}</h1>
-            <h2 className="tagline">{tagline}</h2>
+            <h2 className="tagline">{tagline}</h2>          
+            {this.props.favorites && this.props.name &&
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>Heart</button>
+            }
+            
+            {!this.props.favorites && this.props.name &&
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>No Heart!</button>
+            }
             {this.props.name && <div className="rate-movie">
                 
                 <button className="delete-rating" onClick={this.removeRating}>Delete Rating</button>

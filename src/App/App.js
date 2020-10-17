@@ -211,7 +211,8 @@ export class App extends Component{
                 deleteRating={this.deleteRating}
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
-                name={this.state.userData.name}
+                //I changed this to userData so I can have access to .id for toggling favorites
+                name={this.state.userData}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
                 movieComments={this.state.movieComments}
