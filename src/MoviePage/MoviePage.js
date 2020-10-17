@@ -10,11 +10,14 @@ export const MoviePage = ( {
   movieDetails, 
   movieVideo, 
   addRating, 
+  //we might want to change the "name" of 'name.name' to be 'userData.name'
   name, 
   deleteRating,
   ratedMovies,
   newComment,
-  movieComments
+  movieComments,
+  favorites,
+  toggleFavorite
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -32,8 +35,6 @@ export const MoviePage = ( {
     });
   }
 
-
-  // console.log(movieDetails.id)
   return (
     <div className="movie-container">
 
@@ -42,8 +43,12 @@ export const MoviePage = ( {
           <MovieHeader 
             addRating={addRating} 
             movieDetails={movieDetails} 
-            name={name}
+            // we would also change it here
+            name={name.name}
             deleteRating={deleteRating}
+            favorites={favorites.find(favoritedMovie => favoritedMovie === movieDetails.id) || ''}
+            toggleFavorite={toggleFavorite}
+            movieId={movieDetails.id}
           />
 
           <div className=" img-container">
@@ -60,12 +65,14 @@ export const MoviePage = ( {
           <Comments 
             newComment={newComment}
             movieId={movieDetails.id}
-            name={name}
+            //and here
+            name={name.name}
             movieComments={movieComments}
           />
 
           <MovieCard 
-            name={name}
+          //and here
+            name={name.name}
             movieDetails={movieDetails}
             ratedMovies={ratedMovies}
           />
@@ -84,6 +91,10 @@ MoviePage.propTypes = {
   name: PropTypes.string,
   ratedMovies: PropTypes.array,
   newComment: PropTypes.func,
-  movieComments: PropTypes.array
+  movieComments: PropTypes.array,
+  toggleFavorite: PropTypes.func,
+  //now that I'm thinking about it, I think we could clean this before it gets passed in so that only one favorite movie is passed in
+  favorites: PropTypes.array
+
 }
 

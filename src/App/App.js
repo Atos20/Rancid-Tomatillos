@@ -128,11 +128,10 @@ export class App extends Component{
   retrieveFavorites = async() => {
     const favoriteMovies = await fetcher.getUserFavorites();
     this.setState({ favorites: favoriteMovies })
-    console.log("favoriteMovies", favoriteMovies)
   }
   
-  addToFavorites = async(movieID) => {
-    await fetcher.addUserFavorites(movieID);
+  toggleFavorite = async(movieID) => {
+    await fetcher.addUserFavorites({ id: movieID });
     await this.retrieveFavorites();
   }
   
@@ -157,11 +156,9 @@ export class App extends Component{
     } else {
       this.setState({movieComments: promise.comments})
     }
-    // console.log(promise)
   }
 
   render(){
-    // console.log(this.state.movieComments)
     return (
       <>
         <h1 className="login-info">
@@ -195,8 +192,9 @@ export class App extends Component{
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
                   ratedMovies={this.state.ratedMovies}
-                  favorites={this.state.favorites}
                   retrieveComments={this.retrieveComments}
+                  favorites={this.state.favorites}
+                  toggleFavorite={this.toggleFavorite}
                 />
               )
             }}
@@ -210,11 +208,13 @@ export class App extends Component{
                 deleteRating={this.deleteRating}
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
-                name={this.state.userData.name}
+                //I changed this to userData so I can have access to .id for toggling favorites
+                name={this.state.userData}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
-                favorites={this.state.favorites}
                 movieComments={this.state.movieComments}
+                favorites={this.state.favorites}
+                toggleFavorite={this.toggleFavorite}
               /> 
             }}
           />
@@ -228,6 +228,7 @@ export class App extends Component{
               sortMovies={this.sortMovies}
               ratedMovies={this.state.ratedMovies}
               favorites={this.state.favorites}
+              toggleFavorite={this.toggleFavorite}
               />
             }}
           />
