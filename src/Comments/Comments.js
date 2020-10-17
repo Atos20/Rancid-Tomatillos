@@ -55,8 +55,24 @@ export class Comments extends Component  {
               role="comments"
               type="comments"
               className="comments">
-              <h1 className="title">hola</h1> 
+              <div className="user-container">
+                <h1 className="user">diana</h1> 
+                <h1 className="time">3 months ago</h1> 
+              </div>
+                <p className="comment-text">Battle-hardened O’Hara leads a lively mercenary team of soldiers on a daring mission: rescue hostages from their captors in remote Africa.</p>
             </div>
+            
+            <div 
+              role="comments"
+              type="comments"
+              className="comments">
+              <div className="user-container">
+                <h1 className="user">diana</h1> 
+                <h1 className="time">3 months ago</h1> 
+              </div>
+                <p className="comment-text">Battle-hardened O’Hara leads a lively mercenary team of soldiers on a daring mission: rescue hostages from their captors in remote Africa.</p>
+            </div>
+
             </div>
 
           </div>
