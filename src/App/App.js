@@ -138,12 +138,17 @@ export class App extends Component{
     // if (!name) {
     //   return false
     // }
-    const promise = await fetcher.getMovieComments(movieId) 
-    console.log(promise)
+    const promise = await fetcher.getMovieComments(movieId)
+    if (promise === 'Failed to Fetch'){
+      this.setState({error: promise})
+    } else {
+      this.setState({movieComments: promise.comments})
+    }
+    // console.log(promise)
   }
 
   render(){
-    // console.log(this.state.movies)
+    // console.log(this.state.movieComments)
     return (
       <>
         <h1 className="login-info">
@@ -173,6 +178,7 @@ export class App extends Component{
                 <Homepage 
                   name={this.state.userData}
                   movies={this.state.movies}
+                  movieComments={this.state.movieComments}
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
                   ratedMovies={this.state.ratedMovies}
@@ -193,6 +199,7 @@ export class App extends Component{
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
+                movieComments={this.state.movieComments}
               /> 
             }}
           />
