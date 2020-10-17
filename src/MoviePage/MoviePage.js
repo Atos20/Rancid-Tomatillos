@@ -35,8 +35,6 @@ export const MoviePage = ( {
     });
   }
 
-
-  // console.log(movieDetails.id)
   return (
     <div className="movie-container">
 
