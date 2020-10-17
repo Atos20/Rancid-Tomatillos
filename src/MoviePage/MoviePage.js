@@ -10,11 +10,14 @@ export const MoviePage = ( {
   movieDetails, 
   movieVideo, 
   addRating, 
+  //we might want to change the "name" of 'name.name' to be 'userData.name'
   name, 
   deleteRating,
   ratedMovies,
   newComment,
-  movieComments
+  movieComments,
+  favorites,
+  toggleFavorite
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -42,8 +45,11 @@ export const MoviePage = ( {
           <MovieHeader 
             addRating={addRating} 
             movieDetails={movieDetails} 
-            name={name}
+            // we would also change it here
+            name={name.name}
             deleteRating={deleteRating}
+            favorites={favorites}
+            toggleFavorite={toggleFavorite}
           />
 
           <div className=" img-container">
@@ -60,12 +66,14 @@ export const MoviePage = ( {
           <Comments 
             newComment={newComment}
             movieId={movieDetails.id}
-            name={name}
+            //and here
+            name={name.name}
             movieComments={movieComments}
           />
 
           <MovieCard 
-            name={name}
+          //and here
+            name={name.name}
             movieDetails={movieDetails}
             ratedMovies={ratedMovies}
           />

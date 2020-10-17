@@ -20,7 +20,7 @@ export class Card extends Component{
   }
 
   render() {
-
+// can we pull this up to the constructor so toggleFavorite and displayMovieInformation have access to deconstructed id?
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
     
     return (
