@@ -131,8 +131,10 @@ export class App extends Component{
     console.log("favoriteMovies", favoriteMovies)
   }
   
-  addToFavorites = async(movieID) => {
-    await fetcher.addUserFavorites(movieID);
+  toggleFavorite = async(movieID) => {
+    console.log("movieID", movieID)
+    // const findableID = movieID.toString().slice(1)
+    await fetcher.addUserFavorites({ id: movieID});
     await this.retrieveFavorites();
   }
   
@@ -195,8 +197,9 @@ export class App extends Component{
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
                   ratedMovies={this.state.ratedMovies}
-                  favorites={this.state.favorites}
                   retrieveComments={this.retrieveComments}
+                  favorites={this.state.favorites}
+                  toggleFavorite={this.toggleFavorite}
                 />
               )
             }}
@@ -213,8 +216,9 @@ export class App extends Component{
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
-                favorites={this.state.favorites}
                 movieComments={this.state.movieComments}
+                favorites={this.state.favorites}
+                toggleFavorite={this.toggleFavorite}
               /> 
             }}
           />
@@ -228,6 +232,7 @@ export class App extends Component{
               sortMovies={this.sortMovies}
               ratedMovies={this.state.ratedMovies}
               favorites={this.state.favorites}
+              toggleFavorite={this.toggleFavorite}
               />
             }}
           />

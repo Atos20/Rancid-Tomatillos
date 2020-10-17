@@ -14,6 +14,11 @@ export class Card extends Component{
     this.props.retrieveComments(this.props.movies.id)
   }
 
+  toggleFavorite(event) {
+    event.preventDefault();
+    this.props.toggleFavorite(this.props.movies.id)
+  }
+
   render() {
 
     const {id, title, release_date, average_rating, poster_path} = this.props.movies
@@ -31,8 +36,8 @@ export class Card extends Component{
             <h1 className="movie-title">{title}</h1>
             <h2 className="movie-release">{moment(release_date).format('LL')}</h2>
             {this.props.favorites ? 
-            <h2 className="favorite-movie">Heart</h2> :
-            <h2 className="favorite-movie">No Heart!</h2>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>Heart</button> :
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>No Heart!</button>
             }
             <div className="rating-container">
               <h2 className="movie-rating">Rating</h2>
