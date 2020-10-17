@@ -5,8 +5,9 @@
     grid-area: 4 / 1 / 5 / 3;
     height: 100%;
     // padding: 2%;
-    box-shadow: 0px 0px 52px 0px rgba(0,0,0,0.75);
+    box-shadow: -7px 0px 52px 0px rgba(0,0,0,0.75);
     justify-content: space-around;
+    height: 100%;
 
     .inner-comment{
         background-color: #fff;
@@ -18,9 +19,9 @@
         // margin: 1%;
 
         .comment-title{
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: darkgrey;
-            margin: 0%;
+            margin: 2%;
         }
         
         .input-text{
@@ -64,8 +65,32 @@
         
     }
 
-    .comments{
-        background-color: rosybrown;
+    .comments {
+        // background-color: rosybrown;
         margin: 1%;
+        height: 100%;
+
+        .user-container{
+            display: flex;
+            flex-direction: row;
+            width: 30%;
+            align-items: baseline;
+
+            .user{
+                font-size: 1em;
+                margin: 3%;
+            }
+            
+            .time{
+                font-size: .5em;
+                color: grey;
+              
+            }
+        }
+
+        .comment-text{
+            margin: 0% 0% 0% 2%;
+        }
+        
     }
 }
