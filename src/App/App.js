@@ -128,7 +128,6 @@ export class App extends Component{
   retrieveFavorites = async() => {
     const favoriteMovies = await fetcher.getUserFavorites();
     this.setState({ favorites: favoriteMovies })
-    console.log("favoriteMovies", favoriteMovies)
   }
   
   toggleFavorite = async(movieID) => {
@@ -157,11 +156,9 @@ export class App extends Component{
     } else {
       this.setState({movieComments: promise.comments})
     }
-    // console.log(promise)
   }
 
   render(){
-    // console.log(this.state.movieComments)
     return (
       <>
         <h1 className="login-info">
