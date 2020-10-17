@@ -94,18 +94,11 @@ const fetcher = {
         .catch(err => console.log('err', err.message))
     },
 
-    getMovieComments(movieID, comment){
+    getMovieComments(movieID){
       //this method requires to pass the movieId and the comment object with the author name => users name and comment 
-      console.log(movieID, comment)
-      const int = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(comment)
-    }
+      console.log(movieID)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
-      return fetch(URL, int)
+      return fetch(URL)
         .then(request => request.json())
         .then(response => response)
         // .catch(err => err.message)
