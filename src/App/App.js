@@ -141,6 +141,11 @@ export class App extends Component{
     console.log("favoriteMovies", favoriteMovies)
   }
 
+  addToFavorites = async(movieID) => {
+    await fetcher.addUserFavorites(movieID);
+    await this.retrieveFavorites();
+  }
+
   render(){
     // console.log(this.state.movies)
     return (
@@ -192,7 +197,7 @@ export class App extends Component{
                 name={this.state.userData.name}
                 ratedMovies={this.state.ratedMovies}
                 newComment={this.newComment}
-                // favorites={this.state.favorites}
+                favorites={this.state.favorites}
               /> 
             }}
           />

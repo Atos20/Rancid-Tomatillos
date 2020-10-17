@@ -15,6 +15,7 @@ export const Homepage = (props) => {
         getMovieDetails={props.getMovieDetails}
         sortMovies={props.sortMovies}
         ratedMovies={props.ratedMovies}
+        favorites={props.favorites}
       />
     </>
   )
@@ -24,6 +25,7 @@ Homepage.propTypes = {
   movies: PropTypes.array,
   getMovieDetails: PropTypes.func,
   sortMovies: PropTypes.func,
-  ratedMovies: PropTypes.array
+  ratedMovies: PropTypes.array,
+  favorites: PropTypes.array
 }
 

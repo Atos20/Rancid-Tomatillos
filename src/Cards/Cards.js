@@ -14,6 +14,7 @@ import './Cards.scss';
           movies={movie}
           getMovieDetails={props.getMovieDetails}
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || {}}
+          favorites={props.favorites.find(favoritedMovie => favoritedMovie.id === movie.id) || ''}
         />
       )
     });
