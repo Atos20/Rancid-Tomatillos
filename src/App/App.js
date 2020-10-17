@@ -133,6 +133,15 @@ export class App extends Component{
     console.log(promise)
   }
 
+  retrieveComments = async (movieId) => {
+  const { name } = this.state.userData 
+    // if (!name) {
+    //   return false
+    // }
+    const promise = await fetcher.getMovieComments(movieId) 
+    console.log(promise)
+  }
+
   render(){
     // console.log(this.state.movies)
     return (
@@ -167,6 +176,7 @@ export class App extends Component{
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
                   ratedMovies={this.state.ratedMovies}
+                  retrieveComments={this.retrieveComments}
                 />
               )
             }}
