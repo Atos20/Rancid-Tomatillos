@@ -67,7 +67,10 @@ export class Comments extends Component  {
             </form>
 
             {movieComments.map((comment, i) => {
-              return <Comment key={i} comment={comment}/>
+              return <Comment 
+                key={i} 
+                comment={comment}
+              />
             })}
 
 
