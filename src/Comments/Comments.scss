@@ -34,7 +34,7 @@
           margin: 1%;
         }
 
-        .comment-button {
+        .comment-button, .clear-button {
             display:inline-block;
             padding:0.7em 1.4em;
             margin:0 0.3em 0.3em 1em;
@@ -53,11 +53,11 @@
             width: 13em;
           }
           
-          .comment-button:active{
+          .comment-button:active, .clear-button:active{
             top:0.1em;
           }
           
-          .comment-button:hover{
+          .comment-button:hover, .clear-button:hover{
             // display:block;
             // margin:0.1em ;
             background-color: royalblue;

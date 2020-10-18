@@ -18,7 +18,8 @@ export class Comments extends Component  {
       this.setState({[event.target.name]: event.target.value});
     }
 
-    clearForm = () => {
+    clearForm = (event) => {
+      event.preventDefault()
       this.setState({comment: ''})
     }
       
@@ -55,13 +56,22 @@ export class Comments extends Component  {
               />
 
               <button 
-              role="commnt-button"
-              type="commnt-button"
+              role="comment-button"
+              type="comment-button"
               onSubmit={this.postComment}
               onClick={this.postComment}
               
               className="comment-button">
               add comment
+              </button>
+
+              <button 
+              role="clear-button"
+              type="clear-button"
+              onClick={this.clearForm}
+              name="comment"
+              className="clear-button">
+              clear
               </button>
 
             </form>
