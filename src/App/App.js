@@ -215,6 +215,7 @@ export class App extends Component{
                 movieComments={this.state.movieComments}
                 favorites={this.state.favorites}
                 toggleFavorite={this.toggleFavorite}
+                retrieveComments={this.retrieveComments}
               /> 
             }}
           />

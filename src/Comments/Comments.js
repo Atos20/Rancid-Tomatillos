@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Comment } from '../Comment/Comment'
+
 import './Comments.scss'
 
 export class Comments extends Component  {
@@ -14,23 +16,32 @@ export class Comments extends Component  {
     updateValue = (event) => {
       event.preventDefault();
       this.setState({[event.target.name]: event.target.value});
-      console.log(event.target)
     }
 
-    postComment = () => {
+    clearForm = () => {
+      this.setState({comment: ''})
+    }
+      
+    postComment = (event) => {
+      event.preventDefault();
         if(!this.state.comment || !this.props.name){
             return false
         }
+        this.clearForm()
         this.props.newComment(this.props.movieId, this.state.comment)
-    }
+        this.props.retrieveComments(this.props.movieId)
+  }
 
-    render() {
-      // console.log(this.props.movieComments)
-        return (
-          <div className="comment-container">
-            
-            <div className="inner-comment">
+  
+
+  render() {
+    const { movieComments } = this.props
+      return (
+        <div className="comment-container">
+          
+          <div className="inner-comment">
             <h1 className="comment-title">Comments</h1>
+            <form className="form-comment">
               <input
                 className="input-text"
                 type="text"
@@ -46,41 +57,31 @@ export class Comments extends Component  {
               <button 
               role="commnt-button"
               type="commnt-button"
+              onSubmit={this.postComment}
               onClick={this.postComment}
+              
               className="comment-button">
               add comment
               </button>
-              
-            <div 
-              role="comments"
-              type="comments"
-              className="comments">
-              <div className="user-container">
-                <h1 className="user">diana</h1> 
-                <h1 className="time">3 months ago</h1> 
-              </div>
-                <p className="comment-text">Battle-hardened O’Hara leads a lively mercenary team of soldiers on a daring mission: rescue hostages from their captors in remote Africa.</p>
-            </div>
-            
-            <div 
-              role="comments"
-              type="comments"
-              className="comments">
-              <div className="user-container">
-                <h1 className="user">diana</h1> 
-                <h1 className="time">3 months ago</h1> 
-              </div>
-                <p className="comment-text">Battle-hardened O’Hara leads a lively mercenary team of soldiers on a daring mission: rescue hostages from their captors in remote Africa.</p>
-            </div>
 
-            </div>
+            </form>
+
+            {movieComments.map((comment, i) => {
+              return <Comment 
+                key={i} 
+                comment={comment}
+              />
+            })}
+
 
           </div>
-        )
-    }
+
+        </div>
+      )
+  }
 }
 
-Comment.propTypes = {
+Comments.propTypes = {
     postComment: PropTypes.func,
     movieId: PropTypes.number,
     name: PropTypes.string,
