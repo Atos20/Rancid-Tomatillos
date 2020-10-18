@@ -19,6 +19,7 @@ export const MoviePage = ( {
   favorites,
   toggleFavorite,
   retrieveComments
+  // toggleFavorite
 }) => {
   const displayTrailer = () => {
     return movieVideo.map((video, i) => {
@@ -97,7 +98,8 @@ MoviePage.propTypes = {
   toggleFavorite: PropTypes.func,
   //now that I'm thinking about it, I think we could clean this before it gets passed in so that only one favorite movie is passed in
   favorites: PropTypes.array,
-  retrieveComments: PropTypes.func
+  retrieveComments: PropTypes.func,
+  // favorites: PropTypes.array
 
 }
 
