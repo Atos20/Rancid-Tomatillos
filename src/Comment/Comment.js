@@ -13,6 +13,12 @@ export const Comment = (props) => {
         <h1 className="time">3 months ago</h1> 
       </div>
      <p className="comment-text">{props.comment.comment}</p>
+     <div className="buttons-container">
+       <i className="far fa-thumbs-up"></i>
+       <h3 className="like-count">1</h3>
+       <i className="far fa-thumbs-down"></i>
+       <i className="far fa-trash-alt"></i>
+     </div>
     </div>
 
   )
