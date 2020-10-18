@@ -64,33 +64,4 @@
           }
         
     }
-
-    .comments {
-        // background-color: rosybrown;
-        margin: 1%;
-        height: 100%;
-
-        .user-container{
-            display: flex;
-            flex-direction: row;
-            width: 30%;
-            align-items: baseline;
-
-            .user{
-                font-size: 1em;
-                margin: 3%;
-            }
-            
-            .time{
-                font-size: .5em;
-                color: grey;
-              
-            }
-        }
-
-        .comment-text{
-            margin: 0% 0% 0% 2%;
-        }
-        
-    }
 }

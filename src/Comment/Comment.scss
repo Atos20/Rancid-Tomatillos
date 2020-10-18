@@ -1,0 +1,59 @@
+.comments {
+    // background-color: rosybrown;
+    margin: 1%;
+    height: 100%;
+
+    .user-container{
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        align-items: baseline;
+
+        .user{
+            font-size: 1em;
+            margin: 3%;
+        }
+        
+        .time{
+            font-size: .5em;
+            color: grey;
+          
+        }
+    }
+
+    .comment-text{
+        margin: 0% 0% 0% 2%;
+    }
+
+    .buttons-container{
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        justify-content: space-around;
+        align-items: flex-end;
+        height: 2vh;
+        margin: 1%;
+
+        .far{
+            background-color: transparent;
+            color: darkgray;
+            user-select: none;
+        }
+
+        .like-count{
+            font-size: .8em;
+            color: darkgray;
+            margin: 0%;
+        }
+
+        .far:hover{
+            cursor: pointer;
+
+            color: dodgerblue;
+        }
+
+        .fa-trash-alt:hover{
+            color: rgb(255, 38, 30);
+        }
+    }
+}
