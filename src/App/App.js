@@ -9,6 +9,7 @@ import { ErrorBoundary }  from '../ErrorBoundary/ErrorBoundary';
 import { MoviePage } from '../MoviePage/MoviePage'
 import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
+import { Link } from 'react-router-dom';
 import './App.scss';
 
 export class App extends Component{
@@ -28,6 +29,7 @@ export class App extends Component{
       movieDetails: {},
       movieVideo: {},
       favorites: [],
+      searchDirections: '',
       error: ''
     }
   }
@@ -78,14 +80,18 @@ export class App extends Component{
 
   sortMovies = (value) => {
     if (!value || value === '--none--') {
-      return false
+      this.setState({ searchDirections: this.state.movies })
     } else if (value === 'descending'){
       const sortedMovies = this.state.movies.sort((a, b) => a.average_rating - b.average_rating)
-      this.setState({ movies: sortedMovies })
+      this.setState({ searchDirections: sortedMovies })
     } else if (value === 'ascending'){
       const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
-      this.setState({ movies: sortedMovies })
-    } 
+      this.setState({ searchDirections: sortedMovies })
+    } else if (value === 'favorites'){
+      const sortedMovies = this.state.movies.filter(movie => this.state.favorites.includes(movie.id))
+      this.setState({ searchDirections: sortedMovies })
+      // return (<Link className="favorites-page" to={`/favorites`}></Link>)
+    }
   }
 
    addRating = async (desiredRatingByUser) => {
@@ -187,7 +193,7 @@ export class App extends Component{
               return (
                 <Homepage 
                   name={this.state.userData}
-                  movies={this.state.movies}
+                  movies={this.state.searchDirections || this.state.movies}
                   movieComments={this.state.movieComments}
                   getMovieDetails={this.getMovieDetails}
                   sortMovies={this.sortMovies}
@@ -219,18 +225,20 @@ export class App extends Component{
               /> 
             }}
           />
-          <Route 
+          {/* <Route 
             exact path='/favorites'
             render={ () => {
               return <Homepage
               name={this.state.userData}
               movies={this.state.movies.filter(movie => this.state.favorites.includes(movie.id))}
               getMovieDetails={this.getMovieDetails}
+              movieComments={this.state.movieComments}
               sortMovies={this.sortMovies}
               ratedMovies={this.state.ratedMovies}
+              retrieveComments={this.retrieveComments}
               favorites={this.state.favorites}
               toggleFavorite={this.toggleFavorite}
-              />
+              /> */}
             }}
           />
           <Route 
