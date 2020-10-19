@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export const Comment = (props) => {
   return (
     <div 
-      role="comments"
+      role="textbox"
       type="comments"
       className="comments">
 
