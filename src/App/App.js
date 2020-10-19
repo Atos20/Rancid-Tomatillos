@@ -225,7 +225,7 @@ export class App extends Component{
               /> 
             }}
           />
-          {/* <Route 
+          <Route 
             exact path='/favorites'
             render={ () => {
               return <Homepage
@@ -238,7 +238,7 @@ export class App extends Component{
               retrieveComments={this.retrieveComments}
               favorites={this.state.favorites}
               toggleFavorite={this.toggleFavorite}
-              /> */}
+              />
             }}
           />
           <Route 

@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import './SortMovies.scss';
 
 export class SortMovies extends Component {
@@ -50,11 +51,11 @@ export class SortMovies extends Component {
                     name="average_rating" 
                     value="ascending"
                     >Rating ascending </option>
-                    {this.props.status && <option 
+                    {/* {this.props.status && <option 
                     data-testid='favorites'
                     name="favorites" 
                     value="favorites"
-                    >Favorites </option>}
+                    >Favorites </option>} */}
                 </select>
                 <button 
                   type="apple" 
@@ -62,8 +63,33 @@ export class SortMovies extends Component {
                   className="sort-btn"
                   name="sort"
                   onClick={this.getOptionValue}
-                ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
+                  ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
                 </button>
+                {this.props.status && 
+                <>
+                    <NavLink className="sort-btn" to={`/favorites`}>
+                        <button 
+                            type="apple" 
+                            role="apple"
+                            className="sort-btn"
+                            name="sort"
+                            onClick={this.getOptionValue}
+                            >Favorites
+                        </button>
+                    </NavLink>
+                    <NavLink className="sort-btn" to={`/`}>
+                        <button 
+                            type="apple" 
+                            role="apple"
+                            className="sort-btn"
+                            name="sort"
+                            onClick={this.getOptionValue}
+                            >
+                            All
+                        </button>
+                    </NavLink>
+                </>}
+                  {/* </select> */}
               </div>          
             </div>
         )
