@@ -5,6 +5,7 @@ import './SortMovies.scss';
 export class SortMovies extends Component {
     constructor(props) {
         super(props)
+        //console.log(" SortMovies props", props) for proptypes
 
         this.state = {
             value: ''
@@ -49,6 +50,11 @@ export class SortMovies extends Component {
                     name="average_rating" 
                     value="ascending"
                     >Rating ascending </option>
+                    {this.props.status && <option 
+                    data-testid='favorites'
+                    name="favorites" 
+                    value="favorites"
+                    >Favorites </option>}
                 </select>
                 <button 
                   type="apple" 
