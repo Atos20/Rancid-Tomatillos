@@ -50,11 +50,11 @@ export class MovieHeader extends Component {
             <h1 className="title">{title}</h1>
             <h2 className="tagline">{tagline}</h2>          
             {this.props.favorites && this.props.name &&
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>Heart</button>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>❤️</button>
             }
             
             {!this.props.favorites && this.props.name &&
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>No Heart!</button>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>♡</button>
             }
             {this.props.name && <div className="rate-movie">
                 
