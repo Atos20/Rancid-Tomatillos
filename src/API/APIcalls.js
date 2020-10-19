@@ -78,7 +78,7 @@ const fetcher = {
 
     addMovieComment(movieID, comment){
       //this method requires to pass the movieId and the comment object with the author name => users name and comment 
-      console.log(movieID, comment)
+      // console.log(movieID, comment)
       const int = {
         method: 'POST',
         headers: {
@@ -87,6 +87,25 @@ const fetcher = {
         body: JSON.stringify(comment)
     }
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
+      return fetch(URL, int)
+        .then(request => request.json())
+        .then(response => response)
+        // .catch(err => err.message)
+        .catch(err => console.log('err', err.message))
+    },
+
+    likeMovieComment(movieID, commentID, commentStatus){
+      //this method requires to pass the movieId and the comment object with the author name => users name and comment 
+      console.log(movieID, commentID, commentStatus)
+      const int = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(commentStatus)
+    }
+    console.log(int)
+      const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
       return fetch(URL, int)
         .then(request => request.json())
         .then(response => response)
