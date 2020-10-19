@@ -9,7 +9,6 @@ import { ErrorBoundary }  from '../ErrorBoundary/ErrorBoundary';
 import { MoviePage } from '../MoviePage/MoviePage'
 import { NavBar } from '../NavBar/NavBar'
 import fetcher from '../API/APIcalls';
-import { Link } from 'react-router-dom';
 import './App.scss';
 
 export class App extends Component{
@@ -87,9 +86,6 @@ export class App extends Component{
     } else if (value === 'ascending'){
       const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
       this.setState({ searchDirections: sortedMovies })
-    // } else if (value === 'favorites'){
-    //   const sortedMovies = this.state.movies.filter(movie => this.state.favorites.includes(movie.id))
-    //   this.setState({ searchDirections: sortedMovies })
     }
   }
 
@@ -99,7 +95,7 @@ export class App extends Component{
       return alert('You have to select a rating to rate a movie!')
     } else if (!movieToRate) {
       const newRating = {movie_id: this.state.movieID, rating: desiredRatingByUser.value}
-      const addNewRating = await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
+      await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
       this.loadAllMovies()
@@ -119,7 +115,7 @@ export class App extends Component{
       ratingID = ''
     }
     if(this.state.userData.id && ratingID) {
-      const deleteSingleRating = await fetcher.fetchDeleteUserRating(id, ratingID)
+      await fetcher.fetchDeleteUserRating(id, ratingID)
       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
       this.getMovieDetails(this.state.movieID)
       this.loadAllMovies()
@@ -151,10 +147,6 @@ export class App extends Component{
   }
 
   retrieveComments = async (movieId) => {
-  const { name } = this.state.userData 
-    // if (!name) {
-    //   return false
-    // }
     const promise = await fetcher.getMovieComments(movieId)
     if (promise === 'Failed to Fetch'){
       this.setState({error: promise})
