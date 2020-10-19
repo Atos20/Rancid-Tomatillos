@@ -9,7 +9,8 @@ export class SortMovies extends Component {
         //console.log(" SortMovies props", props) for proptypes
 
         this.state = {
-            value: ''
+            value: '',
+            favorites: false
         }
     }
 
@@ -18,7 +19,18 @@ export class SortMovies extends Component {
     }
 
     getOptionValue = () => {
+        console.log("this.state.favorites in get option value", this.state.favorites)
         this.props.sortMovies(this.state.value)
+    }
+
+    toggleFavorites = () => {
+        console.log("this.state.favorites in toggle favorites", this.state.favorites)
+        if (this.state.favorites) {
+            this.setState({ favorites: false })
+        } else {
+            this.setState({ favorites: true })
+
+        }
     }
 
     render() {
@@ -66,30 +78,39 @@ export class SortMovies extends Component {
                   ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
                 </button>
                 {this.props.status && 
-                <>
-                    <NavLink className="sort-btn" to={`/favorites`}>
-                        <button 
+                <>{!this.state.favorites &&
+                    <>
+                        <NavLink className="sort-btn" to={`/favorites`}
+                            // {/* <button  */}
+                                type="apple" 
+                                role="apple"
+                                className="sort-btn"
+                                name="sort"
+                                onClick={this.toggleFavorites}
+                                >
+                                Favorites
+                            {/* </button> */}
+                        </NavLink>
+                    </>
+                    }
+                    {this.state.favorites && 
+                    <>
+                    <NavLink className="sort-btn" to={`/`}
+                        // {/* <button  */}
                             type="apple" 
                             role="apple"
                             className="sort-btn"
                             name="sort"
-                            onClick={this.getOptionValue}
-                            >Favorites
-                        </button>
-                    </NavLink>
-                    <NavLink className="sort-btn" to={`/`}>
-                        <button 
-                            type="apple" 
-                            role="apple"
-                            className="sort-btn"
-                            name="sort"
-                            onClick={this.getOptionValue}
+                            onClick={this.toggleFavorites}
                             >
                             All
-                        </button>
+                            
+                        {/* </button> */}
                     </NavLink>
-                </>}
-                  {/* </select> */}
+                    </>
+                    }
+                </>
+                }
               </div>          
             </div>
         )

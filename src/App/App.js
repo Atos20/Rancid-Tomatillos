@@ -87,10 +87,9 @@ export class App extends Component{
     } else if (value === 'ascending'){
       const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
       this.setState({ searchDirections: sortedMovies })
-    } else if (value === 'favorites'){
-      const sortedMovies = this.state.movies.filter(movie => this.state.favorites.includes(movie.id))
-      this.setState({ searchDirections: sortedMovies })
-      // return (<Link className="favorites-page" to={`/favorites`}></Link>)
+    // } else if (value === 'favorites'){
+    //   const sortedMovies = this.state.movies.filter(movie => this.state.favorites.includes(movie.id))
+    //   this.setState({ searchDirections: sortedMovies })
     }
   }
 
