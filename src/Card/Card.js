@@ -37,11 +37,11 @@ export class Card extends Component{
             <h2 className="movie-release">{moment(release_date).format('LL')}</h2>
             
             {this.props.favorites && this.props.status &&
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>Heart</button>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>❤️</button>
             }
             
             {!this.props.favorites && this.props.status &&
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>No Heart!</button>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>♡</button>
             }
             <div className="rating-container">
               <h2 className="movie-rating">Rating</h2>
