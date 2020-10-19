@@ -34,7 +34,7 @@
         height: 2vh;
         margin: 1%;
 
-        .far{
+        .far, .fas{
             background-color: transparent;
             color: darkgray;
             user-select: none;
@@ -46,7 +46,7 @@
             margin: 0%;
         }
 
-        .far:hover{
+        .far:hover, .fas:hover{
             cursor: pointer;
 
             color: dodgerblue;
