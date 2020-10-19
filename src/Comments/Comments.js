@@ -57,7 +57,6 @@ replyCount: 1
 time: "2020-10-19T04:49:09.551Z"
 */
   render() {
-  //  console.log(this.props.movieComments)
     const { movieComments } = this.props
       return (
         <div className="comment-container">

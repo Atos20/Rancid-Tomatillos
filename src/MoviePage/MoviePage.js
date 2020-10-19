@@ -98,10 +98,9 @@ MoviePage.propTypes = {
   newComment: PropTypes.func,
   movieComments: PropTypes.array,
   toggleFavorite: PropTypes.func,
-  //now that I'm thinking about it, I think we could clean this before it gets passed in so that only one favorite movie is passed in
   favorites: PropTypes.array,
   retrieveComments: PropTypes.func,
-  // favorites: PropTypes.array
+
 
 }
 
