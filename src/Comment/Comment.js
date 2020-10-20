@@ -59,7 +59,6 @@ export class Comment extends  Component {
     }
   }
  
-
 Comment.propTypes = {
     comment: PropTypes.object,
     name: PropTypes.string,
