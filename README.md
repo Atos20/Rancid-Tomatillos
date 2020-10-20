@@ -35,7 +35,7 @@ Running npm start should automatically take you to a webpage, "localhost:3000", 
 
 ##### Microservice
 
-Clone down [this repo]()
+Clone down [this other repo]()
 <!-- Add repo link here  -->
 
 CD into the repo's directory
@@ -61,18 +61,23 @@ Password: 111111
 
 Login
 <!-- Add wireframe of login -->
+![Login wireframe](./readmeIMGs/login.png)
 
 First remdition of Homepage
 <!-- Add homepage 1 -->
+![homepage1 wireframe](./readmeIMGs/homepage1.png)
 
 First rendition of MoviePage
 <!-- Add MoviePage 1 -->
+![moviepage1 wireframe](./readmeIMGs/moviepage1.png)
 
 Second Rendition of Homepage
 <!-- Add Homepage 2 -->
+![homepage2 wireframe](./readmeIMGs/homepage2.png)
 
 Second Rendition of MoviePage
 <!-- Add MoviePage 2 -->
+![moviepage2 wireframe](./readmeIMGs/moviepage2.png)
 
 ##### Project Pics
 
