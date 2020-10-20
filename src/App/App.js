@@ -201,7 +201,7 @@ export class App extends Component{
             render={() => {
               return (
                 <Homepage 
-                  name={this.state.userData}
+                  userData={this.state.userData}
                   movies={this.state.searchDirections || this.state.movies}
                   movieComments={this.state.movieComments}
                   getMovieDetails={this.getMovieDetails}
@@ -223,7 +223,6 @@ export class App extends Component{
                 deleteRating={this.deleteRating}
                 movieDetails={this.state.movieDetails}
                 movieVideo={this.state.movieVideo}
-                //I changed this to userData so I can have access to .id for toggling favorites
                 name={this.state.userData}
                 ratedMovies={this.state.ratedMovies}
                 favorites={this.state.favorites}
@@ -239,7 +238,7 @@ export class App extends Component{
             exact path='/favorites'
             render={ () => {
               return <Homepage
-              name={this.state.userData}
+              userData={this.state.userData}
               movies={this.state.movies.filter(movie => this.state.favorites.includes(movie.id))}
               getMovieDetails={this.getMovieDetails}
               movieComments={this.state.movieComments}
@@ -251,6 +250,7 @@ export class App extends Component{
               />
             }}
           />
+
           <Route 
             exact path='*' 
             render={() => {

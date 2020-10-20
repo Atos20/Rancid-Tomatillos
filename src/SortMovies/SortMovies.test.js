@@ -13,6 +13,7 @@ describe('SortMovies', () => {
       <BrowserRouter>
         <SortMovies 
           sortMovies={fakeSort}
+          status={''}
         />
       </BrowserRouter> 
 

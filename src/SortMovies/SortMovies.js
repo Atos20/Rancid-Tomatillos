@@ -74,28 +74,28 @@ export class SortMovies extends Component {
                 {this.props.status && 
                 <>{!this.state.favorites &&
                     <>
-                        <NavLink className="sort-btn" to={`/favorites`}
-                                type="apple" 
-                                role="apple"
-                                className="sort-btn"
-                                name="sort"
-                                onClick={this.toggleFavorites}
-                                >
-                                Favorites
-                        </NavLink>
+                      <NavLink className="sort-btn" to={`/favorites`}
+                        type="apple" 
+                        role="apple"
+                        className="sort-btn"
+                        name="sort"
+                        onClick={this.toggleFavorites}
+                        >
+                        Favorites
+                      </NavLink>
                     </>
                     }
                     {this.state.favorites && 
                     <>
-                    <NavLink className="sort-btn" to={`/`}
-                            type="apple" 
-                            role="apple"
-                            className="sort-btn"
-                            name="sort"
-                            onClick={this.toggleFavorites}
-                            >
-                            All
-                    </NavLink>
+                      <NavLink className="sort-btn" to={`/`}
+                        type="apple" 
+                        role="apple"
+                        className="sort-btn"
+                        name="sort"
+                        onClick={this.toggleFavorites}
+                        >
+                        All
+                      </NavLink>
                     </>
                     }
                 </>

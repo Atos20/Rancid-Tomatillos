@@ -17,7 +17,7 @@ import './Cards.scss';
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || {}}
           favorites={props.favorites.find(favoritedMovie => favoritedMovie === movie.id) || {}}
           toggleFavorite={props.toggleFavorite}
-          status={props.status.id || ''}
+          userData={props.userData.id || ''}
         />
       )
     });
@@ -26,7 +26,7 @@ import './Cards.scss';
       <>
         <SortMovies 
           sortMovies={props.sortMovies} 
-          status={props.status.id || ''}
+          userData={props.userData.id || ''}
         />
         <section className="card-area">
         {injectMovies(props.movies)}
@@ -42,7 +42,8 @@ Cards.propTypes = {
   getMovieDetails: PropTypes.func,
   retrieveComments: PropTypes.func,
   favorites: PropTypes.array,
-  toggleFavorite: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  userData: PropTypes.object
 }
 
 

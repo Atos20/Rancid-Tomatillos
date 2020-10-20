@@ -29,7 +29,10 @@ describe('MovieCard', () => {
 
     render(
       <Router>
-        <MovieCard movieDetails={fakeMovieDetailProps} ratedMovies={fakeRatedMovies}/>
+        <MovieCard 
+          movieDetails={fakeMovieDetailProps} 
+          ratedMovies={fakeRatedMovies}
+        />
       </Router>
     );
       const fakeAverage = screen.getByText(/1.0/i);
