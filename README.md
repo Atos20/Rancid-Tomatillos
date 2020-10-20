@@ -7,7 +7,7 @@
 
 ### Contributors 
 
-Orlando MMurcio [@Atos20](https://github.com/Atos20)
+Orlando Murcio [@Atos20](https://github.com/Atos20)
 Ian Holladay [@holladayian](https://github.com/holladayian)
 
 ## About
@@ -69,7 +69,7 @@ Project Page
 [Link to the our project incease you get lost!](https://github.com/Atos20/Rancid-Tomatillos)
 
 Backend Server
-<!-- Add link to backend microservice -->
+[link to Microservice](https://github.com/Atos20/Rancind-tomatillos-microserver)
 
 Project Spec/Rubric
 [Link to the rubric we based this off of!](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v2.html)
@@ -84,14 +84,14 @@ When the application run, it request the information about all movies within the
 
  The user can see the pplication logo as well as a button to login, to go abck to home and all the movie cards that display information about each movie.
 
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/HgssLnnP5lnwcROQ9u/giphy.gif" height=auto width=75% alt="welcome message"/>
 
   #### Take 2
 - Login as a user
 
 When the user inputs the following crendntial, `name` 'diana', `email`'diana@turing@io', and `password` '111111'. The user is greeted with a welcomin message that shows the user that has logged in succesfully.
 
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/KhQN8qc4TjfDwykk6P/giphy.gif" height=auto width=75% alt="login"/>
 
    #### Take 3
 - Rate a movie
@@ -100,38 +100,39 @@ The user can only reate a movie after it has logged in.The rating option is avai
 
 The raiting functionality located underneath the movie title, allows the user to rate a movie by using the dropdown menu and chossing a rate that ranges from 1 to 10. This personlized 
 
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/sL0UhvqrJ1m6xCvfJ3/giphy.gif" height=auto width=75% alt="rate movie"/>
 
    #### Take 4
-- Filter movies by rating
+- Sorting movies by rating
 
 The viwer has the opportunity to interact with the applcation even if hasn't logged into the application. by the `All movies` title the user can select from the dropdown menu the options of `descending` or `ascending` to filter the movies.
 
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/X2BM1bJ3vASKcc7AHu/giphy.gif" height=auto width=75% alt="sort movie by rating"/>
 
    #### Take 5
 - Display Movie Page with trailer
 
 The user or viwer can click on any movie card and when doing so the home page is directed to the movie page containing adittional information about the movie. It also display the all movie trailers associated with the movie that was clicked.
 
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/VBFk4wRBgOwGAxmDea/giphy.gif" height=auto width=75% alt="moviepage trailers"/>
 
    #### Take 6
 - Commenting movies
 
 After the user or viwer has been directed to any movie page, at the buttom of the page the user can see the commenting section that allows the user to make a new comment to that specific movie. As a viwer you can only see the comment but you cant interact with the like button.
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/zMC2DEcDpEQBde0zez/giphy.gif" height=auto width=75% alt="commenting on movies"/>
 
    #### Take 7
 - Favoriting movies
+
 After the user has logged in, the user user can favorite movies that will persist even after the user has logged out and logged back into the application.
-  <img src="" height=auto width=75%/>
+  <img src="https://media.giphy.com/media/Clm5JpOBJuJL5CMcB3/giphy.gif" height=auto width=75% alt="favoriting movies"/>
 
 ## Set Up
 
 
 
-To interact with the app without cloning / downloading the file, click [here](https://roastedtomahtoes.herokuapp.com/). 
+<!-- To interact with the app without cloning / downloading the file, click [here]().  -->
 
 1. On the top right corner of this page, click the **Fork** button.
 1. Clone the repository to your computer `git clone <URL>`
@@ -148,11 +149,11 @@ if you would like to contribute to the front-end-side of the project, you can cr
     - if there is not an exixting ticket for the PR make sure you create one
     - if your PR makes reference or closes and existing ticke make sure to add it in your PR
 
-If you would like to work on the back-end-side of the project (which handles favorites and comments) - a repo for the server can be found [here](). This change will be managed by Orlando Murcio becuase this server is hosted locally and written using `Express.js`
+If you would like to work on the back-end-side of the project (which handles favorites and comments) - a repo for the server can be found [here](https://github.com/Atos20/Rancind-tomatillos-microserver). This change will be managed by Orlando Murcio becuase this server is hosted locally and written using `Express.js`
 
 ### Microservice
 
-Clone down [this other repo]()
+Clone down [this other repo](https://github.com/Atos20/Rancind-tomatillos-microserver)
 <!-- Add repo link here  -->
 
 - `cd` into the repo's directory
@@ -176,39 +177,23 @@ Password: `111111`
 ##### WireFrames
 
 Login
-![Login wireframe](./readmeIMGs/login.png)
+  <img src="./readmeIMGs/login.png" height=auto width=75% alt="Login wireframe"/>
+
 
 First remdition of Homepage
-![homepage1 wireframe](./readmeIMGs/homepage1.png)
+  <img src="./readmeIMGs/homepage1.png" height=auto width=75% alt="homepage1 wireframe"/>
+
 
 First rendition of MoviePage
-![moviepage1 wireframe](./readmeIMGs/moviepage1.png)
+  <img src="./readmeIMGs/moviepage1.png" height=auto width=75% alt="moviepage1 wireframe"/>
+
 
 Second Rendition of Homepage
-![homepage2 wireframe](./readmeIMGs/homepage2.png)
+  <img src="./readmeIMGs/homepage2.png" height=auto width=75% alt="homepage2 wireframe"/>
+
 
 Second Rendition of MoviePage
-![moviepage2 wireframe](./readmeIMGs/moviepage2.png)
-
-##### Project Pics
-
-Homepage
-<!-- Add pic of home page w/o logged in -->
-
-MoviePage
-<!-- Add img of movie page w/o logged in -->
-
-Login
-<!-- Add gif of logging in -->
-
-Logged in Homepage
-<!-- Add img of home page with movies that have been rated, and one each of liked/unliked -->
-
-Logged in Movie Page
-<!-- Img of logged in movie page -->
-
-Adding Comments 
-<!-- Add gif of adding comments -->
+  <img src="./readmeIMGs/moviepage2.png" height=auto width=75% alt="moviepage2 wireframe"/>
 
 
 ### Project Managers
