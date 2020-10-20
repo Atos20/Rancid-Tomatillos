@@ -11,6 +11,7 @@ export const MoviePage = ( {
   movieVideo, 
   addRating, 
   //we might want to change the "name" of 'name.name' to be 'userData.name'
+  // wait, unless this is in reference to the movie's name. Cant tell atm, but regardless we should change it to be more semantic
   name, 
   deleteRating,
   ratedMovies,
@@ -58,7 +59,7 @@ export const MoviePage = ( {
             <img 
               className="trailer-image"
               src={movieDetails.backdrop_path}
-              alt="movie image" 
+              alt={`${name.name} backdrop`} 
               />
           </div>
           <div className=" trailer-container">

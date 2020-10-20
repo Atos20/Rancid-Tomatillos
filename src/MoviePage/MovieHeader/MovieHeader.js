@@ -10,16 +10,16 @@ export class MovieHeader extends Component {
             selectedOption: null,
           }
           this.ratingValue = [
-              { value: 1, label: '1💩' },
-              { value: 2, label: '2🤮' },
-              { value: 3, label: '3🤢' },
-              { value: 4, label: '4👎' },
-              { value: 5, label: '5🤝' },
-              { value: 6, label: '6👏' },
-              { value: 7, label: '7👌' },
-              { value: 8, label: '8👍' },
-              { value: 9, label: '9🤘' },
-              { value: 10, label: '10💯' },
+              { value: 1, label: '1' },
+              { value: 2, label: '2' },
+              { value: 3, label: '3' },
+              { value: 4, label: '4' },
+              { value: 5, label: '5' },
+              { value: 6, label: '6' },
+              { value: 7, label: '7' },
+              { value: 8, label: '8' },
+              { value: 9, label: '9' },
+              { value: 10, label: '10' },
               
             ];
         }
@@ -50,11 +50,11 @@ export class MovieHeader extends Component {
             <h1 className="title">{title}</h1>
             <h2 className="tagline">{tagline}</h2>          
             {this.props.favorites && this.props.name &&
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>❤️</button>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}><span role="img" aria-label="heart-filled">❤️</span></button>
             }
             
             {!this.props.favorites && this.props.name &&
-            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>♡</button>
+            <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}><span role="img" aria-label="heart-empty">♡</span></button>
             }
             {this.props.name && <div className="rate-movie">
                 

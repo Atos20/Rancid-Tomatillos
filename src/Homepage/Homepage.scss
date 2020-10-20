@@ -44,6 +44,7 @@
     .Login-button{
       display:inline-block;
       // padding:0.3em 0.2em;
+      background-color: white;
       margin: 10%;
       border:0.16em solid rgba(255,255,255,0);
       border-radius:2em;
@@ -52,7 +53,7 @@
       font-family:'Roboto',sans-serif;
       font-size: 1.5em;
       font-weight:300;
-      color:#7ea04d;
+      color: black;
       text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
       text-align:center;
       transition: all 0.2s;

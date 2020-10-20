@@ -6,7 +6,6 @@ import moment from 'moment';
 export class Comment extends  Component {
   constructor(props){
     super(props)
-  }
 
   getCommentId = (event) => {
     if (!this.props.name){
