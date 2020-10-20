@@ -126,13 +126,10 @@ After the user or viwer has been directed to a movie page, at the buttom of the 
 - Favoriting movies
 
 After the user has logged in, the user user can favorite movies that will persist even after the user has logged out and logged back into the application.
+
   <img src="https://media.giphy.com/media/Clm5JpOBJuJL5CMcB3/giphy.gif" height=auto width=75% alt="favoriting movies"/>
 
 ## Set Up
-
-
-
-<!-- To interact with the app without cloning / downloading the file, click [here]().  -->
 
 1. On the top right corner of this page, click the **Fork** button.
 1. Clone the repository to your computer `git clone <URL>`
@@ -154,7 +151,6 @@ If you would like to work on the back-end-side of the project (which handles fav
 ### Microservice
 
 Clone down [this other repo](https://github.com/Atos20/Rancind-tomatillos-microserver)
-<!-- Add repo link here  -->
 
 - `cd` into the repo's directory
 - run `npm install`
@@ -199,6 +195,8 @@ Second Rendition of MoviePage
 ### Project Managers
 - [Khalid](https://github.com/BobGu)
 - [Leta](https://github.com/BobGu)
+
+
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/jordy1611/whats-cookin-JS-JS-KS.svg?style=flat-square
 [contributors-url]: https://github.com/jordy1611/whats-cookin-JS-JS-KS/graphs/contributors
