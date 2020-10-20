@@ -65,5 +65,6 @@ Card.propTypes = {
   movies: PropTypes.object,
   ratedMovies:  PropTypes.object,
   retrieveComments: PropTypes.func,
-  userData: PropTypes.number
+  userData: PropTypes.number,
+  favorites: PropTypes.number
 }
