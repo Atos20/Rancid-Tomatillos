@@ -57,11 +57,10 @@ export class Comments extends Component  {
     }
 
   render() {
-    
-    const { movieComments } = this.props
+  
       return (
         <div className="comment-container">
-          
+        
           <div className="inner-comment">
             <h1 className="comment-title">Comments</h1>
             <form className="form-comment">

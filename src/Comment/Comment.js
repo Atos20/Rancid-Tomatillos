@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 export class Comment extends  Component {
-  constructor(props){
-    super(props)
-  }
   getCommentId = (event) => {
     if (!this.props.name){
       return false
@@ -21,7 +18,7 @@ export class Comment extends  Component {
     return (
       <div 
         id={id}
-        role="comments"
+        role="textbox"
         type="comments"
         className="comments">
   
@@ -41,17 +38,10 @@ export class Comment extends  Component {
           </i>
           
           <h3 className="like-count">{replyCount}</h3>
-
-          <i 
-            id={id} 
-            className="far fa-thumbs-down">
-          </i>
-
-          <i 
-            id={id} 
-            className="far fa-trash-alt">
-          </i>
-        </div>
+          {/* the functionality to unlike and remove comment will be added shortly */}
+          {/* <i id={id} className="far fa-thumbs-down"></i>
+              <i id={id} className="far fa-trash-alt"></i>*/}
+        </div> 
 
       </div>
   
