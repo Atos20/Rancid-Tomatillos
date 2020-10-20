@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './LoginForm.scss';
 import PropTypes from 'prop-types';
 export class LoginForm extends Component {
@@ -83,7 +83,7 @@ export class LoginForm extends Component {
         </label>
 
         <h4 className="password-title">password</h4>
-        <label htmlFor="userName">
+        <label htmlFor="user-password">
           <input 
           name="password"
           type="password" 

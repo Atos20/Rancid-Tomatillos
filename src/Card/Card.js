@@ -5,9 +5,10 @@ import './Card.scss'
 import moment from 'moment'
 
 export class Card extends Component{
-  constructor(props) {
-    super(props)
-  }
+  // lint told me that this was a useless constructor. I kept it here just to make a note of it, but with that in mind, I think we can make card a functional component
+  // constructor(props) {
+  //   super(props)
+  // }
 
   displayMovieInformation = () => {
     this.props.getMovieDetails(this.props.movies.id)

@@ -77,7 +77,7 @@ describe('App', () => {
           </MemoryRouter> 
         );
 
-        const header = screen.getByRole('heading', { name: /rancid tomatillos/i })
+        const header = screen.getByRole('heading', { name: /rancid tomatillos/i })  
         const subHeader = screen.getByRole('heading', { name: /rate your next movie/i })
         const homeButton = screen.getByRole('button', { name: /home/i })
         const loginButton = screen.getByRole('button', { name: /log in/i })

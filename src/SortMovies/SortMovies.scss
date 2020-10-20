@@ -50,7 +50,7 @@
 
 
 
-        .sort-btn{
+        .sort, .view-favorites, .view-all{
           display:inline-block;
           padding:0.7em 1.7em;
           margin:5%;
@@ -67,7 +67,7 @@
           border: none;
           }
 
-          .sort-btn:hover{
+          .sort:hover{
             top:0.1em;
             color: #213e3b;
             background-color:#bfdcae;
@@ -75,7 +75,7 @@
             }
 
             @media all and (max-width:30em){
-            .sort-btn{
+            .sort{
             display:block;
             margin:0.4em auto;
             }

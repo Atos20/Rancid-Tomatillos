@@ -7,7 +7,6 @@ export class Comment extends  Component {
   constructor(props){
     super(props)
   }
-
   getCommentId = (event) => {
     if (!this.props.name){
       return false
@@ -33,33 +32,33 @@ export class Comment extends  Component {
   
        <p className="comment-text">{comment}</p>
        
-       <div className="buttons-container">
+        <div className="buttons-container">
+          <i 
+            id={id} 
+            className={replyCount > 0 ? "fas blue fa-thumbs-up": "fas fa-thumbs-up"} 
+            onClick={this.getCommentId} 
+            name="like">
+          </i>
+          
+          <h3 className="like-count">{replyCount}</h3>
 
-        <i 
-          id={id} 
-          className={replyCount > 0 ? "fas blue fa-thumbs-up": "fas fa-thumbs-up"} 
-          onClick={this.getCommentId} 
-          name="like">
-        </i>
-        
-         <h3 className="like-count">{replyCount}</h3>
+          <i 
+            id={id} 
+            className="far fa-thumbs-down">
+          </i>
 
-        <i 
-          id={id} 
-          className="far fa-thumbs-down">
-        </i>
-
-        <i 
-          id={id} 
-          className="far fa-trash-alt">
-        </i>
-       </div>
+          <i 
+            id={id} 
+            className="far fa-trash-alt">
+          </i>
+        </div>
 
       </div>
   
-    )
+      )
+    }
   }
-}
+ 
 
 Comment.propTypes = {
     comment: PropTypes.object,

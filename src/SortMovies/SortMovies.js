@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './SortMovies.scss';
@@ -34,65 +34,73 @@ export class SortMovies extends Component {
             <div className="sort-container">
               <h1 className="cards-title">All movies</h1>
               <div className="sort-control">
-                <h4 className="sort-title">sort by</h4>
-
+                <label for='sort-select' className="sort-title">sort by</label>
                 <select
-                    role="select-sorting"
+                    role="menubar"
                     className="sort-select"
                     name="value" 
                     value={this.state.value} 
                     onChange={this.updateSortValue} 
                     id="sort-select"
-                    >
+                >
                     <option 
+                    role='menuitem'
                     data-testid='none'
                     name="none" 
                     value="none"
+                    for='sort-select'
                     >--none--</option>
                     <option 
+                    role='menuitem'
                     data-testid='descending-one'
                     name="average_rating" 
                     value="descending"
+                    for='sort-select'
                     >Rating descending </option>
                     <option 
+                    role='menuitem'
                     data-testid='ascending'
                     name="average_rating" 
                     value="ascending"
+                    for='sort-select'
                     >Rating ascending </option>
                 </select>
                 <button 
                   type="apple" 
-                  role="apple"
-                  className="sort-btn"
+                  className="sort"
                   name="sort"
+                  aria-label="sort"
                   onClick={this.getOptionValue}
-                  ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
+                  ><i type="apple-icon" role='img' className="fas fa-apple-alt"></i>
                 </button>
                 {this.props.status && 
-                <>{!this.state.favorites &&
+                <>
+                    {!this.state.favorites &&
                     <>
-                      <NavLink className="sort-btn" to={`/favorites`}
-                        type="apple" 
-                        role="apple"
-                        className="sort-btn"
-                        name="sort"
-                        onClick={this.toggleFavorites}
-                        >
-                        Favorites
-                      </NavLink>
+                        <NavLink 
+                            to={`/favorites`}
+                            type="navlink" 
+                            role="button"
+                            className="view-favorites"
+                            name="favorites-button"
+                            onClick={this.toggleFavorites}
+                            >
+                            Favorites
+                        </NavLink>
                     </>
                     }
                     {this.state.favorites && 
                     <>
-                      <NavLink className="sort-btn" to={`/`}
-                        type="apple" 
-                        role="apple"
-                        className="sort-btn"
-                        name="sort"
-                        onClick={this.toggleFavorites}
-                        >
-                        All
-                      </NavLink>
+                        <NavLink 
+                            to={`/`}
+                            type="navlink" 
+                            role="button"
+                            className="view-all"
+                            name="all-button"
+                            onClick={this.toggleFavorites}
+                            >
+                            All                            
+                        </NavLink>
                     </>
                     }
                 </>
