@@ -57,8 +57,8 @@ export class Card extends Component{
                   >
                 </img>
               {this.props.ratedMovies.rating ? 
-              <h2 className="user-rating">your rate {this.props.ratedMovies.rating.toFixed(1)}</h2> :
-              <h5 className="user-rating">not rated</h5>}
+              <p className="user-rating">your rate {this.props.ratedMovies.rating.toFixed(1)}</p> :
+              <p className="user-rating">not rated</p>}
           </div> 
           
         </NavLink>

@@ -6,7 +6,6 @@ import './SortMovies.scss';
 export class SortMovies extends Component {
     constructor(props) {
         super(props)
-        //console.log(" SortMovies props", props) for proptypes
 
         this.state = {
             value: '',
@@ -38,7 +37,7 @@ export class SortMovies extends Component {
             <div className="sort-container">
               <h1 className="cards-title">All movies</h1>
               <div className="sort-control">
-                <h4 className="sort-title">sort by</h4>
+                <h2 className="sort-title">sort by</h2>
 
                 <select
                     role="menubar"
@@ -49,30 +48,29 @@ export class SortMovies extends Component {
                     id="sort-select"
                     >
                     <option 
+                    role='menuitem'
                     data-testid='none'
                     name="none" 
                     value="none"
                     >--none--</option>
                     <option 
+                    role='menuitem'
                     data-testid='descending-one'
                     name="average_rating" 
                     value="descending"
                     >Rating descending </option>
                     <option 
+                    role='menuitem'
                     data-testid='ascending'
                     name="average_rating" 
                     value="ascending"
                     >Rating ascending </option>
-                    {/* {this.props.status && <option 
-                    data-testid='favorites'
-                    name="favorites" 
-                    value="favorites"
-                    >Favorites </option>} */}
                 </select>
                 <button 
                   type="apple" 
-                  className="sort-btn"
+                  className="sort"
                   name="sort"
+                  aria-label="sort"
                   onClick={this.getOptionValue}
                   ><i type="apple-icon" role='img' className="fas fa-apple-alt"></i>
                 </button>
@@ -85,7 +83,7 @@ export class SortMovies extends Component {
                             type="navlink" 
                             role="button"
                             className="view-favorites"
-                            name="sort"
+                            name="favorites-button"
                             onClick={this.toggleFavorites}
                             >
                             Favorites
@@ -99,7 +97,7 @@ export class SortMovies extends Component {
                             type="navlink" 
                             role="button"
                             className="view-all"
-                            name="all"
+                            name="all-button"
                             onClick={this.toggleFavorites}
                             >
                             All                            

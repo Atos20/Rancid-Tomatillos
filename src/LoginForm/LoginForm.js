@@ -83,7 +83,7 @@ export class LoginForm extends Component {
         </label>
 
         <h4 className="password-title">password</h4>
-        <label htmlFor="userName">
+        <label htmlFor="user-password">
           <input 
           name="password"
           type="password" 
