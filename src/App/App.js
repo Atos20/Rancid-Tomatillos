@@ -37,6 +37,28 @@ export class App extends Component{
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
   }
   
+  // authenticateUser = async (credentials) => {
+  //   try {
+  //     const userData = await fetcher.fetchUser(4)
+  //     // const userData = await fetcher.fetchUser(credentials)
+  //       this.setState({ userData });
+  //       this.getUserRatings(userData);
+  //     } catch(error) {
+  //     alert('Those aren\'t the right credentials')
+  //     this.setState({ error })
+  //   }
+  // }
+
+  // getUserRatings = async (userData) => {
+  //   try {
+  //     const ratedMovies = await fetcher.fetchUserRatings(userData.id)
+  //     this.setState({ ratedMovies });
+  //     this.retrieveFavorites();
+  //   } catch(error) {
+  //     this.setState({ error })
+  //   }
+  // }
+
   authenticateUser = async (credentials) => {
     const userData = await fetcher.fetchUser(credentials)
     if (userData) {
@@ -47,7 +69,7 @@ export class App extends Component{
       alert('Those aren\'t the right credentials')
     }
   }
-
+  
   logOut = () => {
     this.setState ( {
       userData:  {
@@ -172,6 +194,11 @@ export class App extends Component{
   }
 
   render(){
+    // if(this.state.error) {
+    //   return (
+    //     <ErrorBoundary error={this.state.error}/>
+    //   )
+    // }
     return (
       <>
         <h1 className="login-info">
