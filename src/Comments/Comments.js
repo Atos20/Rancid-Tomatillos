@@ -47,8 +47,6 @@ export class Comments extends Component  {
                 className="input-text"
                 type="text"
                 name="comment"
-                role="comment-section"
-                type="comment-section"
                 maxLength = "120"
                 placeholder="Add your comment here"
                 onChange={this.updateValue}
@@ -56,7 +54,6 @@ export class Comments extends Component  {
               />
 
               <button 
-              role="comment-button"
               type="comment-button"
               onSubmit={this.postComment}
               onClick={this.postComment}
@@ -66,7 +63,6 @@ export class Comments extends Component  {
               </button>
 
               <button 
-              role="clear-button"
               type="clear-button"
               onClick={this.clearForm}
               name="comment"
