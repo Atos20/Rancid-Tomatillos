@@ -149,7 +149,7 @@ export class App extends Component{
     if (!name) {
       return false
     }
-    const promise = await fetcher.addMovieComment(movieId, data);
+    await fetcher.addMovieComment(movieId, data);
   }
 
   retrieveComments = async (movieId) => {
@@ -167,7 +167,7 @@ export class App extends Component{
       return false;
     }
     const status = { likeStatus: commentStatus }
-    const promise = await fetcher.likeMovieComment(movieID, commentID, status);
+    await fetcher.likeMovieComment(movieID, commentID, status);
     this.retrieveComments(movieID)
   }
 
