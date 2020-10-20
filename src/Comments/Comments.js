@@ -45,6 +45,17 @@ export class Comments extends Component  {
       this.props.likeMovieComment(movieId, id, likeStatus)
   }
 
+    injectComments = () => {
+      return this.props.movieComments.map((comment, i) => {
+        return <Comment 
+          key={i} 
+          comment={comment}
+          likeComment={this.likeComment}
+          name={this.props.name}
+        />
+      })
+    }
+
   render() {
     
     const { movieComments } = this.props
@@ -80,17 +91,9 @@ export class Comments extends Component  {
               clear
               </button>
 
-            </form>
+            </form> 
 
-            {movieComments.map((comment, i) => {
-              return <Comment 
-                key={i} 
-                comment={comment}
-                likeComment={this.likeComment}
-                name={this.props.name}
-              />
-            })}
-
+            {this.injectComments()}
 
           </div>
 
