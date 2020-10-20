@@ -1,4 +1,110 @@
-<<<<<<< HEAD
+#### About
+
+Rancid-Tomatillos is a movie rating app, akin to some popular movie rating sites out there. With this app a user will be able to view a list of movies and their average ratings. Upon clicking a movie "card", a user will by Redirected to a movie ShowPage where more specific detail about the movie will be present, along with trailers to the movie and comments people have left about said movie. This app also features the ability for a user to log in. With this implementation, a user will also gain access to rate movies (and see their ratings affect the movies!), like and filter movies, and leave comments on them as well. 
+
+#### Contributors 
+
+Orlando MMurcio @Atos20
+Ian Holladay @holladayian
+
+#### Links to this project can be found:
+
+Project Page
+<!-- Add link to project page -->
+
+Backend Server
+<!-- Add link to backend microservice -->
+
+Project Spec/Rubric
+<!-- Add link to project rubric -->
+
+
+#### Set Up
+
+##### Application
+
+Clone down this repo
+
+CD into the repo's directory
+
+Run npm install
+
+Run npm start
+
+Running npm start should automatically take you to a webpage, "localhost:3000", but if you get lost you can always paste this route into your url, so long as the project is still running.
+
+##### Microservice
+
+Clone down this repo
+<!-- Add repo link here  -->
+
+CD into the repo's directory
+
+run npm install
+
+run npm start
+
+##### Login
+
+Log inot the application with these credentials
+
+UserName: Diana
+
+Email: diana@turing.io
+
+Password: 111111
+
+
+#### Images
+
+##### WireFrames
+
+Login
+<!-- Add wireframe of login -->
+
+First remdition of Homepage
+<!-- Add homepage 1 -->
+
+First rendition of MoviePage
+<!-- Add MoviePage 1 -->
+
+Second Rendition of Homepage
+<!-- Add Homepage 2 -->
+
+Second Rendition of MoviePage
+<!-- Add MoviePage 2 -->
+
+##### Project Pics
+
+Homepage
+<!-- Add pic of home page w/o logged in -->
+
+MoviePage
+<!-- Add img of movie page w/o logged in -->
+
+Login
+<!-- Add gif of logging in -->
+
+Logged in Homepage
+<!-- Add img of home page with movies that have been rated, and one each of liked/unliked -->
+
+Logged in Movie Page
+<!-- Img of logged in movie page -->
+
+Adding Comments 
+<!-- Add gif of adding comments -->
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,7 +172,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
-# Rancid-Tomatillos
->>>>>>> bffbe4fe7dde4e5c241387ad79d335e0192e5329
+This section has moved here: https://facebook.github.io/create-react-app/docs/bffbe4fe7dde4e5c241387ad79d335e0192e5329
