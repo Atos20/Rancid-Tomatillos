@@ -5,8 +5,7 @@ const fetcher = {
     return fetch(fetchedAllMovies)
       .then(response => response.json())
       .then(data => data)
-      // .catch(err => err.message)
-      .catch(err => console.log('err', err))
+      .catch(err => err.message)
     },
 
     fetchSingleMovie(movieID) {
@@ -14,8 +13,7 @@ const fetcher = {
       return fetch(fetchedSingleMovie)
         .then(request => request.json())
         .then(promise => promise)
-        // .catch(err => err.message)
-        .catch(err => console.log('err', err))
+        .catch(err => err.message)
     },
 
     fetchMovieVideo(movieID) {
@@ -23,8 +21,7 @@ const fetcher = {
       return fetch(fetchedMovieVideos)
         .then(request => request.json())
         .then(promise => promise)
-        // .catch(err => err.message)
-        .catch(err => console.log('err', err))
+        .catch(err => err.message)
     },
 
     fetchUser(userInfo) {
@@ -39,8 +36,7 @@ const fetcher = {
       return fetch(fetchedUser, int)
         .then(request => request.json())
         .then(data => data.user)
-        // .catch(err => err.message)
-        .catch(err => console.log('err', err))
+        .catch(err => err.message)
     },
 
     fetchUserRatings(userID) {
@@ -48,8 +44,7 @@ const fetcher = {
       return fetch(fetchedUserRatings)
         .then(request => request.json())
         .then(data => data.ratings)
-        // .catch(err => err.message)
-        .catch(err => console.log('err', err))
+        .catch(err => err.message)
     },
 
     fetchCreateUserRating(userID, newRating) {
@@ -64,7 +59,7 @@ const fetcher = {
       return fetch(fetchedUserRating, int)
         .then(request => request.json())
         .then(promise => promise)
-        .catch(err => console.log('err', err))
+        .catch(err => err.message)
     },
 
     fetchDeleteUserRating(userID, ratingID) {
@@ -73,12 +68,10 @@ const fetcher = {
       return fetch(fetchedDeleteRating, int)
         .then(request => request.json())
         .then(promise => promise)
-        .catch(err => console.log('err', err))
+        .catch(err => err.message)
     },
 
     addMovieComment(movieID, comment){
-      //this method requires to pass the movieId and the comment object with the author name => users name and comment 
-      console.log(movieID, comment)
       const int = {
         method: 'POST',
         headers: {
@@ -90,19 +83,39 @@ const fetcher = {
       return fetch(URL, int)
         .then(request => request.json())
         .then(response => response)
-        // .catch(err => err.message)
-        .catch(err => console.log('err', err.message))
+        .catch(err => err.message)
+    },
+
+    likeMovieComment(movieID, commentID, commentStatus){
+      const int = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(commentStatus)
+    }
+      const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
+      return fetch(URL, int)
+        .then(request => request.json())
+        .then(response => response)
+        .catch(err => err.message)
     },
 
     getMovieComments(movieID){
-      //this method requires to pass the movieId and the comment object with the author name => users name and comment 
-      console.log(movieID)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
       return fetch(URL)
         .then(request => request.json())
         .then(response => response)
         .catch(err => err.message)
-        // .catch(err => console.log('err', err.message))
+    },
+
+    getUpdatedMovieComments(movieID, commentID){
+      console.log(movieID)
+      const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
+      return fetch(URL)
+        .then(request => request.json())
+        .then(response => response)
+        .catch(err => err.message)
     },
 
     getUserFavorites() {
@@ -110,10 +123,9 @@ const fetcher = {
       return fetch(fetchedDeleteRating)
       .then(request => request.json())
       .then(promise => promise)
-      .catch(err => console.log('err', err))
+      .catch(err =>  err.message)
     },
 
-    // movie id { id: <Number>}
     addUserFavorites(movieID) {
       const int = {
         method: 'POST',
@@ -126,10 +138,9 @@ const fetcher = {
       return fetch(fetchedDeleteRating, int)
       .then(request => request.json())
       .then(promise => promise)
-      .catch(err => console.log('err', err))
+      .catch(err => err.message)
     }
-    
-  }
+}
 
   export default fetcher;
   

@@ -138,12 +138,18 @@ export class App extends Component{
   
   newComment = async(movieId, userComment) => {
     const { name } = this.state.userData 
-    const data= { comment: userComment, author: name}
+    const data = { 
+      comment: userComment.comment, 
+      author: name,
+      time: userComment.time, 
+      likeStatus: userComment.likeStatus,
+      replyCount: 0,
+      replies: []
+    }
     if (!name) {
       return false
     }
     const promise = await fetcher.addMovieComment(movieId, data);
-    console.log(promise)
   }
 
   retrieveComments = async (movieId) => {
@@ -153,6 +159,16 @@ export class App extends Component{
     } else {
       this.setState({movieComments: promise.comments})
     }
+  }
+  
+  likeMovieComment = async (movieID, commentID, commentStatus) => {
+    const { name } = this.state.userData 
+    if (!name){
+      return false;
+    }
+    const status = { likeStatus: commentStatus }
+    const promise = await fetcher.likeMovieComment(movieID, commentID, status);
+    this.retrieveComments(movieID)
   }
 
   render(){
@@ -208,11 +224,12 @@ export class App extends Component{
                 //I changed this to userData so I can have access to .id for toggling favorites
                 name={this.state.userData}
                 ratedMovies={this.state.ratedMovies}
-                newComment={this.newComment}
-                movieComments={this.state.movieComments}
                 favorites={this.state.favorites}
                 toggleFavorite={this.toggleFavorite}
+                newComment={this.newComment}
                 retrieveComments={this.retrieveComments}
+                movieComments={this.state.movieComments}
+                likeMovieComment={this.likeMovieComment}
               /> 
             }}
           />
@@ -235,7 +252,7 @@ export class App extends Component{
           <Route 
             exact path='*' 
             render={() => {
-            return  <ErrorBoundary /> //errorMessageData={this.state.hasError}
+            return  <ErrorBoundary />
           }} />
         </Switch>
       </>
