@@ -80,5 +80,6 @@ MovieHeader.propTypes = {
     name: PropTypes.string,
     movieDetails: PropTypes.object,
     deleteRating: PropTypes.func,
-    addRating: PropTypes.func
+    addRating: PropTypes.func,
+    favorites: PropTypes.number
 }

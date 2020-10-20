@@ -50,7 +50,7 @@ export const MoviePage = ( {
             // we would also change it here
             name={name.name}
             deleteRating={deleteRating}
-            favorites={favorites.find(favoritedMovie => favoritedMovie === movieDetails.id) || {}}
+            favorites={favorites.find(favoritedMovie => favoritedMovie === movieDetails.id) || null}
             toggleFavorite={toggleFavorite}
             movieId={movieDetails.id}
           />
