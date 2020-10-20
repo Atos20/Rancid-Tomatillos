@@ -4,26 +4,26 @@ Rancid-Tomatillos is a movie rating app, akin to some popular movie rating sites
 
 #### Contributors 
 
-Orlando MMurcio @Atos20
-Ian Holladay @holladayian
+Orlando MMurcio [@Atos20](https://github.com/Atos20)
+Ian Holladay [@holladayian](https://github.com/holladayian)
 
 #### Links to this project can be found:
 
 Project Page
-<!-- Add link to project page -->
+[Link to the our project incease you get lost!](https://github.com/Atos20/Rancid-Tomatillos)
 
 Backend Server
 <!-- Add link to backend microservice -->
 
 Project Spec/Rubric
-<!-- Add link to project rubric -->
+[Link to the rubric we based this off of!](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v2.html)
 
 
 #### Set Up
 
 ##### Application
 
-Clone down this repo
+Clone down [this repo](https://github.com/Atos20/Rancid-Tomatillos)
 
 CD into the repo's directory
 
@@ -35,7 +35,7 @@ Running npm start should automatically take you to a webpage, "localhost:3000", 
 
 ##### Microservice
 
-Clone down this repo
+Clone down [this repo]()
 <!-- Add repo link here  -->
 
 CD into the repo's directory
