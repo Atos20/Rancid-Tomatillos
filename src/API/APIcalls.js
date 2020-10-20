@@ -5,7 +5,7 @@ const fetcher = {
     return fetch(fetchedAllMovies)
       .then(response => response.json())
       .then(data => data)
-      .catch(err => err.message)
+      // .catch(err => err.message)
     },
 
     fetchSingleMovie(movieID) {
@@ -13,7 +13,7 @@ const fetcher = {
       return fetch(fetchedSingleMovie)
         .then(request => request.json())
         .then(promise => promise)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     fetchMovieVideo(movieID) {
@@ -21,7 +21,7 @@ const fetcher = {
       return fetch(fetchedMovieVideos)
         .then(request => request.json())
         .then(promise => promise)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     fetchUser(userInfo) {
@@ -36,7 +36,7 @@ const fetcher = {
       return fetch(fetchedUser, int)
         .then(request => request.json())
         .then(data => data.user)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     fetchUserRatings(userID) {
@@ -44,7 +44,7 @@ const fetcher = {
       return fetch(fetchedUserRatings)
         .then(request => request.json())
         .then(data => data.ratings)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     fetchCreateUserRating(userID, newRating) {
@@ -59,7 +59,7 @@ const fetcher = {
       return fetch(fetchedUserRating, int)
         .then(request => request.json())
         .then(promise => promise)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     fetchDeleteUserRating(userID, ratingID) {
@@ -68,7 +68,7 @@ const fetcher = {
       return fetch(fetchedDeleteRating, int)
         .then(request => request.json())
         .then(promise => promise)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     addMovieComment(movieID, comment){
@@ -83,7 +83,7 @@ const fetcher = {
       return fetch(URL, int)
         .then(request => request.json())
         .then(response => response)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     likeMovieComment(movieID, commentID, commentStatus){
@@ -98,7 +98,7 @@ const fetcher = {
       return fetch(URL, int)
         .then(request => request.json())
         .then(response => response)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     getMovieComments(movieID){
@@ -106,7 +106,7 @@ const fetcher = {
       return fetch(URL)
         .then(request => request.json())
         .then(response => response)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     getUpdatedMovieComments(movieID, commentID){
@@ -115,7 +115,7 @@ const fetcher = {
       return fetch(URL)
         .then(request => request.json())
         .then(response => response)
-        .catch(err => err.message)
+        // .catch(err => err.message)
     },
 
     getUserFavorites() {
@@ -123,7 +123,7 @@ const fetcher = {
       return fetch(fetchedDeleteRating)
       .then(request => request.json())
       .then(promise => promise)
-      .catch(err =>  err.message)
+      // .catch(err =>  err.message)
     },
 
     addUserFavorites(movieID) {
@@ -138,7 +138,7 @@ const fetcher = {
       return fetch(fetchedDeleteRating, int)
       .then(request => request.json())
       .then(promise => promise)
-      .catch(err => err.message)
+      // .catch(err => err.message)
     }
 }
 
