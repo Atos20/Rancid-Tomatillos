@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './SortMovies.scss';
@@ -41,7 +41,7 @@ export class SortMovies extends Component {
                 <h4 className="sort-title">sort by</h4>
 
                 <select
-                    role="select-sorting"
+                    role="menubar"
                     className="sort-select"
                     name="value" 
                     value={this.state.value} 
@@ -71,42 +71,39 @@ export class SortMovies extends Component {
                 </select>
                 <button 
                   type="apple" 
-                  role="apple"
                   className="sort-btn"
                   name="sort"
                   onClick={this.getOptionValue}
-                  ><i type="apple-icon" role='apple-icon' className="fas fa-apple-alt"></i>
+                  ><i type="apple-icon" role='img' className="fas fa-apple-alt"></i>
                 </button>
                 {this.props.status && 
-                <>{!this.state.favorites &&
+                <>
+                    {!this.state.favorites &&
                     <>
-                        <NavLink className="sort-btn" to={`/favorites`}
-                            // {/* <button  */}
-                                type="apple" 
-                                role="apple"
-                                className="sort-btn"
-                                name="sort"
-                                onClick={this.toggleFavorites}
-                                >
-                                Favorites
-                            {/* </button> */}
+                        <NavLink 
+                            to={`/favorites`}
+                            type="navlink" 
+                            role="button"
+                            className="view-favorites"
+                            name="sort"
+                            onClick={this.toggleFavorites}
+                            >
+                            Favorites
                         </NavLink>
                     </>
                     }
                     {this.state.favorites && 
                     <>
-                    <NavLink className="sort-btn" to={`/`}
-                        // {/* <button  */}
-                            type="apple" 
-                            role="apple"
-                            className="sort-btn"
-                            name="sort"
+                        <NavLink 
+                            to={`/`}
+                            type="navlink" 
+                            role="button"
+                            className="view-all"
+                            name="all"
                             onClick={this.toggleFavorites}
                             >
-                            All
-                            
-                        {/* </button> */}
-                    </NavLink>
+                            All                            
+                        </NavLink>
                     </>
                     }
                 </>
