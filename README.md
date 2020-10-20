@@ -173,22 +173,32 @@ Password: `111111`
 ##### WireFrames
 
 Login
+
+
   <img src="./readmeIMGs/login.png" height=auto width=75% alt="Login wireframe"/>
 
 
 First remdition of Homepage
+
+
   <img src="./readmeIMGs/homepage1.png" height=auto width=75% alt="homepage1 wireframe"/>
 
 
 First rendition of MoviePage
+
+
   <img src="./readmeIMGs/moviepage1.png" height=auto width=75% alt="moviepage1 wireframe"/>
 
 
 Second Rendition of Homepage
+
+
   <img src="./readmeIMGs/homepage2.png" height=auto width=75% alt="homepage2 wireframe"/>
 
 
 Second Rendition of MoviePage
+
+
   <img src="./readmeIMGs/moviepage2.png" height=auto width=75% alt="moviepage2 wireframe"/>
 
 
