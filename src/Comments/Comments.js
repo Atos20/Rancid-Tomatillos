@@ -45,6 +45,17 @@ export class Comments extends Component  {
       this.props.likeMovieComment(movieId, id, likeStatus)
   }
 
+    injectComments = () => {
+      return this.props.movieComments.map((comment, i) => {
+        return <Comment 
+          key={i} 
+          comment={comment}
+          likeComment={this.likeComment}
+          name={this.props.name}
+        />
+      })
+    }
+
   render() {
     
     const { movieComments } = this.props
@@ -65,10 +76,7 @@ export class Comments extends Component  {
               />
 
               <button 
-<<<<<<< HEAD
               type="comment-button"
-=======
->>>>>>> main
               onSubmit={this.postComment}
               onClick={this.postComment}
               className="comment-button">
@@ -76,27 +84,16 @@ export class Comments extends Component  {
               </button>
 
               <button 
-<<<<<<< HEAD
               type="clear-button"
-=======
->>>>>>> main
               onClick={this.clearForm}
               name="comment"
               className="clear-button">
               clear
               </button>
 
-            </form>
+            </form> 
 
-            {movieComments.map((comment, i) => {
-              return <Comment 
-                key={i} 
-                comment={comment}
-                likeComment={this.likeComment}
-                name={this.props.name}
-              />
-            })}
-
+            {this.injectComments()}
 
           </div>
 

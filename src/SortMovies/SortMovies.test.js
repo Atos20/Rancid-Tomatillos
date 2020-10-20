@@ -13,27 +13,27 @@ describe('SortMovies', () => {
       <BrowserRouter>
         <SortMovies 
           sortMovies={fakeSort}
+          status={''}
         />
       </BrowserRouter> 
 
     );
-    const none = screen.getByText("--none--")
-    const sortBy = screen.getByRole('heading', { name: /sort by/i })
-    const descending = screen.getByText("Rating descending")
-    const ascending = screen.getByText("Rating ascending")
-    const selectBox = screen.getByRole('select-sorting');
-    const sortButton = screen.getByRole('apple');
-
+    const none = screen.getByText("--none--");
+    const sortBy = screen.getByText(/sort by/i);
+    const descending = screen.getByText("Rating descending");
+    const ascending = screen.getByText("Rating ascending");
+    const sortButton = screen.getByRole('button', { name: /sort/i });
+    
     expect(none).toBeInTheDocument();
     expect(sortBy).toBeInTheDocument();
     expect(descending).toBeInTheDocument();
     expect(ascending).toBeInTheDocument();
-    expect(selectBox).toBeInTheDocument();
+    expect(sortButton).toBeInTheDocument();
     
-    userEvent.selectOptions(selectBox, [descending, ascending]);
-    // screen.debug()
-    userEvent.click(sortButton)
-    expect(fakeSort).toHaveBeenCalled()
+    userEvent.selectOptions(sortButton, [descending, ascending]);
+    screen.debug()
+    userEvent.click(sortButton);
+    expect(fakeSort).toHaveBeenCalled();
 
 
   })

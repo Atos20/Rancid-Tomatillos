@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MovieCard from '../MovieCard/MovieCard.js';
+import { MovieCard } from '../MovieCard/MovieCard.js';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -29,7 +29,10 @@ describe('MovieCard', () => {
 
     render(
       <Router>
-        <MovieCard movieDetails={fakeMovieDetailProps} ratedMovies={fakeRatedMovies}/>
+        <MovieCard 
+          movieDetails={fakeMovieDetailProps} 
+          ratedMovies={fakeRatedMovies}
+        />
       </Router>
     );
       const fakeAverage = screen.getByText(/1.0/i);

@@ -8,7 +8,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('Cards', () => {
   it('should render movie cards', () => {
+    const userData = {email: "diana@turing.io", id: 82, name: "Diana"}
     const fakeUserRating = [''];
+    const fakeFavorites = [694919, 337401]
     const movies = [
       {
         average_rating: 6.75, 
@@ -34,6 +36,8 @@ describe('Cards', () => {
           ratedMovies={fakeUserRating} 
           getMovieDetails={jest.fn()} 
           sortMovies={jest.fn()}
+          userData={userData}
+          favorites={fakeFavorites}
         />
       </Router>
     )

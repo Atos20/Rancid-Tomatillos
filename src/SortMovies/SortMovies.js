@@ -18,17 +18,14 @@ export class SortMovies extends Component {
     }
 
     getOptionValue = () => {
-        console.log("this.state.favorites in get option value", this.state.favorites)
         this.props.sortMovies(this.state.value)
     }
 
     toggleFavorites = () => {
-        console.log("this.state.favorites in toggle favorites", this.state.favorites)
         if (this.state.favorites) {
             this.setState({ favorites: false })
         } else {
             this.setState({ favorites: true })
-
         }
     }
 
@@ -37,36 +34,38 @@ export class SortMovies extends Component {
             <div className="sort-container">
               <h1 className="cards-title">All movies</h1>
               <div className="sort-control">
-                <label for='sort-select' className="sort-title">sort by</label>
+                <label htmlFor='sort-select' className="sort-title">sort by</label>
                 <select
-                    role="menubar"
-                    className="sort-select"
-                    name="value" 
-                    value={this.state.value} 
-                    onChange={this.updateSortValue} 
-                    id="sort-select"
-                >
+                  role="menubar"
+                  className="sort-select"
+                  name="value" 
+                  value={this.state.value} 
+                  onChange={this.updateSortValue} 
+                  id="sort-select">
                     <option 
-                    role='menuitem'
-                    data-testid='none'
-                    name="none" 
-                    value="none"
-                    for='sort-select'
-                    >--none--</option>
+                      role='menuitem'
+                      data-testid='none'
+                      name="none" 
+                      value="none"
+                      htmlFor='sort-select'
+                      >--none--
+                    </option>
                     <option 
-                    role='menuitem'
-                    data-testid='descending-one'
-                    name="average_rating" 
-                    value="descending"
-                    for='sort-select'
-                    >Rating descending </option>
+                      role='menuitem'
+                      data-testid='descending-one'
+                      name="average_rating" 
+                      value="descending"
+                      htmlFor='sort-select'
+                      >Rating descending
+                    </option>
                     <option 
-                    role='menuitem'
-                    data-testid='ascending'
-                    name="average_rating" 
-                    value="ascending"
-                    for='sort-select'
-                    >Rating ascending </option>
+                      role='menuitem'
+                      data-testid='ascending'
+                      name="average_rating" 
+                      value="ascending"
+                      htmlFor='sort-select'
+                      >Rating ascending 
+                    </option>
                 </select>
                 <button 
                   type="apple" 
@@ -108,12 +107,13 @@ export class SortMovies extends Component {
                     }
                 </>
                 }
-              </div>          
+              </div>
             </div>
         )
     }
 }
 
 SortMovies.propType = {
-    sortMovies: PropTypes.func
+    sortMovies: PropTypes.func,
+    status: PropTypes.string
 }

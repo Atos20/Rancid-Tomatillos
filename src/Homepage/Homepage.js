@@ -8,8 +8,10 @@ export const Homepage = (props) => {
 
   return(
     <>
-    {/* props.name should be changed to props.userData */}
-      <WelcomingSection name={props.name}/>
+      <WelcomingSection 
+        userData={props.userData}
+      />
+
       <Cards 
         movies={props.movies}
         getMovieDetails={props.getMovieDetails}
@@ -18,16 +20,14 @@ export const Homepage = (props) => {
         retrieveComments={props.retrieveComments}
         toggleFavorite={props.toggleFavorite}
         favorites={props.favorites}
-        // we should change the naming of props.name to be props.userData as this is what's being passed in
-        status={props.name}
+        userData={props.userData}
       />
     </>
   )
 }
 
 Homepage.propTypes = {
-  //once again name should be changed to userData
-  name: PropTypes.object,
+  userData: PropTypes.object,
   movies: PropTypes.array,
   getMovieDetails: PropTypes.func,
   sortMovies: PropTypes.func,

@@ -68,6 +68,11 @@ describe('App', () => {
       }
     ])
 
+    fetcher.getUserFavorites.mockResolvedValueOnce([
+      694919, 
+      337401
+    ])
+
   });
     
       it('should load homepage components', () => {
@@ -81,19 +86,15 @@ describe('App', () => {
         const subHeader = screen.getByRole('heading', { name: /rate your next movie/i })
         const homeButton = screen.getByRole('button', { name: /home/i })
         const loginButton = screen.getByRole('button', { name: /log in/i })
-        const sortTitle = screen.getByRole('heading', { name: /sort by/i })
-        const sortSelect = screen.getByRole('select-sorting')
-        const sortButton = screen.getByRole('heading', { name: /sort by/i })
-  
+        const sortButton = screen.getByText(/sort by/i)
+        const sortSelect = screen.getByRole('menubar', { name: /sort by/i })
 
         expect(header).toBeInTheDocument();
         expect(subHeader).toBeInTheDocument();
         expect(homeButton).toBeInTheDocument();
         expect(loginButton).toBeInTheDocument();
-        expect(sortTitle).toBeInTheDocument();
         expect(sortSelect).toBeInTheDocument();
         expect(sortButton).toBeInTheDocument();
-        
       });
         
       it('Should be able to display movies on load', async () => {

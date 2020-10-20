@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './Cards.scss';
 
  export const Cards = (props) => {
-  
+
   const injectMovies = (movies) => {
     return movies.map((movie, i)=> {
       return (
@@ -15,16 +15,19 @@ import './Cards.scss';
           getMovieDetails={props.getMovieDetails}
           retrieveComments={props.retrieveComments}
           ratedMovies={props.ratedMovies.find(ratedMovie => ratedMovie.movie_id === movie.id) || {}}
-          favorites={props.favorites.find(favoritedMovie => favoritedMovie === movie.id) || {}}
+          favorites={props.favorites.find(favoritedMovie => favoritedMovie === movie.id) || ''}
           toggleFavorite={props.toggleFavorite}
-          status={props.status.id || ''}
+          userData={props.userData.id || null}
         />
       )
     });
   }
     return (
       <>
-        <SortMovies sortMovies={props.sortMovies} status={props.status.id || ''}/>
+        <SortMovies 
+          sortMovies={props.sortMovies} 
+          userData={props.userData.id || ''}
+        />
         <section className="card-area">
         {injectMovies(props.movies)}
         </section> 
@@ -39,7 +42,8 @@ Cards.propTypes = {
   getMovieDetails: PropTypes.func,
   retrieveComments: PropTypes.func,
   favorites: PropTypes.array,
-  toggleFavorite: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  userData: PropTypes.object
 }
 
 

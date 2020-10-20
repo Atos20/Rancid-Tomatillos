@@ -53,7 +53,6 @@ export const MovieCard = ({ movieDetails, ratedMovies}) =>{
           <ul className="genres">{genreList}</ul>
         </div>
 
-        
       </div>
     </div>
  
