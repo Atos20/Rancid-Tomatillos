@@ -8,7 +8,7 @@ jest.mock('../API/APIcalls');
 
 
 describe('Homepage', () => {
-  it('should render the Homepage with movies and thier ratings', () => {
+  it('should render the Homepage with movies and their ratings', () => {
     const fakeUser = {
       email: "diana@turing.io",
       id: 82,
@@ -36,17 +36,17 @@ describe('Homepage', () => {
         title: "Mulan"
       }
     ];
+
     render(
       <Router>
         <Homepage 
           userData={fakeUser} 
           movies={movies} 
           ratedMovies={fakeRatedMovies}
-          
+          favorites={[694919, 694919]}
         />
       </Router>
     );
-
 
     const movieName1 = screen.getByRole('heading', { name: /Money Plane/i });
     const movieDate1 = screen.getByRole('heading', { name: /september 29, 2020/i });
