@@ -25,7 +25,7 @@ export class Card extends Component{
     return (
       <NavLink className="movie-card" to={`/movies/${id}`}>
         <div 
-          role="movie-card"
+          role="link"
           key={id} 
           id={id} 
           className="card" 
@@ -35,11 +35,11 @@ export class Card extends Component{
           <h2 className="movie-release">{moment(release_date).format('LL')}</h2>
           
           {this.props.favorites && this.props.userData &&
-          <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>❤️</button>
+          <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}><span role="img" aria-label="heart-empty">❤️</span></button>
           }
           
           {!this.props.favorites && this.props.userData &&
-          <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}>♡</button>
+          <button className="favorite-movie" onClick={(event) => this.toggleFavorite(event)}><span role="img" aria-label="heart-empty">♡</span></button>
           }
           <div className="rating-container">
             <h2 className="movie-rating">Rating</h2>
@@ -48,7 +48,9 @@ export class Card extends Component{
               <img 
                 name={title}
                 id={id} 
-                className="movie-img" src={poster_path} 
+                className="movie-img" 
+                src={poster_path} 
+                alt={`${title} poster`}
                 >
               </img>
             {this.props.ratedMovies.rating ? 
