@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 export class Comment extends  Component {
-  constructor(props){
-    super(props)
-  }
   getCommentId = (event) => {
     if (!this.props.name){
       return false
@@ -21,7 +18,7 @@ export class Comment extends  Component {
     return (
       <div 
         id={id}
-        role="comments"
+        role="textbox"
         type="comments"
         className="comments">
   
