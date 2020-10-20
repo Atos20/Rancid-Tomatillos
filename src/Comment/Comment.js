@@ -38,17 +38,10 @@ export class Comment extends  Component {
           </i>
           
           <h3 className="like-count">{replyCount}</h3>
-
-          <i 
-            id={id} 
-            className="far fa-thumbs-down">
-          </i>
-
-          <i 
-            id={id} 
-            className="far fa-trash-alt">
-          </i>
-        </div>
+          {/* the functionality to unlike and remove comment will be added shortly */}
+          {/* <i id={id} className="far fa-thumbs-down"></i>
+              <i id={id} className="far fa-trash-alt"></i>*/}
+        </div> 
 
       </div>
   
