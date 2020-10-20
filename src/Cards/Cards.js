@@ -24,7 +24,10 @@ import './Cards.scss';
   }
     return (
       <>
-        <SortMovies sortMovies={props.sortMovies} status={props.status.id || ''}/>
+        <SortMovies 
+          sortMovies={props.sortMovies} 
+          status={props.status.id || ''}
+        />
         <section className="card-area">
         {injectMovies(props.movies)}
         </section> 

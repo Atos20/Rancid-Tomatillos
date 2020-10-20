@@ -6,7 +6,6 @@ import './SortMovies.scss';
 export class SortMovies extends Component {
     constructor(props) {
         super(props)
-        //console.log(" SortMovies props", props) for proptypes
 
         this.state = {
             value: '',
@@ -63,11 +62,6 @@ export class SortMovies extends Component {
                     name="average_rating" 
                     value="ascending"
                     >Rating ascending </option>
-                    {/* {this.props.status && <option 
-                    data-testid='favorites'
-                    name="favorites" 
-                    value="favorites"
-                    >Favorites </option>} */}
                 </select>
                 <button 
                   type="apple" 
@@ -81,7 +75,6 @@ export class SortMovies extends Component {
                 <>{!this.state.favorites &&
                     <>
                         <NavLink className="sort-btn" to={`/favorites`}
-                            // {/* <button  */}
                                 type="apple" 
                                 role="apple"
                                 className="sort-btn"
@@ -89,14 +82,12 @@ export class SortMovies extends Component {
                                 onClick={this.toggleFavorites}
                                 >
                                 Favorites
-                            {/* </button> */}
                         </NavLink>
                     </>
                     }
                     {this.state.favorites && 
                     <>
                     <NavLink className="sort-btn" to={`/`}
-                        // {/* <button  */}
                             type="apple" 
                             role="apple"
                             className="sort-btn"
@@ -104,19 +95,18 @@ export class SortMovies extends Component {
                             onClick={this.toggleFavorites}
                             >
                             All
-                            
-                        {/* </button> */}
                     </NavLink>
                     </>
                     }
                 </>
                 }
-              </div>          
+              </div>
             </div>
         )
     }
 }
 
 SortMovies.propType = {
-    sortMovies: PropTypes.func
+    sortMovies: PropTypes.func,
+    status: PropTypes.string
 }
