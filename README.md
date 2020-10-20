@@ -119,7 +119,7 @@ The user or viwer can click on any movie card and when doing so the home page is
    #### Take 6
 - Commenting movies
 
-After the user or viwer has been directed to any movie page, at the buttom of the page the user can see the commenting section that allows the user to make a new comment to that specific movie. As a viwer you can only see the comment but you cant interact with the like button.
+After the user or viwer has been directed to a movie page, at the buttom of the page the user can see the commenting section that allows the user to make a new comment to that specific movie. As a viwer you can only see the comment but you can't.
   <img src="https://media.giphy.com/media/zMC2DEcDpEQBde0zez/giphy.gif" height=auto width=75% alt="commenting on movies"/>
 
    #### Take 7
