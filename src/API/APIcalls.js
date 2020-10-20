@@ -87,7 +87,6 @@ const fetcher = {
     },
 
     likeMovieComment(movieID, commentID, commentStatus){
-      console.log(movieID, commentID, commentStatus)
       const int = {
         method: 'POST',
         headers: {
@@ -95,7 +94,6 @@ const fetcher = {
         },
         body: JSON.stringify(commentStatus)
     }
-    console.log(int)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
       return fetch(URL, int)
         .then(request => request.json())
@@ -104,7 +102,6 @@ const fetcher = {
     },
 
     getMovieComments(movieID){
-      console.log(movieID)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
       return fetch(URL)
         .then(request => request.json())

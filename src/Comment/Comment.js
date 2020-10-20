@@ -9,6 +9,9 @@ export class Comment extends  Component {
   }
 
   getCommentId = (event) => {
+    if (!this.props.name){
+      return false
+    }
     this.props.likeComment(event.target.id)
     event.target.style.color = "#3d7ea6"
   }
@@ -31,9 +34,13 @@ export class Comment extends  Component {
        <p className="comment-text">{comment}</p>
        
        <div className="buttons-container">
-        {/* if replyCount > 0 =>  */}
 
-        <i id={id} className={replyCount > 0 ? "fas blue fa-thumbs-up": "fas fa-thumbs-up"} onClick={this.getCommentId}name="like"></i>
+        <i 
+          id={id} 
+          className={replyCount > 0 ? "fas blue fa-thumbs-up": "fas fa-thumbs-up"} 
+          onClick={this.getCommentId} 
+          name="like">
+        </i>
         
          <h3 className="like-count">{replyCount}</h3>
 
@@ -55,5 +62,7 @@ export class Comment extends  Component {
 }
 
 Comment.propTypes = {
-    comment: PropTypes.object
+    comment: PropTypes.object,
+    name: PropTypes.string,
+    likeComment: PropTypes.func
 }
