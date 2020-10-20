@@ -87,7 +87,6 @@ const fetcher = {
     },
 
     likeMovieComment(movieID, commentID, commentStatus){
-      //this method requires to pass the movieId and the comment object with the author name => users name and comment 
       console.log(movieID, commentID, commentStatus)
       const int = {
         method: 'POST',
@@ -105,14 +104,21 @@ const fetcher = {
     },
 
     getMovieComments(movieID){
-      //this method requires to pass the movieId and the comment object with the author name => users name and comment 
       console.log(movieID)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
       return fetch(URL)
         .then(request => request.json())
         .then(response => response)
         .catch(err => err.message)
+    },
 
+    getUpdatedMovieComments(movieID, commentID){
+      console.log(movieID)
+      const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
+      return fetch(URL)
+        .then(request => request.json())
+        .then(response => response)
+        .catch(err => err.message)
     },
 
     getUserFavorites() {
@@ -137,8 +143,7 @@ const fetcher = {
       .then(promise => promise)
       .catch(err => err.message)
     }
-    
-  }
+}
 
   export default fetcher;
   

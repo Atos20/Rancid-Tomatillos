@@ -46,18 +46,10 @@ export class Comments extends Component  {
       console.log(movieComment)
   }
 
-  /*
-author: "Diana"
-comment: "come"
-id: 1603082957304
-likeStatus: true
-movieId: 337401
-replies: []
-replyCount: 1
-time: "2020-10-19T04:49:09.551Z"
-*/
   render() {
+    
     const { movieComments } = this.props
+    console.log(movieComments)
       return (
         <div className="comment-container">
           

@@ -14,8 +14,8 @@ export class Comment extends  Component {
   }
   
   render() {
-    const {author, time, comment, id, replies} = this.props.comment
-    // console.log(this.props.comment)
+    const {author, time, comment, id, replyCount} = this.props.comment
+
     return (
       <div 
         id={id}
@@ -31,24 +31,21 @@ export class Comment extends  Component {
        <p className="comment-text">{comment}</p>
        
        <div className="buttons-container">
-        <i 
-          id={id}
-          className="fas fa-thumbs-up" 
-          onClick={this.getCommentId}
-          name="like">
-        </i>
-        
-         <h3 className="like-count">0</h3>
+        {/* if replyCount > 0 =>  */}
 
-         <i 
+        <i id={id} className={replyCount > 0 ? "fas blue fa-thumbs-up": "fas fa-thumbs-up"} onClick={this.getCommentId}name="like"></i>
+        
+         <h3 className="like-count">{replyCount}</h3>
+
+        <i 
           id={id} 
           className="far fa-thumbs-down">
-         </i>
+        </i>
 
-         <i 
+        <i 
           id={id} 
           className="far fa-trash-alt">
-         </i>
+        </i>
        </div>
 
       </div>

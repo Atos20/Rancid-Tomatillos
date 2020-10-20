@@ -168,11 +168,10 @@ export class App extends Component{
   }
   
   likeMovieComment = async (movieID, commentID, commentStatus) => {
-    // console.log(movieID, commentID, commentStatus)
     const { name } = this.state.userData 
     const status = { likeStatus: commentStatus }
-    console.log(status)
     const promise = await fetcher.likeMovieComment(movieID, commentID, status);
+    this.retrieveComments(movieID)
     console.log(promise)
   }
 
