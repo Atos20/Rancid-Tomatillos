@@ -43,13 +43,11 @@ export class Comments extends Component  {
       movieComment.likeStatus = true
       movieComment.replyCount++
       this.props.likeMovieComment(movieId, id, likeStatus)
-      console.log(movieComment)
   }
 
   render() {
     
     const { movieComments } = this.props
-    console.log(movieComments)
       return (
         <div className="comment-container">
           
@@ -89,6 +87,7 @@ export class Comments extends Component  {
                 key={i} 
                 comment={comment}
                 likeComment={this.likeComment}
+                name={this.props.name}
               />
             })}
 
@@ -104,5 +103,6 @@ Comments.propTypes = {
     postComment: PropTypes.func,
     movieId: PropTypes.number,
     name: PropTypes.string,
-    movieComments: PropTypes.array
+    movieComments: PropTypes.array,
+    likeMovieComment: PropTypes.func
 }

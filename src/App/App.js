@@ -87,9 +87,6 @@ export class App extends Component{
     } else if (value === 'ascending'){
       const sortedMovies = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
       this.setState({ searchDirections: sortedMovies })
-    // } else if (value === 'favorites'){
-    //   const sortedMovies = this.state.movies.filter(movie => this.state.favorites.includes(movie.id))
-    //   this.setState({ searchDirections: sortedMovies })
     }
   }
 
@@ -154,7 +151,6 @@ export class App extends Component{
       return false
     }
     const promise = await fetcher.addMovieComment(movieId, data);
-    console.log(promise)
   }
 
   retrieveComments = async (movieId) => {
@@ -169,10 +165,12 @@ export class App extends Component{
   
   likeMovieComment = async (movieID, commentID, commentStatus) => {
     const { name } = this.state.userData 
+    if (!name){
+      return false;
+    }
     const status = { likeStatus: commentStatus }
     const promise = await fetcher.likeMovieComment(movieID, commentID, status);
     this.retrieveComments(movieID)
-    console.log(promise)
   }
 
   render(){
