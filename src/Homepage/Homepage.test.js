@@ -3,11 +3,17 @@ import { render, screen } from '@testing-library/react';
 import { Homepage } from '../Homepage/Homepage.js';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import fetcher from '../API/APIcalls';
+jest.mock('../API/APIcalls');
 
 
 describe('Homepage', () => {
   it('should render the Homepage with movies and thier ratings', () => {
-    const name = "Orlando";
+    const fakeUser = {
+      email: "diana@turing.io",
+      id: 82,
+      name: "Diana"
+    };
     const fakeRatedMovies = [
     {id: 2650, user_id: 82, movie_id: 694919, rating: 10},
     {id: 2661, user_id: 82, movie_id: 337401, rating: 8},
@@ -32,7 +38,12 @@ describe('Homepage', () => {
     ];
     render(
       <Router>
-        <Homepage name={name} movies={movies} ratedMovies={fakeRatedMovies}/>
+        <Homepage 
+          userData={fakeUser} 
+          movies={movies} 
+          ratedMovies={fakeRatedMovies}
+          
+        />
       </Router>
     );
 
@@ -59,3 +70,18 @@ describe('Homepage', () => {
    
   })
 })
+
+/*
+
+Variables
+    const fakeUser = {
+        email: "diana@turing.io",
+        id: 82,
+        name: "Diana"
+      }
+
+
+
+
+
+*/

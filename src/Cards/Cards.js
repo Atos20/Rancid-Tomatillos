@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './Cards.scss';
 
  export const Cards = (props) => {
-  
+
   const injectMovies = (movies) => {
     return movies.map((movie, i)=> {
       return (

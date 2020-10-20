@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MovieCard from '../MovieCard/MovieCard.js';
+import { MovieCard } from '../MovieCard/MovieCard.js';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 

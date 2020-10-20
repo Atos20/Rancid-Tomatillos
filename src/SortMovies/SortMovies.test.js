@@ -18,12 +18,11 @@ describe('SortMovies', () => {
       </BrowserRouter> 
 
     );
-    const none = screen.getByText("--none--")
-    const sortBy = screen.getByRole('heading', { name: /sort by/i })
-    const descending = screen.getByText("Rating descending")
-    const ascending = screen.getByText("Rating ascending")
-    const selectBox = screen.getByRole('select-sorting');
-    const sortButton = screen.getByRole('apple');
+    const none = screen.getByText("--none--");
+    const sortBy = screen.getByText(/sort by/i);
+    const descending = screen.getByText("Rating descending");
+    const ascending = screen.getByText("Rating ascending");
+    const selectBox = screen.getByRole('button', { name: /sort/i });
 
     expect(none).toBeInTheDocument();
     expect(sortBy).toBeInTheDocument();
@@ -32,9 +31,9 @@ describe('SortMovies', () => {
     expect(selectBox).toBeInTheDocument();
     
     userEvent.selectOptions(selectBox, [descending, ascending]);
-    // screen.debug()
-    userEvent.click(sortButton)
-    expect(fakeSort).toHaveBeenCalled()
+    screen.debug()
+    userEvent.click(sortButton);
+    expect(fakeSort).toHaveBeenCalled();
 
 
   })
