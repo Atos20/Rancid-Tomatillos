@@ -75,7 +75,7 @@ export class SortMovies extends Component {
                   onClick={this.getOptionValue}
                   ><i type="apple-icon" role='img' className="fas fa-apple-alt"></i>
                 </button>
-                {this.props.status && 
+                {this.props.userData && 
                 <>
                     {!this.state.favorites &&
                     <>
