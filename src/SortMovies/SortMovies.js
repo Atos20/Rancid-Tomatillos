@@ -37,8 +37,7 @@ export class SortMovies extends Component {
             <div className="sort-container">
               <h1 className="cards-title">All movies</h1>
               <div className="sort-control">
-                <h2 className="sort-title">sort by</h2>
-
+                <label for='sort-select' className="sort-title">sort by</label>
                 <select
                     role="menubar"
                     className="sort-select"
@@ -46,24 +45,27 @@ export class SortMovies extends Component {
                     value={this.state.value} 
                     onChange={this.updateSortValue} 
                     id="sort-select"
-                    >
+                >
                     <option 
                     role='menuitem'
                     data-testid='none'
                     name="none" 
                     value="none"
+                    for='sort-select'
                     >--none--</option>
                     <option 
                     role='menuitem'
                     data-testid='descending-one'
                     name="average_rating" 
                     value="descending"
+                    for='sort-select'
                     >Rating descending </option>
                     <option 
                     role='menuitem'
                     data-testid='ascending'
                     name="average_rating" 
                     value="ascending"
+                    for='sort-select'
                     >Rating ascending </option>
                 </select>
                 <button 
