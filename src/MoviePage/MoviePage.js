@@ -68,7 +68,6 @@ export const MoviePage = ( {
           <Comments 
             newComment={newComment}
             movieId={movieDetails.id}
-            //and here
             name={name.name}
             movieComments={movieComments}
             retrieveComments={retrieveComments}
@@ -100,7 +99,5 @@ MoviePage.propTypes = {
   toggleFavorite: PropTypes.func,
   favorites: PropTypes.array,
   retrieveComments: PropTypes.func,
-
-
 }
 
