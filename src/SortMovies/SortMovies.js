@@ -18,17 +18,14 @@ export class SortMovies extends Component {
     }
 
     getOptionValue = () => {
-        console.log("this.state.favorites in get option value", this.state.favorites)
         this.props.sortMovies(this.state.value)
     }
 
     toggleFavorites = () => {
-        console.log("this.state.favorites in toggle favorites", this.state.favorites)
         if (this.state.favorites) {
             this.setState({ favorites: false })
         } else {
             this.setState({ favorites: true })
-
         }
     }
 

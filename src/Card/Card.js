@@ -64,5 +64,5 @@ Card.propTypes = {
   movies: PropTypes.object,
   ratedMovies:  PropTypes.object,
   retrieveComments: PropTypes.func,
-  userData: PropTypes.object
+  userData: PropTypes.string
 }
