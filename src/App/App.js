@@ -37,36 +37,27 @@ export class App extends Component{
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
   }
   
-  // authenticateUser = async (credentials) => {
-  //   try {
-  //     const userData = await fetcher.fetchUser(4)
-  //     // const userData = await fetcher.fetchUser(credentials)
-  //       this.setState({ userData });
-  //       this.getUserRatings(userData);
-  //     } catch(error) {
-  //    // alert('Those aren\'t the right credentials')
-  //     this.setState({ error })
-  //   }
-  // }
-
-  // getUserRatings = async (userData) => {
-  //   try {
-  //     const ratedMovies = await fetcher.fetchUserRatings(userData.id)
-  //     this.setState({ ratedMovies });
-  //     this.retrieveFavorites();
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   }
-  // }
-
   authenticateUser = async (credentials) => {
-    const userData = await fetcher.fetchUser(credentials)
-    if (userData) {
+    try {
+      const userData = await fetcher.fetchUser(credentials);
+      if(userData) {
+        this.setState({ userData });
+        this.getUserRatings(this.state.userData);
+      } else {
+        alert('Those aren\'t the right credentials')
+      }
+      } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` }) 
+    }
+  }
+
+  getUserRatings = async (userData) => {
+    try {
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
-      this.setState({ userData, ratedMovies });
+      this.setState({ ratedMovies });
       this.retrieveFavorites();
-    } else {
-      alert('Those aren\'t the right credentials')
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
     }
   }
   
@@ -80,42 +71,27 @@ export class App extends Component{
     })
   }
   
-  // getMovieDetails = async(movieID) => {
-  //   try {
-  //     const promiseMovie = await fetcher.fetchMovieVideo(movieID);
-  //     const promiseDetails = await fetcher.fetchSingleMovie(movieID);
-  //     this.setState({ 
-  //       movieID: movieID, 
-  //       movieDetails : promiseDetails.movie,
-  //       movieVideo: promiseMovie.videos
-  //     })
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   }
-  // }
-  
   getMovieDetails = async(movieID) => {
-    const promiseMovie = await fetcher.fetchMovieVideo(movieID);
-    const promiseDetails = await fetcher.fetchSingleMovie(movieID);
-    this.setState({ 
-      movieID: movieID, 
-      movieDetails : promiseDetails.movie,
-      movieVideo: promiseMovie.videos
-    })
+    try {
+      const promiseMovie = await fetcher.fetchMovieVideo(movieID);
+      const promiseDetails = await fetcher.fetchSingleMovie(movieID);
+      this.setState({ 
+        movieID: movieID, 
+        movieDetails : promiseDetails.movie,
+        movieVideo: promiseMovie.videos
+      })
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
+    }
   }
 
-  // async loadAllMovies() {
-  //   try {
-  //     const promise = await fetcher.fetchAllMovies();
-  //     this.setState({movies: promise.movies})
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   }
-  // }
-
   async loadAllMovies() {
-    const promise = await fetcher.fetchAllMovies();
-    this.setState({movies: promise.movies})
+    try {
+      const promise = await fetcher.fetchAllMovies();
+      this.setState({movies: promise.movies})
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
+    }
   }
 
   async componentDidMount() {
@@ -134,133 +110,64 @@ export class App extends Component{
     }
   }
 
-  //  addRating = async (desiredRatingByUser) => {
-  //   const movieToRate = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
-  //   if (!desiredRatingByUser) {
-  //     return alert('You have to select a rating to rate a movie!')
-  //   } else if (!movieToRate) {
-  //     try {
-  //       const newRating = {movie_id: this.state.movieID, rating: desiredRatingByUser.value}
-  //       await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-  //       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
-  //       this.getMovieDetails(this.state.movieID)
-  //       this.loadAllMovies()
-  //       this.setState({ratedMovies: allUserRatings})
-  //       this.loadAllMovies()
-  //     } catch(error) {
-  //       // alert("you already rated this movie! Delete it first to rate again!")
-  //       this.setState({ error })
-  //     }
-  //   }
-  // }
-
    addRating = async (desiredRatingByUser) => {
     const movieToRate = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)
     if (!desiredRatingByUser) {
       return alert('You have to select a rating to rate a movie!')
     } else if (!movieToRate) {
-      const newRating = {movie_id: this.state.movieID, rating: desiredRatingByUser.value}
-      await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
-      const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
-      this.getMovieDetails(this.state.movieID)
-      this.loadAllMovies()
-      this.setState({ratedMovies: allUserRatings})
-      this.loadAllMovies()
+      try {
+        const newRating = {movie_id: this.state.movieID, rating: desiredRatingByUser.value}
+        await fetcher.fetchCreateUserRating(this.state.userData.id, newRating)
+        const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+        this.getMovieDetails(this.state.movieID)
+        this.loadAllMovies()
+        this.setState({ratedMovies: allUserRatings})
+        this.loadAllMovies()
+      } catch(error) {
+        this.setState({ error: `You've got a ${error.status} Error` })
+      }
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
     }
   }
 
-  // deleteRating = async () => {
-  //   const { id } =  this.state.userData
-  //   let ratingID;
-  //   if (this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)) {
-  //     ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id
-  //   } else {
-  //     ratingID = ''
-  //   }
-  //   if(this.state.userData.id && ratingID) {
-  //     try {
-  //       await fetcher.fetchDeleteUserRating(id, ratingID)
-  //       const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
-  //       this.getMovieDetails(this.state.movieID)
-  //       this.loadAllMovies()
-  //       this.setState({ratedMovies: allUserRatings})
-  //       this.loadAllMovies()
-  //     } catch(error) {
-  //       // alert('There is no rating to delete!')
-  //       this.setState({ error })
-  //     }
-  //   }
-  // }
-
-  deleteRating = async () => {
-    const { id } =  this.state.userData
-    let ratingID;
-    if (this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)) {
-      ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id
-    } else {
-      ratingID = ''
-    }
-    if(this.state.userData.id && ratingID) {
-      await fetcher.fetchDeleteUserRating(id, ratingID)
-      const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
-      this.getMovieDetails(this.state.movieID)
-      this.loadAllMovies()
-      this.setState({ratedMovies: allUserRatings})
-      this.loadAllMovies()
-    } else {
-      alert('There is no rating to delete!')
-    }
+deleteRating = async () => {
+  const { id } =  this.state.userData
+  let ratingID;
+  if (this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)) {
+    ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id
+  } else {
+    ratingID = ''
   }
-
-  // retrieveFavorites = async() => {
-  //   try {
-  //     const favoriteMovies = await fetcher.getUserFavorites();
-  //     this.setState({ favorites: favoriteMovies })
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   } 
-  // }
+  if(this.state.userData.id && ratingID) {
+    await fetcher.fetchDeleteUserRating(id, ratingID)
+    const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
+    this.getMovieDetails(this.state.movieID)
+    this.loadAllMovies()
+    this.setState({ratedMovies: allUserRatings})
+    this.loadAllMovies()
+  } else {
+    alert('There is no rating to delete!')
+  }
+}
 
   retrieveFavorites = async() => {
-    const favoriteMovies = await fetcher.getUserFavorites();
-    this.setState({ favorites: favoriteMovies })
+    try {
+      const favoriteMovies = await fetcher.getUserFavorites();
+      this.setState({ favorites: favoriteMovies })
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
+    } 
   }
-  
-  // toggleFavorite = async(movieID) => {
-  //   try {
-  //     await fetcher.addUserFavorites({ id: movieID });
-  //     await this.retrieveFavorites();
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   }
-  // }
   
   toggleFavorite = async(movieID) => {
-    await fetcher.addUserFavorites({ id: movieID });
-    await this.retrieveFavorites();
+    try {
+      await fetcher.addUserFavorites({ id: movieID });
+      await this.retrieveFavorites();
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
+    }
   }
-  
-  // newComment = async(movieId, userComment) => {
-  //   const { name } = this.state.userData 
-  //   const data = { 
-  //     comment: userComment.comment, 
-  //     author: name,
-  //     time: userComment.time, 
-  //     likeStatus: userComment.likeStatus,
-  //     replyCount: 0,
-  //     replies: []
-  //   }
-  //   if (!name) {
-  //     return false
-  //   }
-  //   try {
-  //     await fetcher.addMovieComment(movieId, data);
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   }
-  // }
   
   newComment = async(movieId, userComment) => {
     const { name } = this.state.userData 
@@ -275,59 +182,37 @@ export class App extends Component{
     if (!name) {
       return false
     }
-    console.log(data)
-    await fetcher.addMovieComment(movieId, data);
-  }
-
-  // retrieveComments = async (movieId) => {
-  //   try {
-  //     const promise = await fetcher.getMovieComments(movieId)
-  //       this.setState({movieComments: promise.comments})
-  //     } catch(error) {
-  //       this.setState({ error })
-  //     }
-  //   }
-  // }
-
-  retrieveComments = async (movieId) => {
-    const promise = await fetcher.getMovieComments(movieId)
-    if (promise === 'Failed to Fetch'){
-      this.setState({error: promise})
-    } else {
-      this.setState({movieComments: promise.comments})
+    try {
+      await fetcher.addMovieComment(movieId, data);
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
     }
   }
 
-  // likeMovieComment = async (movieID, commentID, commentStatus) => {
-  //   const { name } = this.state.userData 
-  //   if (!name){
-  //     return false;
-  //   }
-  //   try {
-  //     const status = { likeStatus: commentStatus }
-  //     await fetcher.likeMovieComment(movieID, commentID, status);
-  //     this.retrieveComments(movieID)
-  //   } catch(error) {
-  //     this.setState({ error })
-  //   }
-  // }
+  retrieveComments = async (movieId) => {
+    try {
+      const promise = await fetcher.getMovieComments(movieId)
+        this.setState({movieComments: promise.comments})
+      } catch(error) {
+        this.setState({ error: `You've got a ${error.status} Error` })
+      }
+    }
   
   likeMovieComment = async (movieID, commentID, commentStatus) => {
     const { name } = this.state.userData 
     if (!name){
       return false;
     }
-    const status = { likeStatus: commentStatus }
-    await fetcher.likeMovieComment(movieID, commentID, status);
-    this.retrieveComments(movieID)
+    try {
+      const status = { likeStatus: commentStatus }
+      await fetcher.likeMovieComment(movieID, commentID, status);
+      this.retrieveComments(movieID)
+    } catch(error) {
+      this.setState({ error: `You've got a ${error.status} Error` })
+    }
   }
 
-  render(){
-    // if(this.state.error) {
-    //   return (
-    //     <ErrorBoundary error={this.state.error}/>
-    //   )
-    // }
+  render() {
     return (
       <>
         <h1 className="login-info">
@@ -335,6 +220,7 @@ export class App extends Component{
             {this.state.userData.email ? this.state.userData.name + ' is currently ' : 'not '}
           </b>
           logged in
+          {this.state.error && <p>{this.state.error}</p>}
         </h1>
         <NavBar 
             name={this.state.userData.name} 

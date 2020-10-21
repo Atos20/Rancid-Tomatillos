@@ -1,6 +1,6 @@
 import React from 'react';
 import { App } from './App.js';
-import { container, render, screen, waitFor, querySelector } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import {  MemoryRouter } from 'react-router-dom';
 import fetcher from '../API/APIcalls';
 import userEvent from  '@testing-library/user-event';
@@ -135,7 +135,7 @@ describe('App', () => {
           userEvent.type(screen.getByPlaceholderText('userName'), 'diana');
           userEvent.type(screen.getByPlaceholderText('email'), 'diana@turing.io');
           userEvent.type(screen.getByPlaceholderText('password'), '111111');
-          
+
           expect(submitButton).toBeInTheDocument(); 
           expect(homeBackButton).toBeInTheDocument(); 
           userEvent.click(submitButton)

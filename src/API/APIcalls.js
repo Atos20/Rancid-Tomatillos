@@ -3,25 +3,40 @@ const fetcher = {
   fetchAllMovies() {
     const fetchedAllMovies = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies'
     return fetch(fetchedAllMovies)
-      .then(response => response.json())
-      .then(data => data)
-      .catch(err => err.message)
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      } else {
+        throw response
+      }
+    })
+    .then(data => data)
     },
 
     fetchSingleMovie(movieID) {
       const fetchedSingleMovie = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`
       return fetch(fetchedSingleMovie)
-        .then(request => request.json())
-        .then(promise => promise)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     fetchMovieVideo(movieID) {
       const fetchedMovieVideos = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`
       return fetch(fetchedMovieVideos)
-        .then(request => request.json())
-        .then(promise => promise)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     fetchUser(userInfo) {
@@ -34,17 +49,32 @@ const fetcher = {
     }
       const fetchedUser = `https://rancid-tomatillos.herokuapp.com/api/v2/login`
       return fetch(fetchedUser, int)
-        .then(request => request.json())
-        .then(data => data.user)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data.user)
+      
+
+
+
+
     },
 
     fetchUserRatings(userID) {
       const fetchedUserRatings = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
       return fetch(fetchedUserRatings)
-        .then(request => request.json())
-        .then(data => data.ratings)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data.ratings)
     },
 
     fetchCreateUserRating(userID, newRating) {
@@ -57,18 +87,31 @@ const fetcher = {
       }
       const fetchedUserRating = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`
       return fetch(fetchedUserRating, int)
-        .then(request => request.json())
-        .then(promise => promise)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     fetchDeleteUserRating(userID, ratingID) {
       let int = { method: 'DELETE'}
       const fetchedDeleteRating = `https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings/${ratingID}`
       return fetch(fetchedDeleteRating, int)
-        .then(request => request.json())
-        .then(promise => promise)
-        .catch(err => err.message)
+      .then(request => request.json())
+      .then(promise => promise)
+      .catch(err => err.message)
+      // .then(response => {
+      //   if(response.ok) {
+      //     return response.json()
+      //   } else {
+      //     throw response
+      //   }
+      // })
+      // .then(data => data)
     },
 
     addMovieComment(movieID, comment){
@@ -81,9 +124,14 @@ const fetcher = {
     }
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
       return fetch(URL, int)
-        .then(request => request.json())
-        .then(response => response)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     likeMovieComment(movieID, commentID, commentStatus){
@@ -96,34 +144,53 @@ const fetcher = {
     }
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
       return fetch(URL, int)
-        .then(request => request.json())
-        .then(response => response)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     getMovieComments(movieID){
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments`
       return fetch(URL)
-        .then(request => request.json())
-        .then(response => response)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     getUpdatedMovieComments(movieID, commentID){
-      console.log(movieID)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
       return fetch(URL)
-        .then(request => request.json())
-        .then(response => response)
-        .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     getUserFavorites() {
       const fetchedDeleteRating = `http://localhost:3001/api/v1/favorites`
       return fetch(fetchedDeleteRating)
-      .then(request => request.json())
-      .then(promise => promise)
-      .catch(err =>  err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     },
 
     addUserFavorites(movieID) {
@@ -136,9 +203,14 @@ const fetcher = {
       }
       const fetchedDeleteRating = `http://localhost:3001/api/v1/favorites`
       return fetch(fetchedDeleteRating, int)
-      .then(request => request.json())
-      .then(promise => promise)
-      .catch(err => err.message)
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          throw response
+        }
+      })
+      .then(data => data)
     }
 }
 
