@@ -9,7 +9,7 @@ jest.mock('../API/APIcalls');
 
 describe('App', () => {
   beforeEach(() => {
-    
+
     fetcher.fetchAllMovies.mockResolvedValueOnce({
       movies :[
         {
@@ -19,7 +19,7 @@ describe('App', () => {
           poster_path: "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
           release_date: "2020-09-29",
           title: "Money Plane"
-        }, 
+        },
         {
           average_rating: 3,
           backdrop_path: "https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
@@ -51,7 +51,7 @@ describe('App', () => {
         id: 303,
         key: "aRuhOJJA56U",
         movie_id: 581392,
-        site: "YouTube",  
+        site: "YouTube",
         type: "Featurette"
       }
     ]);
@@ -69,20 +69,20 @@ describe('App', () => {
     ])
 
     fetcher.getUserFavorites.mockResolvedValueOnce([
-      694919, 
+      694919,
       337401
     ])
 
   });
-    
+
       it('should load homepage components', () => {
         render(
           <MemoryRouter>
             <App />
-          </MemoryRouter> 
+          </MemoryRouter>
         );
 
-        const header = screen.getByRole('heading', { name: /rancid tomatillos/i })  
+        const header = screen.getByRole('heading', { name: /rancid tomatillos/i })
         const subHeader = screen.getByRole('heading', { name: /rate your next movie/i })
         const homeButton = screen.getByRole('button', { name: /home/i })
         const loginButton = screen.getByRole('button', { name: /log in/i })
@@ -96,12 +96,12 @@ describe('App', () => {
         expect(sortSelect).toBeInTheDocument();
         expect(sortButton).toBeInTheDocument();
       });
-        
+
       it('Should be able to display movies on load', async () => {
         render(
           <MemoryRouter>
             <App />
-          </MemoryRouter> 
+          </MemoryRouter>
         );
         const title1 =  await waitFor(() => screen.getByRole('heading', { name: /money plane/i }))
         const title2 =  await waitFor(() => screen.getByRole('heading', { name: /mulan/i }))
@@ -112,7 +112,7 @@ describe('App', () => {
       })
 
       it('A user should be able to login', async() => {
-        
+
        const credential =   {
         email: "diana@turing.io",
         id: 82,
@@ -124,28 +124,26 @@ describe('App', () => {
         render(
           <MemoryRouter>
             <App />
-          </MemoryRouter> 
+          </MemoryRouter>
         );
-        
+
           userEvent.click(screen.getByRole('button', { name: /log in/i }));
 
           const submitButton = screen.getByRole('button', { name: /submit/i });
           const homeBackButton = screen.getByRole('link', { name: /back to home/i });
 
-          userEvent.type(screen.getByPlaceholderText('userName'), 'diana');
           userEvent.type(screen.getByPlaceholderText('email'), 'diana@turing.io');
           userEvent.type(screen.getByPlaceholderText('password'), '111111');
 
-          expect(submitButton).toBeInTheDocument(); 
-          expect(homeBackButton).toBeInTheDocument(); 
+          expect(submitButton).toBeInTheDocument();
+          expect(homeBackButton).toBeInTheDocument();
           userEvent.click(submitButton)
 
           await fetcher.fetchUser.mockResolvedValueOnce(credential);
 
           const welcomingMessage = await waitFor(() => screen.getByRole('heading', { name: /welcome!/i }));
           const userName = await waitFor(() => screen.getByText('Diana'));
-          expect(welcomingMessage).toBeInTheDocument(); 
-          expect(userName).toBeInTheDocument(); 
+          expect(welcomingMessage).toBeInTheDocument();
+          expect(userName).toBeInTheDocument();
       })
 })
-
