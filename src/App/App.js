@@ -43,7 +43,7 @@ export class App extends Component{
       if(userData) {
         this.setState({ userData });
         this.getUserRatings(this.state.userData);
-        this.setState({ error: '' }) 
+        this.setState({ error: '' })
       } else {
         alert('Those aren\'t the right credentials')
       }
@@ -123,7 +123,6 @@ export class App extends Component{
         this.getMovieDetails(this.state.movieID)
         this.loadAllMovies()
         this.setState({ratedMovies: allUserRatings})
-        this.loadAllMovies()
       } catch(error) {
         this.setState({ error: `You've got a ${error.status} Error` })
       }
@@ -146,7 +145,6 @@ deleteRating = async () => {
     this.getMovieDetails(this.state.movieID)
     this.loadAllMovies()
     this.setState({ratedMovies: allUserRatings})
-    this.loadAllMovies()
   } else {
     alert('There is no rating to delete!')
   }
