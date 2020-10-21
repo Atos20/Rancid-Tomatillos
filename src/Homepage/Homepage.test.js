@@ -70,18 +70,3 @@ describe('Homepage', () => {
    
   })
 })
-
-/*
-
-Variables
-    const fakeUser = {
-        email: "diana@turing.io",
-        id: 82,
-        name: "Diana"
-      }
-
-
-
-
-
-*/

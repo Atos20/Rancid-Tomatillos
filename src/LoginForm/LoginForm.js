@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './LoginForm.scss';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 export class LoginForm extends Component {
   constructor(props) {
     super(props)  
@@ -47,14 +47,13 @@ export class LoginForm extends Component {
   
   render(){
     const {userName, email, password} = this.state;
-    // if (this.props.login && this.props.login.name !== '') {
     if (this.props.login && this.props.login.id && this.props.login.name !== '') {
       return (<Redirect to='/' />)
     }
     
     return (
       <form className="form-container">
-        
+
          <Link to='/' className="close-login">Back to Home</Link>
 
         <h4 className="user-title">User name</h4>
@@ -109,5 +108,7 @@ export class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  authenticateUser: PropTypes.func
+  authenticateUser: PropTypes.func,
+  login: PropTypes.object,
+
 }

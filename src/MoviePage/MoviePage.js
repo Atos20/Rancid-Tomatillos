@@ -76,7 +76,6 @@ export const MoviePage = ( {
           />
 
           <MovieCard 
-          //and here
             name={name.name}
             movieDetails={movieDetails}
             ratedMovies={ratedMovies}

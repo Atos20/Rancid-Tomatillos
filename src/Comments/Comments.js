@@ -57,7 +57,6 @@ export class Comments extends Component  {
     }
 
   render() {
-  
       return (
         <div className="comment-container">
         
