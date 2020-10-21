@@ -48,7 +48,7 @@ export class LoginForm extends Component {
   render(){
     const {userName, email, password} = this.state;
     // if (this.props.login && this.props.login.name !== '') {
-    if (this.props.login.id && this.props.login.name !== '') {
+    if (this.props.login && this.props.login.id && this.props.login.name !== '') {
       return (<Redirect to='/' />)
     }
     
