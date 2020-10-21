@@ -48,7 +48,7 @@ export class App extends Component{
         alert('Those aren\'t the right credentials')
       }
       } catch(error) {
-      this.setState({ error: `Those aren\'t the right credentials Error${error.status}` })
+      this.setState({ error: `Those aren't the right credentials Error${error.status}` })
     }
   }
 

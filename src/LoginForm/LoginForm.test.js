@@ -15,7 +15,6 @@ describe('LoginForm', () => {
         <LoginForm />
       </BrowserRouter>
     )
-    expect(screen.getByText("User name")).toBeInTheDocument();
     expect(screen.getByText("Email")).toBeInTheDocument();
     expect(screen.getByText("password")).toBeInTheDocument();
   })

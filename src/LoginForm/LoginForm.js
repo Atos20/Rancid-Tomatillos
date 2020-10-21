@@ -46,7 +46,7 @@ export class LoginForm extends Component {
   }
 
   render(){
-    const {userName, email, password} = this.state;
+    const {email, password} = this.state;
     if (this.props.login && this.props.login.id && this.props.login.name !== '') {
       return (<Redirect to='/' />)
     }
@@ -55,19 +55,6 @@ export class LoginForm extends Component {
       <form className="form-container">
 
          <Link to='/' className="close-login">Back to Home</Link>
-
-        <h4 className="user-title">User name</h4>
-        <label htmlFor="userName">
-          <input
-            name="userName"
-            type="text"
-            className="title"
-            id="userName"
-            placeholder="userName"
-            onChange={this.updateChange}
-            value={userName}
-          />
-        </label>
 
         <h4 className="user-email">Email</h4>
         <label htmlFor="user-email">
