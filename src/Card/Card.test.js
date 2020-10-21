@@ -14,7 +14,7 @@ describe('Card', () => {
       average_rating: 10, 
       poster_path: 'http//fakeURLpath'
     }
-    const fakeUserRating = '';
+    const fakeUserRating = {};
     render(
       <Router>
         <Card movies={movieDeets} ratedMovies={fakeUserRating}/>
