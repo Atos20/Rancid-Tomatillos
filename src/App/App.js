@@ -122,7 +122,6 @@ export class App extends Component{
         this.getMovieDetails(this.state.movieID)
         this.loadAllMovies()
         this.setState({ratedMovies: allUserRatings})
-        this.loadAllMovies()
       } catch(error) {
         this.setState({ error: `You've got a ${error.status} Error` })
       }
@@ -145,7 +144,6 @@ deleteRating = async () => {
     this.getMovieDetails(this.state.movieID)
     this.loadAllMovies()
     this.setState({ratedMovies: allUserRatings})
-    this.loadAllMovies()
   } else {
     alert('There is no rating to delete!')
   }
@@ -187,6 +185,7 @@ deleteRating = async () => {
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
+    this.retrieveComments(movieId)
   }
 
   retrieveComments = async (movieId) => {
@@ -281,7 +280,6 @@ deleteRating = async () => {
               userData={this.state.userData}
               movies={this.state.movies.filter(movie => this.state.favorites.includes(movie.id))}
               getMovieDetails={this.getMovieDetails}
-              movieComments={this.state.movieComments}
               sortMovies={this.sortMovies}
               ratedMovies={this.state.ratedMovies}
               retrieveComments={this.retrieveComments}
