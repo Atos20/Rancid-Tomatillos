@@ -203,8 +203,9 @@ Second Rendition of MoviePage
 
 
 ### Project Managers
-- [Khalid](https://github.com/BobGu)
-- [Leta](https://github.com/BobGu)
+- [Leta](https://github.com/letakeane)
+- [Khalid]https://github.com/khalidwilliams)
+
 
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
