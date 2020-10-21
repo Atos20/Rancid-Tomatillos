@@ -66,11 +66,9 @@ describe('Comments', () => {
         expect(thumbsUp).toBeInTheDocument()
         expect(likeCount).toBeInTheDocument()
     })
-    //integration test
+
     it('Should be able to add a new comment, then the comment should appear on the window', async () =>{
         
-        
-        // POST comment
         fetcher.addMovieComment.mockResolvedValueOnce([
           {
             author: "Orlando",
@@ -81,7 +79,7 @@ describe('Comments', () => {
             time: "2050-12-20"
           }
         ]);
-        //get comment
+
         fetcher.getMovieComments.mockResolvedValueOnce([
             {
               author: "Orlando",
