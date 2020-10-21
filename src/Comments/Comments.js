@@ -24,6 +24,7 @@ export class Comments extends Component  {
 
     postComment = (event) => {
       event.preventDefault()
+      console.log('add comment button')
       if(!this.state.comment || !this.props.name){
           return false
       }
@@ -57,7 +58,6 @@ export class Comments extends Component  {
     }
 
   render() {
-  
       return (
         <div className="comment-container">
         

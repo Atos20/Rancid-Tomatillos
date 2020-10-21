@@ -34,7 +34,9 @@ export class Comment extends  Component {
             id={id} 
             className={replyCount > 0 ? "fas blue fa-thumbs-up": "fas fa-thumbs-up"} 
             onClick={this.getCommentId} 
-            name="like">
+            name="like"
+            role="button">
+            like
           </i>
           
           <h3 className="like-count">{replyCount}</h3>
@@ -42,7 +44,6 @@ export class Comment extends  Component {
           {/* <i id={id} className="far fa-thumbs-down"></i>
               <i id={id} className="far fa-trash-alt"></i>*/}
         </div> 
-
       </div>
   
       )

@@ -275,6 +275,7 @@ export class App extends Component{
     if (!name) {
       return false
     }
+    console.log(data)
     await fetcher.addMovieComment(movieId, data);
   }
 
@@ -296,7 +297,7 @@ export class App extends Component{
       this.setState({movieComments: promise.comments})
     }
   }
-  
+
   // likeMovieComment = async (movieID, commentID, commentStatus) => {
   //   const { name } = this.state.userData 
   //   if (!name){
