@@ -186,6 +186,7 @@ deleteRating = async () => {
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
+    this.retrieveComments(movieId)
   }
 
   retrieveComments = async (movieId) => {
@@ -280,7 +281,6 @@ deleteRating = async () => {
               userData={this.state.userData}
               movies={this.state.movies.filter(movie => this.state.favorites.includes(movie.id))}
               getMovieDetails={this.getMovieDetails}
-              movieComments={this.state.movieComments}
               sortMovies={this.sortMovies}
               ratedMovies={this.state.ratedMovies}
               retrieveComments={this.retrieveComments}

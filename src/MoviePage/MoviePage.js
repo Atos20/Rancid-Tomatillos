@@ -10,8 +10,6 @@ export const MoviePage = ( {
   movieDetails, 
   movieVideo, 
   addRating, 
-  //we might want to change the "name" of 'name.name' to be 'userData.name'
-  // wait, unless this is in reference to the movie's name. Cant tell atm, but regardless we should change it to be more semantic
   name, 
   deleteRating,
   ratedMovies,
@@ -46,8 +44,7 @@ export const MoviePage = ( {
 
           <MovieHeader 
             addRating={addRating} 
-            movieDetails={movieDetails} 
-            // we would also change it here
+            movieDetails={movieDetails}
             name={name.name}
             deleteRating={deleteRating}
             favorites={favorites.find(favoritedMovie => favoritedMovie === movieDetails.id) || null}

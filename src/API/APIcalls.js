@@ -57,11 +57,6 @@ const fetcher = {
         }
       })
       .then(data => data.user)
-      
-
-
-
-
     },
 
     fetchUserRatings(userID) {
