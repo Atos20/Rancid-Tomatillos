@@ -1,6 +1,6 @@
 import React from 'react';
 import { App } from './App.js';
-import { container, render, screen, waitFor, querySelector } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import {  MemoryRouter } from 'react-router-dom';
 import fetcher from '../API/APIcalls';
 import userEvent from  '@testing-library/user-event';
@@ -139,11 +139,6 @@ describe('App', () => {
           userEvent.type(screen.getByPlaceholderText('userName'), 'diana');//name
           userEvent.type(screen.getByPlaceholderText('email'), 'diana@turing.io');//email
           userEvent.type(screen.getByPlaceholderText('password'), '111111');//password
-          // screen.debug()
-          //the welcoming header should appear
-          // const welcomingHeader = screen.getByRole('heading', { name: /welcome!/i })
-          //the user Name should appear
-          // const usersName = screen.getByRole('heading', { name: /diana/i })
           //Assertion
           // is the login form visible on the page
           expect(submitButton).toBeInTheDocument(); 
