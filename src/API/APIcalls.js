@@ -168,7 +168,6 @@ const fetcher = {
     },
 
     getUpdatedMovieComments(movieID, commentID){
-      console.log(movieID)
       const URL = `http://localhost:3001/api/v1/movies/${movieID}/comments/${commentID}`
       return fetch(URL)
       .then(response => {
