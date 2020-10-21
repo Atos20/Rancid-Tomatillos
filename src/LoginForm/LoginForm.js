@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './LoginForm.scss';
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 export class LoginForm extends Component {
   constructor(props) {
-    super(props)  
- 
+    super(props)
+
     this.state = {
         userName: '',
         email : '',
@@ -38,19 +38,19 @@ export class LoginForm extends Component {
         email : this.state.email,
         password : this.state.password
       }
-      
+
       this.props.authenticateUser(credentials);
       this.clearInputs();
- 
+
     }
   }
-  
+
   render(){
     const {userName, email, password} = this.state;
     if (this.props.login && this.props.login.id && this.props.login.name !== '') {
       return (<Redirect to='/' />)
     }
-    
+
     return (
       <form className="form-container">
 
@@ -58,11 +58,11 @@ export class LoginForm extends Component {
 
         <h4 className="user-title">User name</h4>
         <label htmlFor="userName">
-          <input 
+          <input
             name="userName"
-            type="text" 
-            className="title" 
-            id="userName" 
+            type="text"
+            className="title"
+            id="userName"
             placeholder="userName"
             onChange={this.updateChange}
             value={userName}
@@ -71,11 +71,11 @@ export class LoginForm extends Component {
 
         <h4 className="user-email">Email</h4>
         <label htmlFor="user-email">
-          <input 
+          <input
           name="email"
-          type="text" 
-          className="user-email" 
-          id="email" 
+          type="text"
+          className="user-email"
+          id="email"
           placeholder="email"
           value={email}
           onChange={this.updateChange}
@@ -84,11 +84,11 @@ export class LoginForm extends Component {
 
         <h4 className="password-title">password</h4>
         <label htmlFor="user-password">
-          <input 
+          <input
           name="password"
-          type="password" 
-          className="password" 
-          id="password" 
+          type="password"
+          className="password"
+          id="password"
           placeholder="password"
           value={password}
           onChange={this.updateChange}
@@ -96,7 +96,7 @@ export class LoginForm extends Component {
         </label>
 
         <button
-          className="log-in-button" 
+          className="log-in-button"
           onClick={(event) => {
             this.verifyCredentials(event)
             }}

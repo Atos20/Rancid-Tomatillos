@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { 
-  Switch, 
-  Route, 
+import {
+  Switch,
+  Route,
 } from 'react-router-dom';
 import {LoginForm} from '../LoginForm/LoginForm'
 import { Homepage } from '../Homepage/Homepage'
@@ -32,22 +32,23 @@ export class App extends Component{
       error: ''
     }
   }
-  
+
   componentDidCatch(error, info) {
     this.setState({ hasError: {errorMessage: error, errorInfo: info} });
   }
-  
+
   authenticateUser = async (credentials) => {
     try {
       const userData = await fetcher.fetchUser(credentials);
       if(userData) {
         this.setState({ userData });
         this.getUserRatings(this.state.userData);
+        this.setState({ error: '' }) 
       } else {
         alert('Those aren\'t the right credentials')
       }
       } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` }) 
+      this.setState({ error: `Those aren\'t the right credentials Error${error.status}` })
     }
   }
 
@@ -60,7 +61,7 @@ export class App extends Component{
       this.setState({ error: `You've got a ${error.status} Error` })
     }
   }
-  
+
   logOut = () => {
     this.setState ( {
       userData:  {
@@ -70,13 +71,13 @@ export class App extends Component{
       }
     })
   }
-  
+
   getMovieDetails = async(movieID) => {
     try {
       const promiseMovie = await fetcher.fetchMovieVideo(movieID);
       const promiseDetails = await fetcher.fetchSingleMovie(movieID);
-      this.setState({ 
-        movieID: movieID, 
+      this.setState({
+        movieID: movieID,
         movieDetails : promiseDetails.movie,
         movieVideo: promiseMovie.videos
       })
@@ -157,9 +158,9 @@ deleteRating = async () => {
       this.setState({ favorites: favoriteMovies })
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
-    } 
+    }
   }
-  
+
   toggleFavorite = async(movieID) => {
     try {
       await fetcher.addUserFavorites({ id: movieID });
@@ -168,13 +169,13 @@ deleteRating = async () => {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
   }
-  
+
   newComment = async(movieId, userComment) => {
-    const { name } = this.state.userData 
-    const data = { 
-      comment: userComment.comment, 
+    const { name } = this.state.userData
+    const data = {
+      comment: userComment.comment,
       author: name,
-      time: userComment.time, 
+      time: userComment.time,
       likeStatus: userComment.likeStatus,
       replyCount: 0,
       replies: []
@@ -197,9 +198,9 @@ deleteRating = async () => {
         this.setState({ error: `You've got a ${error.status} Error` })
       }
     }
-  
+
   likeMovieComment = async (movieID, commentID, commentStatus) => {
-    const { name } = this.state.userData 
+    const { name } = this.state.userData
     if (!name){
       return false;
     }
@@ -222,25 +223,25 @@ deleteRating = async () => {
           logged in
           {this.state.error && <p>{this.state.error}</p>}
         </h1>
-        <NavBar 
-            name={this.state.userData.name} 
-            logOut={this.logOut} 
+        <NavBar
+            name={this.state.userData.name}
+            logOut={this.logOut}
           />
         <Switch>
-          <Route 
-            path='/login' 
+          <Route
+            path='/login'
             render={() => {
-            return  <LoginForm 
-              authenticateUser={this.authenticateUser} 
+            return  <LoginForm
+              authenticateUser={this.authenticateUser}
               login={this.state.userData}/>
             }}
           />
 
-          <Route 
+          <Route
             exact path= '/'
             render={() => {
               return (
-                <Homepage 
+                <Homepage
                   userData={this.state.userData}
                   movies={this.state.searchDirections || this.state.movies}
                   movieComments={this.state.movieComments}
@@ -255,10 +256,10 @@ deleteRating = async () => {
             }}
           />
 
-          <Route 
+          <Route
             exact path={`/movies/${this.state.movieID}`}
             render={ () => {
-              return <MoviePage 
+              return <MoviePage
                 addRating={this.addRating}
                 deleteRating={this.deleteRating}
                 movieDetails={this.state.movieDetails}
@@ -271,10 +272,10 @@ deleteRating = async () => {
                 retrieveComments={this.retrieveComments}
                 movieComments={this.state.movieComments}
                 likeMovieComment={this.likeMovieComment}
-              /> 
+              />
             }}
           />
-          <Route 
+          <Route
             exact path='/favorites'
             render={ () => {
               return <Homepage
@@ -291,8 +292,8 @@ deleteRating = async () => {
             }}
           />
 
-          <Route 
-            exact path='*' 
+          <Route
+            exact path='*'
             render={() => {
             return  <ErrorBoundary />
           }} />
