@@ -130,59 +130,6 @@ export class App extends Component{
       alert("you already rated this movie! Delete it first to rate again!")
     }
   }
-/*
-  deleteRating = async () => {
-    // const { id } =  this.state.userData
-    let ratingID;
-    if (this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)) {
-      ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id
-    } else {
-      ratingID = ''
-    }
-    console.log("ratingID", ratingID)
-    if(this.state.userData.id && ratingID) {
-      try {
-        await fetcher.fetchDeleteUserRating(this.state.userData.id, ratingID)
-        const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
-        this.getMovieDetails(this.state.movieID)
-        this.loadAllMovies()
-        this.setState({ratedMovies: allUserRatings})
-        this.loadAllMovies()
-      } catch(error) {
-        this.setState({ error: `You've got a ${error.status} Error` })
-      }
-    } else {
-      alert('There is no rating to delete!')
-    }
-  }
-  */
-
-
-//  deleteRating = async () => {
-//   const { id } =  this.state.userData
-//   let ratingID;
-//   if (this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID)) {
-//     ratingID = this.state.ratedMovies.find(ratedMovie => ratedMovie.movie_id === this.state.movieID).id
-//   } else {
-//     ratingID = ''
-//   }
-//   if(this.state.userData.id && ratingID) {
-//     try{
-//       await fetcher.fetchDeleteUserRating(id, ratingID)
-//       .then(this.getUserRatings(this.state.userData))
-//       this.setState({ error: '' })
-//     } catch(error) {
-//       this.setState({ error: `You've got a ${error.status} Error` })
-//     }
-//     // const allUserRatings = await fetcher.fetchUserRatings(this.state.userData.id)
-//     // this.getMovieDetails(this.state.movieID)
-//     // this.loadAllMovies()
-//     // this.setState({ratedMovies: allUserRatings})
-//     // this.loadAllMovies()
-//   } else {
-//     alert('There is no rating to delete!')
-//   }
-// }
 
 deleteRating = async () => {
   const { id } =  this.state.userData
