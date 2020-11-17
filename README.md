@@ -3,7 +3,7 @@
 [![Forks][forks-shield]](https://github.com/holladayian/rancid_tomatillos/network/members)
 [![Issues][issues-shield]](https://github.com/holladayian/rancid_tomatillos/issues)
 
-## Rancid Tomatillos __*group project*_
+## Rancid Tomatillos _*group project*_
 
 ### Contributors 
 
