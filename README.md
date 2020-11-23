@@ -1,9 +1,9 @@
 
-[![Contributors][contributors-shield]](https://github.com/Atos20/Rancid-Tomatillos/graphs/contributors)
-[![Forks][forks-shield]](https://github.com/Atos20/Rancid-Tomatillos/network/members)
-[![Issues][issues-shield]](https://github.com/Atos20/Rancid-Tomatillos/issues)
+[![Contributors][contributors-shield]](https://github.com/holladayian/rancid_tomatillos/graphs/contributors)
+[![Forks][forks-shield]](https://github.com/holladayian/rancid_tomatillos/network/members)
+[![Issues][issues-shield]](https://github.com/holladayian/rancid_tomatillos/issues)
 
-## Rancid Tomatillos __*group project*_
+## Rancid Tomatillos _*group project*_
 
 ### Contributors 
 
@@ -210,16 +210,16 @@ Second Rendition of MoviePage
 
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/jordy1611/whats-cookin-JS-JS-KS.svg?style=flat-square
-[contributors-url]: https://github.com/jordy1611/whats-cookin-JS-JS-KS/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jordy1611/whats-cookin-JS-JS-KS.svg?style=flat-square
-[forks-url]: https://github.com/jordy1611/whats-cookin-JS-JS-KS/network/members
-[stars-shield]: https://img.shields.io/github/stars/jordy1611/whats-cookin-JS-JS-KS.svg?style=flat-square 
-[stars-url]: https://github.com/jordy1611/whats-cookin-JS-JS-KS/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jordy1611/whats-cookin-JS-JS-KS.svg?style=flat-square
-[issues-url]: https://github.com/jordy1611/whats-cookin-JS-JS-KS/issues
-[license-shield]: https://img.shields.io/github/license/jordy1611/whats-cookin-JS-JS-KS.svg?style=flat-square
-[license-url]: https://github.com/jordy1611/whats-cookin-JS-JS-KS/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/holladayian/rancid_tomatillos.svg?style=flat-square
+[contributors-url]: https://github.com/holladayian/rancid_tomatillos/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/holladayian/rancid_tomatillos.svg?style=flat-square
+[forks-url]: https://github.com/holladayian/rancid_tomatillos/network/members
+[stars-shield]: https://img.shields.io/github/stars/holladayian/rancid_tomatillos.svg?style=flat-square 
+[stars-url]: https://github.com/holladayian/rancid_tomatillos/stargazers
+[issues-shield]: https://img.shields.io/github/issues/holladayian/rancid_tomatillos.svg?style=flat-square
+[issues-url]: https://github.com/holladayian/rancid_tomatillos/issues
+[license-shield]: https://img.shields.io/github/license/holladayian/rancid_tomatillos.svg?style=flat-square
+[license-url]: https://github.com/holladayian/rancid_tomatillos/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png

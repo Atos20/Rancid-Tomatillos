@@ -48,7 +48,7 @@ export class App extends Component{
         alert('Those aren\'t the right credentials')
       }
       } catch(error) {
-      this.setState({ error: `Those aren't the right credentials Error${error.status}` })
+      this.setState({ error: `You've got a log in error: Error${error.status}` })
     }
   }
 
@@ -56,9 +56,10 @@ export class App extends Component{
     try {
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
       this.setState({ ratedMovies });
-      this.retrieveFavorites();
+      await this.retrieveFavorites();
+      this.setState({ error: '' })
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got user rating error: Error ${error.status}` })
     }
   }
 
@@ -81,8 +82,9 @@ export class App extends Component{
         movieDetails : promiseDetails.movie,
         movieVideo: promiseMovie.videos
       })
+      this.setState({ error: '' })
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got a movie detail error: Error ${error.status}` })
     }
   }
 
@@ -90,8 +92,9 @@ export class App extends Component{
     try {
       const promise = await fetcher.fetchAllMovies();
       this.setState({movies: promise.movies})
+      this.setState({ error: '' })
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got a movie loading error: Error ${error.status}` })
     }
   }
 
@@ -123,8 +126,9 @@ export class App extends Component{
         this.getMovieDetails(this.state.movieID)
         this.loadAllMovies()
         this.setState({ratedMovies: allUserRatings})
+        this.setState({ error: '' })
       } catch(error) {
-        this.setState({ error: `You've got a ${error.status} Error` })
+        this.setState({ error: `You've got a rating error: Error ${error.status}` })
       }
     } else {
       alert("you already rated this movie! Delete it first to rate again!")
@@ -145,6 +149,7 @@ deleteRating = async () => {
     this.getMovieDetails(this.state.movieID)
     this.loadAllMovies()
     this.setState({ratedMovies: allUserRatings})
+    this.setState({ error: '' })
   } else {
     alert('There is no rating to delete!')
   }
@@ -154,8 +159,9 @@ deleteRating = async () => {
     try {
       const favoriteMovies = await fetcher.getUserFavorites();
       this.setState({ favorites: favoriteMovies })
+      this.setState({ error: '' })
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got a retrieving favorite error: Error ${error.status}` })
     }
   }
 
@@ -164,7 +170,7 @@ deleteRating = async () => {
       await fetcher.addUserFavorites({ id: movieID });
       await this.retrieveFavorites();
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got a toggle favorite error: Error ${error.status}` })
     }
   }
 
@@ -183,8 +189,9 @@ deleteRating = async () => {
     }
     try {
       await fetcher.addMovieComment(movieId, data);
+      this.setState({ error: '' })
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got a new comment error: Error ${error.status}` })
     }
     this.retrieveComments(movieId)
   }
@@ -193,8 +200,9 @@ deleteRating = async () => {
     try {
       const promise = await fetcher.getMovieComments(movieId)
         this.setState({movieComments: promise.comments})
+        this.setState({ error: '' })
       } catch(error) {
-        this.setState({ error: `You've got a ${error.status} Error` })
+        this.setState({ error: `You've got a retrieve comment error: Error ${error.status}` })
       }
     }
 
@@ -208,7 +216,7 @@ deleteRating = async () => {
       await fetcher.likeMovieComment(movieID, commentID, status);
       this.retrieveComments(movieID)
     } catch(error) {
-      this.setState({ error: `You've got a ${error.status} Error` })
+      this.setState({ error: `You've got a like movie comment error: Error ${error.status}` })
     }
   }
 
