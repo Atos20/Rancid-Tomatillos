@@ -1,7 +1,7 @@
 
 [![Contributors][contributors-shield]](https://github.com/Atos20/Rancid-Tomatillos/graphs/contributors)
-[![Forks][forks-shield]](https://github.com/holladayian/rancid_tomatillos/network/members)
-[![Issues][issues-shield]](https://github.com/holladayian/rancid_tomatillos/issues)
+[![Forks][forks-shield]](https://github.com/Atos20/Rancid-Tomatillos/network/members)
+[![Issues][issues-shield]](https://github.com/Atos20/Rancid-Tomatillos/issues)
 
 ## Rancid Tomatillos _*group project*_
 
@@ -212,14 +212,14 @@ Second Rendition of MoviePage
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Atos20/Rancid-Tomatillos.svg?style=flat-square
 [contributors-url]: https://github.com//Atos20/Rancid-Tomatillos/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/holladayian/rancid_tomatillos.svg?style=flat-square
-[forks-url]: https://github.com/holladayian/rancid_tomatillos/network/members
-[stars-shield]: https://img.shields.io/github/stars/holladayian/rancid_tomatillos.svg?style=flat-square 
-[stars-url]: https://github.com/holladayian/rancid_tomatillos/stargazers
-[issues-shield]: https://img.shields.io/github/issues/holladayian/rancid_tomatillos.svg?style=flat-square
-[issues-url]: https://github.com/holladayian/rancid_tomatillos/issues
-[license-shield]: https://img.shields.io/github/license/holladayian/rancid_tomatillos.svg?style=flat-square
-[license-url]: https://github.com/holladayian/rancid_tomatillos/blob/master/LICENSE.txt
+[forks-shield]: https://img.shields.io/github/forks/Atos20/Rancid-Tomatillos.svg?style=flat-square
+[forks-url]: https://github.com/Atos20/Rancid-Tomatillos/network/members
+[stars-shield]: https://img.shields.io/github/stars/Atos20/Rancid-Tomatillos.svg?style=flat-square 
+[stars-url]: https://github.com/Atos20/Rancid-Tomatillos/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Atos20/Rancid-Tomatillos.svg?style=flat-square
+[issues-url]: https://github.com/Atos20/Rancid-Tomatillos/issues
+[license-shield]: https://img.shields.io/github/license/Atos20/Rancid-Tomatillos.svg?style=flat-square
+[license-url]: https://github.com/Atos20/Rancid-Tomatillos/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
