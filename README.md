@@ -211,7 +211,7 @@ Second Rendition of MoviePage
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Atos20/Rancid_Tomatillos.svg?style=flat-square
-[contributors-url]: https://github.com/holladayian/rancid_tomatillos/graphs/contributors
+[contributors-url]: https://github.com//Atos20/Rancid_Tomatillos/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/holladayian/rancid_tomatillos.svg?style=flat-square
 [forks-url]: https://github.com/holladayian/rancid_tomatillos/network/members
 [stars-shield]: https://img.shields.io/github/stars/holladayian/rancid_tomatillos.svg?style=flat-square 
