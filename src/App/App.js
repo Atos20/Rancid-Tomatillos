@@ -48,7 +48,7 @@ export class App extends Component{
         alert('Those aren\'t the right credentials')
       }
       } catch(error) {
-      this.setState({ error: `Those aren't the right credentials Error${error.status}` })
+      this.setState({ error: `You've got a log in error: Error${error.status}` })
     }
   }
 
@@ -57,6 +57,7 @@ export class App extends Component{
       const ratedMovies = await fetcher.fetchUserRatings(userData.id)
       this.setState({ ratedMovies });
       this.retrieveFavorites();
+      this.setState({ error: '' })
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
@@ -81,6 +82,7 @@ export class App extends Component{
         movieDetails : promiseDetails.movie,
         movieVideo: promiseMovie.videos
       })
+      this.setState({ error: '' })
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
@@ -90,6 +92,7 @@ export class App extends Component{
     try {
       const promise = await fetcher.fetchAllMovies();
       this.setState({movies: promise.movies})
+      this.setState({ error: '' })
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
@@ -123,6 +126,7 @@ export class App extends Component{
         this.getMovieDetails(this.state.movieID)
         this.loadAllMovies()
         this.setState({ratedMovies: allUserRatings})
+        this.setState({ error: '' })
       } catch(error) {
         this.setState({ error: `You've got a ${error.status} Error` })
       }
@@ -145,6 +149,7 @@ deleteRating = async () => {
     this.getMovieDetails(this.state.movieID)
     this.loadAllMovies()
     this.setState({ratedMovies: allUserRatings})
+    this.setState({ error: '' })
   } else {
     alert('There is no rating to delete!')
   }
@@ -154,6 +159,7 @@ deleteRating = async () => {
     try {
       const favoriteMovies = await fetcher.getUserFavorites();
       this.setState({ favorites: favoriteMovies })
+      this.setState({ error: '' })
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
@@ -183,6 +189,7 @@ deleteRating = async () => {
     }
     try {
       await fetcher.addMovieComment(movieId, data);
+      this.setState({ error: '' })
     } catch(error) {
       this.setState({ error: `You've got a ${error.status} Error` })
     }
@@ -193,6 +200,7 @@ deleteRating = async () => {
     try {
       const promise = await fetcher.getMovieComments(movieId)
         this.setState({movieComments: promise.comments})
+        this.setState({ error: '' })
       } catch(error) {
         this.setState({ error: `You've got a ${error.status} Error` })
       }
