@@ -1,5 +1,5 @@
 
-[![Contributors][contributors-shield]](https://github.com/holladayian/rancid_tomatillos/graphs/contributors)
+[![Contributors][contributors-shield]](https://github.com/Atos/Rancid_Tomatillos/graphs/contributors)
 [![Forks][forks-shield]](https://github.com/holladayian/rancid_tomatillos/network/members)
 [![Issues][issues-shield]](https://github.com/holladayian/rancid_tomatillos/issues)
 
@@ -210,7 +210,7 @@ Second Rendition of MoviePage
 
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/holladayian/rancid_tomatillos.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/Atos/Rancid_Tomatillos.svg?style=flat-square
 [contributors-url]: https://github.com/holladayian/rancid_tomatillos/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/holladayian/rancid_tomatillos.svg?style=flat-square
 [forks-url]: https://github.com/holladayian/rancid_tomatillos/network/members
