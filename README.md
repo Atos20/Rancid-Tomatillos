@@ -16,9 +16,9 @@ Rancid-Tomatillos is a movie rating app, akin to some popular movie rating sites
 
 ## Breakdown of Goals
 
-* Build an application of React architecture
-* User React Router to create a multipage experience
-* Run unit and integrations tests on components
+* Build an application unsing React Class Components
+* Use React Router to create a multipage experience
+* Run unit and integration testing 
 * Test asynchronous functionality with the React Testing Library
 * Practice professional GitHub workflow
 
@@ -30,10 +30,10 @@ Rancid-Tomatillos is a movie rating app, akin to some popular movie rating sites
     - JSX
     - ECMAScript 6 
     - ESLint
-    - TDD with Jest
+    - TDD
     - VSCode 
     - git / Version control
-    - SCSS / SASS
+    - SCSS 
     - API Fetch
 
 ## Wins
