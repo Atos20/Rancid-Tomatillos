@@ -4,6 +4,13 @@
 [![Issues][issues-shield]](https://github.com/Atos20/Rancid-Tomatillos/issues)
 
 ## Rancid Tomatillos _*group project*_
+Deployed page: [link](https://rancid-t-omatillos.herokuapp.com/)
+Login credentials:
+```
+Name: Diana,
+Email: diana@turing.io
+Password: 111111
+```
 
 ### Contributors 
 
@@ -89,7 +96,7 @@ When the application loads, it requests to the server all movie's that then is r
   #### Take 2
 - Login as a user
 
-When the user inputs the following crendntial, `name` 'diana', `email`'diana@turing@io', and `password` '111111'. The user is greeted with a welcoming message that shows to the user that has logged in succesfully.
+When the user inputs the following crendntial, name `diana`, email`diana@turing.io`, and password `111111`. The user is greeted with a welcoming message that shows to the user that has logged in succesfully.
 
   <img src="https://media.giphy.com/media/KhQN8qc4TjfDwykk6P/giphy.gif" height=auto width=75% alt="login"/>
 
