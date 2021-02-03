@@ -80,7 +80,7 @@ Project Spec/Rubric
 
 - Welcome
 
-When the application run, it request the information about all movies within the `componentDidMount` method that runs even before the `App` render on the page. This way we have all the information availabe to display. 
+When the application loads, it requests to the server all movie's that then is render on the page. The user however will need to sign in in order to get learn more about each individual movie.
 
  The user can see the pplication logo as well as a button to login, to go abck to home and all the movie cards that display information about each movie.
 
@@ -89,44 +89,44 @@ When the application run, it request the information about all movies within the
   #### Take 2
 - Login as a user
 
-When the user inputs the following crendntial, `name` 'diana', `email`'diana@turing@io', and `password` '111111'. The user is greeted with a welcomin message that shows the user that has logged in succesfully.
+When the user inputs the following crendntial, `name` 'diana', `email`'diana@turing@io', and `password` '111111'. The user is greeted with a welcoming message that shows to the user that has logged in succesfully.
 
   <img src="https://media.giphy.com/media/KhQN8qc4TjfDwykk6P/giphy.gif" height=auto width=75% alt="login"/>
 
    #### Take 3
 - Rate a movie
 
-The user can only reate a movie after it has logged in.The rating option is available to the user only after clickin on a movie card, this action directs the user to the `MoviePage` which displays more in depth details about the movie as well as more option to interact with.
+The user can only rate a movie after it has logged in. The rating option is available to the user only after clicking on a movie card, this action directs the user to the `MoviePage` component which displays more details about the movie selected.
 
-The raiting functionality located underneath the movie title, allows the user to rate a movie by using the dropdown menu and chossing a rate that ranges from 1 to 10. This personlized 
+The raiting functionality located underneath the movie title, allows the user to rate a movie by using the dropdown menu and chossing a rate that ranges from 1 to 10. 
 
   <img src="https://media.giphy.com/media/sL0UhvqrJ1m6xCvfJ3/giphy.gif" height=auto width=75% alt="rate movie"/>
 
    #### Take 4
 - Sorting movies by rating
 
-The viwer has the opportunity to interact with the applcation even if hasn't logged into the application. by the `All movies` title the user can select from the dropdown menu the options of `descending` or `ascending` to filter the movies.
+The viwer has the opportunity to interact with the appilcation even if hasn't logged in with the required credentials. Located by the `ALl movies` title the user can select from the dropdown menu two option to filter all movies.
 
   <img src="https://media.giphy.com/media/X2BM1bJ3vASKcc7AHu/giphy.gif" height=auto width=75% alt="sort movie by rating"/>
 
    #### Take 5
 - Display Movie Page with trailer
 
-The user or viwer can click on any movie card and when doing so the home page is directed to the movie page containing adittional information about the movie. It also display the all movie trailers associated with the movie that was clicked.
+The user can click on any movie card to be directed to the movie details page containing adittional information about the movie.
 
   <img src="https://media.giphy.com/media/VBFk4wRBgOwGAxmDea/giphy.gif" height=auto width=75% alt="moviepage trailers"/>
 
    #### Take 6
 - Commenting movies
 
-After the user or viwer has been directed to a movie page, at the buttom of the page the user can see the commenting section that allows the user to make a new comment to that specific movie. As a viwer you can only see the comment but you can't.
+After the user or viwer has been directed to a movie page, at the buttom of the page the user can see the commenting section that allows the user to make a new comment to that specific movie. As a viwer you can only see the comments section but you can't interact with it.
 
   <img src="https://media.giphy.com/media/zMC2DEcDpEQBde0zez/giphy.gif" height=auto width=75% alt="commenting on movies"/>
 
    #### Take 7
 - Favoriting movies
 
-After the user has logged in, the user user can favorite movies that will persist even after the user has logged out and logged back into the application.
+After the logging in the user user can favorite movies, this action  will persist as long as the Express micro server is running.
 
   <img src="https://media.giphy.com/media/Clm5JpOBJuJL5CMcB3/giphy.gif" height=auto width=75% alt="favoriting movies"/>
 
